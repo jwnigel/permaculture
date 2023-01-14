@@ -20,7 +20,8 @@ def get_plant_info(genus, species):
     # genus_species = input("Enter the genus and species: ")
     # genus = genus_species.split()[0]
     # species = genus_species.split()[1]
-    page = requests.get(f"https://pfaf.org/user/Plant.aspx?LatinName={genus}+{species}")
+    headers={"user-agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/109.0.0.0 Safari/537.36"}
+    page = requests.get(f"https://pfaf.org/user/Plant.aspx?LatinName={genus}+{species}", headers=headers)
     soup = BeautifulSoup(page.content, 'html.parser')
 
     description = soup.find("meta", id="description")['content']
@@ -126,13 +127,13 @@ def get_plant_info(genus, species):
     # print(table.prettify())
 
     # Add Line Space
-    print("")
-    print(f'Common name: {common_name} \nFamily: {family} \nHardiness range: {hardiness_range} \
-        \nMedicinal rating: {medicinal_rating} \nGrowth rate: {growth_rate} \nHeight: {height} meters \nType: {type} \
-        \nLeaf: {leaf} \nFlower: {flower} \nRipen date: {ripen_date} \nSoils: {soils} \nSoil text: {soil_text} \npH: {ph}\
-        \nReproduction: {reproduction} \nPreferences: {preferences} \nTolerances: {tolerances}\
-        \nHabitats: {habitats} \nHabitat range: {habitat_range} \nEdibility: {edibility} \nOther uses: {other_uses} \
-        \n \nDescription: {description}')
+    # print("")
+    # print(f'Common name: {common_name} \nFamily: {family} \nHardiness range: {hardiness_range} \
+    #     \nMedicinal rating: {medicinal_rating} \nGrowth rate: {growth_rate} \nHeight: {height} meters \nType: {type} \
+    #     \nLeaf: {leaf} \nFlower: {flower} \nRipen date: {ripen_date} \nSoils: {soils} \nSoil text: {soil_text} \npH: {ph}\
+    #     \nReproduction: {reproduction} \nPreferences: {preferences} \nTolerances: {tolerances}\
+    #     \nHabitats: {habitats} \nHabitat range: {habitat_range} \nEdibility: {edibility} \nOther uses: {other_uses} \
+    #     \n \nDescription: {description}')
 
     return family, genus, species, common_name, growth_rate, hardiness_zones, height, \
             type, leaf, flower, ripen_date, reproduction, soils, ph, preferences, \
@@ -149,8 +150,8 @@ df = create_df()
 for plant in data:
     genus, species = plant.split(" ")
     try:
-        df.append(pd.Series(get_plant_info(genus, species), index=COLUMNS), ignore_index=True)
+        df = pd.concat([df, pd.Series(get_plant_info(genus, species), index=COLUMNS)], axis=1)
     except Exception as e:
         print(f"Error for {genus}, {species}: {e}")
 
-df.to_csv("plants.csv", index=False)
+df.T.to_csv("plants.csv", index=False)
