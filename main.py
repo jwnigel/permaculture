@@ -5,9 +5,9 @@ import re
 import requests
 
 COLUMNS = ["Family", "Genus", "Species", "CommonName", "GrowthRate", "HardinessZones",
-           "Height", "Type", "Leaf", "Flower", "Ripen", "Reproduction", "Soils", "pH",
-           "Preferences", "Tolerances", "Habitat", "HabitatRange", "Edibility",
-           "Medicinal", "OtherUses"]
+           "Height", "Width", "Type", "Leaf", "Flower", "Ripen", "Reproduction", "Soils",
+           "pH", "Preferences", "Tolerances", "Habitat", "HabitatRange",
+           "Edibility", "Medicinal", "OtherUses"]
 
 with open("all_plants.txt", "r") as f:
     data = f.readlines()
@@ -24,6 +24,8 @@ def get_plant_info(genus, species):
     page = requests.get(f"https://pfaf.org/user/Plant.aspx?LatinName={genus}+{species}", headers=headers)
     soup = BeautifulSoup(page.content, 'html.parser')
 
+    # Get the description from which we will extract the characteristics
+    # Description in string and list form
     description = soup.find("meta", id="description")['content']
     description_list = description.split()
 
@@ -38,18 +40,26 @@ def get_plant_info(genus, species):
         height = description_list[7]
 
     try:
-        growth_rate_idx = description_list.index("rate.") - 1
+        growth_rate_idx = description_list.index("rate.") - 1 # growth rate is before "rate."
         growth_rate = description_list[growth_rate_idx]
     except ValueError:
-        growth_rate = ""
+        growth_rate = "" # sometimes no growth rate
 
-    leaf = ""
+    if "by" in description_list[:15]:
+        width_idx = description_list.index("by") + 1 # width is after "by"
+        width = description_list[width_idx]
+    else:
+        width = ""
+
+    # When the plant leafs out
+    leaf = "" # Better to do this before or after if statement?
     if "leaf" in description_list:
         leaf_idx = description_list.index("leaf")
         if description_list[leaf_idx + 1] == "from":
             leaf = " ".join(description_list[leaf_idx + 2: leaf_idx + 5]).strip(",")
 
 
+    # When the plant is in flower
     flower = ""
     if "flower" in description_list:
         flower_idx = description_list.index("flower")
@@ -60,6 +70,7 @@ def get_plant_info(genus, species):
         else:
             print("Error: Flower not found")
 
+    # When the plant's seed or fruit ripens
     ripen_date = ""
     if "ripen" in description_list:
         tmp_idx = description_list.index("ripen")
@@ -70,11 +81,13 @@ def get_plant_info(genus, species):
             ripen_idx = tmp_idx + 2
             ripen_date = " ".join(description_list[ripen_idx: ripen_idx + 3]).strip(".")
 
+    # Suitable soil structure (light, medium, heavy)
     soils = ""
     soil_idx = description.find("Suitable for:")
     soil_text = description[soil_idx:description.find(".", soil_idx)]
     soils = re.findall(r"(light|medium|heavy)", soil_text)
 
+    # Suitable pH
     ph = ""
     if "pH:" in description_list:
         ph_idx = description_list.index("pH:") + 1
@@ -93,10 +106,13 @@ def get_plant_info(genus, species):
             end_idx=6
     ph = " ".join(ph_list[:end_idx])
 
+    # Monoecious or dioecious ("hermaprodite")
     reproduction = re.findall(r"The species is\s(\w+)", description)[0]
 
+    # What the plant likes
     preferences = re.findall("prefers (.*?)\ and", description)
 
+    # What the plant can tolerate
     tolerances = re.findall("can tolerate (.*?)\.", description)
 
     # Get information from the table
@@ -114,8 +130,10 @@ def get_plant_info(genus, species):
     for zone in range(int(hardiness_range[0]), int(hardiness_range[-1]) + 1):
         hardiness_zones.append(zone)
 
+    # Ecosystems
     habitats = table.find("span", id="ContentPlaceHolder1_txtHabitats").text
 
+    # Native range
     habitat_range = table.find("span", id="ContentPlaceHolder1_lblRange").text
 
     edibility = table.find("span", id="ContentPlaceHolder1_txtEdrating").text.strip()
@@ -133,9 +151,9 @@ def get_plant_info(genus, species):
     #     \nLeaf: {leaf} \nFlower: {flower} \nRipen date: {ripen_date} \nSoils: {soils} \nSoil text: {soil_text} \npH: {ph}\
     #     \nReproduction: {reproduction} \nPreferences: {preferences} \nTolerances: {tolerances}\
     #     \nHabitats: {habitats} \nHabitat range: {habitat_range} \nEdibility: {edibility} \nOther uses: {other_uses} \
-    #     \n \nDescription: {description}')
+        # \n \nDescription: {description}')
 
-    return family, genus, species, common_name, growth_rate, hardiness_zones, height, \
+    return family, genus, species, common_name, growth_rate, hardiness_zones, height, width,\
             type, leaf, flower, ripen_date, reproduction, soils, ph, preferences, \
             tolerances, habitats, habitat_range, edibility, medicinal_rating, other_uses
 
@@ -147,7 +165,7 @@ def create_df():
 
 df = create_df()
 
-for plant in data:
+for plant in data[:5]:
     genus, species = plant.split(" ")
     try:
         df = pd.concat([df, pd.Series(get_plant_info(genus, species), index=COLUMNS)], axis=1)
