@@ -1,26 +1,4 @@
 Family,Genus,Species,CommonName,GrowthRate,HardinessZones,Height,Width,Type,Leaf,Flower,Ripen,Reproduction,Soils,pH,Preferences,Tolerances,Habitat,HabitatRange,Edibility,Medicinal,OtherUses
-,,,,,,,,,,,,,,,,,,,,,
-,,,,,,,,,,,,,,,,,,,,,
-,,,,,,,,,,,,,,,,,,,,,
-,,,,,,,,,,,,,,,,,,,,,
-,,,,,,,,,,,,,,,,,,,,,
-,,,,,,,,,,,,,,,,,,,,,
-,,,,,,,,,,,,,,,,,,,,,
-,,,,,,,,,,,,,,,,,,,,,
-,,,,,,,,,,,,,,,,,,,,,
-,,,,,,,,,,,,,,,,,,,,,
-,,,,,,,,,,,,,,,,,,,,,
-,,,,,,,,,,,,,,,,,,,,,
-,,,,,,,,,,,,,,,,,,,,,
-,,,,,,,,,,,,,,,,,,,,,
-,,,,,,,,,,,,,,,,,,,,,
-,,,,,,,,,,,,,,,,,,,,,
-,,,,,,,,,,,,,,,,,,,,,
-,,,,,,,,,,,,,,,,,,,,,
-,,,,,,,,,,,,,,,,,,,,,
-,,,,,,,,,,,,,,,,,,,,,
-,,,,,,,,,,,,,,,,,,,,,
-,,,,,,,,,,,,,,,,,,,,,
 Aceraceae,Acer,saccharinum,"Silver Maple, River Maple, Soft Maple",fast,"[3, 4, 5, 6, 7, 8, 9]",30,15,deciduous,,February to March,April to June,hermaphrodite,"['light', 'medium', 'heavy', 'heavy']","mildly acid, neutral and basic (mildly alkaline)",[],['atmospheric pollution'],"Banks of rivers, usually in sandy soils[43, 82]. Trees are occasionally found in deep often submerged swamps[82].","Eastern N. America - New Brunswick to Florida, west to Oklahoma, Kansas and Nebraska.",(3 of 5),(1 of 5),(4 of 5)
 Aceraceae,Acer,saccharum,"Sugar Maple, Florida Maple, Hard Maple, Rock Maple",slow,"[4, 5, 6, 7, 8]",30,12,deciduous,,April to May,October to December,hermaphrodite,"['light', 'medium', 'heavy', 'heavy']","mildly acid, neutral and basic (mildly alkaline) soils and can grow in very acid",[' well-drained soil'],['atmospheric pollution'],"Found in a variety of soil types, doing best in deep rich well-drained soils from sea level to 1600 metres[229]. Rich usually hilly woods[43].","Eastern N. America - Newfoundland to Georgia, west to Texas and Minnesota.",(4 of 5),(2 of 5),(4 of 5)
 Asteraceae or Compositae,Achillea,millefolium,"Yarrow, Boreal yarrow, California yarrow, Giant yarrow, Coast yarrow, Western yarrow, Pacific yarrow",fast,"[4, 5, 6, 7, 8]",0.6,0.6,PERENNIAL,,June to August,July to September,hermaphrodite,"['light', 'medium', 'heavy']","mildly acid, neutral and basic (mildly alkaline) soils and can grow in very alkaline","[' well-drained soil', 'dry or  moist soil']","['drought', 'maritime exposure']","Meadows, pastures, lawns etc. on all but the poorest soils[17].","Europe, including Britain, north to 71°, and east to western Asia.",(3 of 5),(4 of 5),(4 of 5)

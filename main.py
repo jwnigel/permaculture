@@ -172,4 +172,4 @@ for plant in data:
     except Exception as e:
         print(f"Error for {genus}, {species}: {e}")
 
-df.T.to_csv("plants.csv", index=False)
+df.T[22:].to_csv("plants.csv", index=False)
