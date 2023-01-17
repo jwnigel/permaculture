@@ -165,7 +165,7 @@ def create_df():
 
 df = create_df()
 
-for plant in data[:5]:
+for plant in data:
     genus, species = plant.split(" ")
     try:
         df = pd.concat([df, pd.Series(get_plant_info(genus, species), index=COLUMNS)], axis=1)
