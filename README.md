@@ -10,7 +10,7 @@ The input is all_plants.txt, which is passed to main.py, and saves a .csv file
 
 You can fork a copy and modifify the .txt file to include the plants you wish to include
 
-**The plants.csv file here is not complete. You need to edit the all_plants.txt with the plants you wish to include and run the script.**
+***The plants.csv file here is not complete.*** You need to edit **all_plants.txt** with the plants you wish to include and run the script.
 
 ### Part 2 - UI permaculture design application :art: :paintbrush:
 In progress... I want to use the plant database to create an interactive design application
