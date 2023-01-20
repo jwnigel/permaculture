@@ -6,3 +6,5 @@ The characteristic I'm most interested in is **picking season** because it allow
 Could be very helpful in designing a U-pick orchard, or just for homestead design. 
 
 Simply pass your apple varieties to **apples_scraper.py** in text file called **my_apples.txt**.
+
+Working on returning a csv ....
