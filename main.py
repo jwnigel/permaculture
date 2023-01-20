@@ -9,7 +9,7 @@ COLUMNS = ["Family", "Genus", "Species", "CommonName", "GrowthRate", "HardinessZ
            "pH", "Preferences", "Tolerances", "Habitat", "HabitatRange",
            "Edibility", "Medicinal", "OtherUses"]
 
-with open("all_plants.txt", "r") as f:
+with open("sven_plants.txt", "r") as f:
     data = f.readlines()
     for entry in data:
         data[data.index(entry)] = entry.rstrip("\n")
@@ -165,11 +165,18 @@ def create_df():
 
 df = create_df()
 
+good = []
+errors = []
+
 for plant in data:
     genus, species = plant.split(" ")
     try:
         df = pd.concat([df, pd.Series(get_plant_info(genus, species), index=COLUMNS)], axis=1)
+        good.append(plant)
     except Exception as e:
         print(f"Error for {genus}, {species}: {e}")
+        errors.append(plant)
 
-df.T[22:].to_csv("plants.csv", index=False)
+df.T[22:].to_csv("sven_plants.csv", index=False)
+print(f"Non errors: {good}")
+print(f"Errors: {errors}")

@@ -13,7 +13,7 @@ Yates
 Belmont
 Ensee
 Stark
-Honeycrisp
+Honey crisp
 Liberty
 Coxs Orange Pippin
 Burgundy
@@ -31,7 +31,7 @@ Mantet
 Lodi
 Dudley
 Lobo
-Muscadette de Dieppe
+Muscadet de Dieppe
 Prairie Spy
 Shamrock
 Beautiful Arcade
