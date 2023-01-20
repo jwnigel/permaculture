@@ -7,7 +7,7 @@ I scraped data from **www.pfaf.org** and extracted about 20 characteristics for 
 
 Characteristics include height, width, growth rate, leaf and flower dates, soil and pH preferences, etc.
 
-The input is all_plants.txt, which is passed to main.py, and saves a .csv file
+The input is database/all_plants.txt, which is passed to database/main.py, and saves a .csv file
 
 You can fork a copy and modifify the .txt file to include the plants you wish to include
 
