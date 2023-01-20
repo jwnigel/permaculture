@@ -2,6 +2,7 @@
 
 ## I've divided this project into two parts:
 ### Part 1 - Scraping and cleaning :ledger: :pencil2:
+#### Folder = database
 I scraped data from **www.pfaf.org** and extracted about 20 characteristics for each plant
 
 Characteristics include height, width, growth rate, leaf and flower dates, soil and pH preferences, etc.
