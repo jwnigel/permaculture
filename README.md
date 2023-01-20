@@ -14,6 +14,7 @@ You can fork a copy and modifify the .txt file to include the plants you wish to
 ***The plants.csv file here is not complete.*** You need to edit **all_plants.txt** with the plants you wish to include and run the script.
 
 ### Part 2 - UI permaculture design application :art: :paintbrush:
+#### Folder = design
 In progress... I want to use the plant database to create an interactive design application
 
 I want to be able to drag and drop plants from a list to an arial photo and arrange them.
