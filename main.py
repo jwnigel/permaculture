@@ -3,17 +3,47 @@ import pandas as pd
 from bs4 import BeautifulSoup
 import re
 import requests
+import argparse
 
+DEBUG = False
 COLUMNS = ["Family", "Genus", "Species", "CommonName", "GrowthRate", "HardinessZones",
            "Height", "Width", "Type", "Leaf", "Flower", "Ripen", "Reproduction", "Soils",
            "pH", "Preferences", "Tolerances", "Habitat", "HabitatRange",
            "Edibility", "Medicinal", "OtherUses"]
 
-with open("sven_plants.txt", "r") as f:
+
+# parse options
+parser = argparse.ArgumentParser(formatter_class=argparse.RawDescriptionHelpFormatter,
+                                 description=''' Scrape plants data from pfaf.org for all plants in input file''',
+                                 usage="%(prog)s [infile]",
+                                 epilog='''requirements
+    This program requires Python 2.7+
+
+examples:
+  
+  %(prog)s
+     generates "sven_plants.csv" from scraping data for all plants in "sven_plants.txt"
+
+  %(prog)s -v -i design-john.txt
+     generates "design-john.csv" from scraping data for all plants in "design-john.txt", while printing a verbose progress feedback.
+   
+more information: https://github.com/jwnigel/permaculture
+ ''')
+
+parser.add_argument('-i', '--infile', default="sven_plants.txt",
+                    help='TXT file of list of plants (latin names as: Genus Species) you want to get data for. default is "sven_plants.txt".')
+parser.add_argument('-v', '--verbose', action='store_true', default=False,
+                    help='print more (text) info to command line')
+args = parser.parse_args()
+VERBOSE = args.verbose
+
+outfile = args.infile.rsplit(".",1)[0]+".csv"
+
+with open(args.infile, "r") as f:
     data = f.readlines()
     for entry in data:
         data[data.index(entry)] = entry.rstrip("\n")
-    # print(data)
+    if(DEBUG): print(data)
 
 
 def get_plant_info(genus, species):
@@ -168,15 +198,20 @@ df = create_df()
 good = []
 errors = []
 
+if(VERBOSE): print(f"retrieving infos for")
 for plant in data:
-    genus, species = plant.split(" ")
+    if(VERBOSE): print(f". {plant}")
+    genus, species = plant.split(" ",1) # species gest all but first term
     try:
         df = pd.concat([df, pd.Series(get_plant_info(genus, species), index=COLUMNS)], axis=1)
         good.append(plant)
     except Exception as e:
-        print(f"Error for {genus}, {species}: {e}")
+        if(VERBOSE): print(f"** {genus} {species} : {e}")
+        else : print(f"{plant}")
         errors.append(plant)
+        #df = pd.concat([df, plan], axis=1)
 
-df.T[22:].to_csv("sven_plants.csv", index=False)
-print(f"Non errors: {good}")
-print(f"Errors: {errors}")
+df.T[22:].to_csv(outfile, index=False)
+if(DEBUG): print(f"Non errors: {good}")
+if(len(errors) > 0) : print(f"Errors: {errors}")
+#TODO output errors list to errors.csv to easy correct+refetch only those.
