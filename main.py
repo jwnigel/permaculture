@@ -9,7 +9,7 @@ DEBUG = False
 COLUMNS = ["Family", "Genus", "Species", "CommonName", "GrowthRate", "HardinessZones",
            "Height", "Width", "Type", "Leaf", "Flower", "Ripen", "Reproduction", "Soils",
            "pH", "Preferences", "Tolerances", "Habitat", "HabitatRange",
-           "Edibility", "Medicinal", "OtherUses"]
+           "Edibility", "Medicinal", "OtherUses", "PFAF"]
 
 
 # parse options
@@ -37,7 +37,7 @@ parser.add_argument('-v', '--verbose', action='store_true', default=False,
 args = parser.parse_args()
 VERBOSE = args.verbose
 
-outfile = args.infile.rsplit(".",1)[0]+".csv"
+outfile = args.infile.rsplit(".",1)[0]+".csv" #TODO check if outfile is writeable (not locked by other soft) before scraping.
 
 with open(args.infile, "r") as f:
     data = f.readlines()
@@ -50,8 +50,9 @@ def get_plant_info(genus, species):
     # genus_species = input("Enter the genus and species: ")
     # genus = genus_species.split()[0]
     # species = genus_species.split()[1]
+    pfaf_url = f"https://pfaf.org/user/Plant.aspx?LatinName={genus}+{species}"
     headers={"user-agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/109.0.0.0 Safari/537.36"}
-    page = requests.get(f"https://pfaf.org/user/Plant.aspx?LatinName={genus}+{species}", headers=headers)
+    page = requests.get(pfaf_url, headers=headers)
     soup = BeautifulSoup(page.content, 'html.parser')
 
     # Get the description from which we will extract the characteristics
@@ -185,7 +186,7 @@ def get_plant_info(genus, species):
 
     return family, genus, species, common_name, growth_rate, hardiness_zones, height, width,\
             type, leaf, flower, ripen_date, reproduction, soils, ph, preferences, \
-            tolerances, habitats, habitat_range, edibility, medicinal_rating, other_uses
+            tolerances, habitats, habitat_range, edibility, medicinal_rating, other_uses, pfaf_url
 
 
 def create_df():
