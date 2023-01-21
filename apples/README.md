@@ -7,4 +7,5 @@ Could be very helpful in designing a U-pick orchard, or just for homestead desig
 
 Simply pass your apple varieties to **apples_scraper.py** in text file called **my_apples.txt**.
 
-Working on returning a csv ....
+Returns a csv
+
