@@ -1,0 +1,72 @@
+ #:kivy 2.1.0
+
+<RoundedButton@Button>:
+	background_color: (0,0,0,0)
+	background_normal: ''
+	canvas.before:
+		Color:
+			rgba: (70/255, 70/255, 96/255, 1)
+		RoundedRectangle:
+			size: self.size
+			pos: self.pos
+			radius: [38]
+
+<MyLayout>:
+	BoxLayout:
+		orientation: 'horizontal'
+		size: root.width, root.height
+		padding: 2
+		canvas:
+			Color:
+				rgba: (54/255, 139/255, 133/255, 1)
+			Rectangle:
+				pos: self.pos
+				size: self.size
+
+		BoxLayout:
+			orientation: 'vertical'
+			size: root.width, root.height
+			padding:15
+			canvas:
+				Color:
+					rgba: (241/255, 233/255, 229/255, 1)
+				Rectangle:
+					pos: self.pos
+					size: self.size
+			BoxLayout:
+				orientation: 'horizontal'
+				size_hint_y: None
+				size: root.width / 15, root.height / 7
+				spacing: 20
+				padding: 20
+				TextInput:
+					id: search_bar
+					font_size: 30
+					size_hint_y: 1
+					size_hint_x: 0.7
+					height: 40
+					text: 'Search for a plant'
+					color: (0,0,0,0.3)
+
+			Image:
+				source: 'images/largefield1.png'
+				allow_stretch: True
+				keep_ratio: True
+				size: root.width, root.height
+			BoxLayout:
+				orientation: 'horizontal'
+				size_hint_y: None
+				size: root.width / 15, root.height / 7
+				spacing: 20
+				padding: 20
+				RoundedButton:
+					color: 1, 1, 1, 1	# reduntant because default is white, but fyi
+					text: 'Button 1'
+				RoundedButton:
+					text: 'Button 2'
+				RoundedButton:
+					text: 'Button 3'
+				RoundedButton:
+					text: 'AddTree'
+					id: tree_btn
+					on_press: root.add_tree(tree_btn)
