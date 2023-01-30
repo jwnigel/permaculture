@@ -1,29 +1,38 @@
 from kivy.app import App
-from kivy.uix.widget import Widget
+from kivy.uix.boxlayout import BoxLayout
 from kivy.uix.image import Image
+from kivy.uix.behaviors import ButtonBehavior
+from kivy.uix.behaviors import DragBehavior
+from kivy.uix.relativelayout import RelativeLayout
 
 
-class MyLayout(Widget):
+class DraggableImage(DragBehavior, Image):
+    pass
+
+class IconButton(ButtonBehavior, Image):
 
     def __init__(self, **kwargs):
-        super(MyLayout, self).__init__(**kwargs)
-        self.tree_btn = self.ids.tree_btn
+        super(IconButton, self).__init__(**kwargs)
 
-    def add_tree(self, touch):
-        self.img = Image(source='images/tree1.png', pos=touch.pos)
-        self.add_widget(self.img)
-        self.img.pos = touch.pos
+class MasterLayout(BoxLayout):
+    pass
 
-    def on_touch_move(self, touch):
-        try:
-            self.img.pos = touch.pos
-        except AttributeError:   # if image hasn't been created yet (button not pressed)
-            pass
+class MapLayout(RelativeLayout):
 
+    def __init__(self, **kwargs):
+        super(MapLayout, self).__init__(**kwargs)
+
+    def add_tree(self, size, pos):
+        tree = DraggableImage(source='images/tree1.png',
+                              size_hint=(None, None),
+                              size=size,
+                              pos=pos)
+        # tree.on_motion(me=True, etype='begin') #This didn't work to make drag default
+        self.add_widget(tree)
 
 class MainApp(App):
     def build(self):
-        return MyLayout()
+        return MasterLayout()
 
 
 if __name__ == '__main__':
