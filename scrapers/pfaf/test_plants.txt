@@ -1,10 +1,7 @@
-Bunium	bulbocastanum
-Calamintha	nepeta
-Carex	pensylvanica
-Carya	illinoinensis
-Gymnocarpium	dryopteris
-Halesia	tetraptera
-Juglans	nigra
-Juglans	regia
-Malus	pumila
-Malva	alcea
+Bunium 	bulbocastanum
+Calamintha 		nepeta
+Juglans nigra
+Juglans regia
+Malus pumila
+	Malva alcea
+Allium ursinum

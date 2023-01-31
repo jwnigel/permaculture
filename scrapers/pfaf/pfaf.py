@@ -42,7 +42,7 @@ outfile = args.infile.rsplit(".",1)[0]+".csv" #TODO check if outfile is writeabl
 with open(args.infile, "r") as f:
     data = f.readlines()
     for entry in data:
-        data[data.index(entry)] = entry.rstrip("\n")
+        data[data.index(entry)] = re.sub("\s+"," ",entry.rstrip("\n"))
     if(DEBUG): print(data)
 
 
