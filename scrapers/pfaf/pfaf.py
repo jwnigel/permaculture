@@ -22,7 +22,7 @@ parser = argparse.ArgumentParser(formatter_class=argparse.RawDescriptionHelpForm
 examples:
 
   %(prog)s
-     generates "sven_plants.csv" from scraping data for all plants in "sven_plants.txt"
+     generates "all_plants.csv" from scraping data for the plants in "all_plants.txt"
 
   %(prog)s -v -i design-john.txt
      generates "design-john.csv" from scraping data for all plants in "design-john.txt", while printing a verbose progress feedback.
