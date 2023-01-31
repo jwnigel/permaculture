@@ -2,7 +2,7 @@
 
 infos: https://github.com/jwnigel/permaculture
 
-### Part 1 - Scraping and cleaning :ledger:
+### Part 1 - Scraping and cleaning :ledger: :pencil2:
 Scrapes plants data from **www.pfaf.org** and extracts about 20 characteristics for each plant
 
 Characteristics include height, width, growth rate, leaf and flower dates, soil and pH preferences, etc.
