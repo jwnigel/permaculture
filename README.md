@@ -1,58 +1,32 @@
-# Permaculture plant scraping and UI design :chestnut: :seedling: :deciduous_tree:
+# Permaculture designer tool
 
-infos: https://github.com/jwnigel/permaculture
+Ever dreamed of designing your permaculture project with ease ? This tool will allow you to grab inspiration from established botanic databases, layout your favorite plants to benefit from their mutual ecologic functions and export your designs, either with the world... or just with friends to plant the world !
 
-### Part 1 - Scraping and cleaning :ledger: :pencil2:
-Scrapes plants data from **www.pfaf.org** and extracts about 20 characteristics for each plant
+[homepage](https://github.com/jwnigel/permaculture#readme) - [author](https://github.com/jwnigel) - [roadmap](https://github.com/users/jwnigel/projects/1/views/1?layout=board)
 
-Characteristics include height, width, growth rate, leaf and flower dates, soil and pH preferences, etc.
+Such a tool can be used for any garden design project, not restricted to permaculture. But we will focus on permaculture design, supporting the integration of plants', people's and animals' needs in the design. 
 
-### Usage
+For instance considering the reference **harvest or picking** allows you to organize my site, and plant apple trees according to when they should produce... most helpful in designing a U-pick orchard, or just for homestead design. The tool should help you take into account soil, moisture and companion plants charateristics.... hopefully.
 
-```
-usage: main.py [-h] [options]
+## Work in progress
 
- Scrape plants data from pfaf.org for all plants in input file
+This is work in progress, you're welcome to joing the discussions via the [issues](https://github.com/jwnigel/permaculture/issues) and [roadmap](https://github.com/users/jwnigel/projects/1/views/1?layout=board).
 
-optional arguments:
-  -h, --help            show this help message and exit
-  -i INFILE, --infile INFILE
-                        TXT file of list of plants (latin names as: Genus
-                        Species) you want to get data for. default is
-                        "sven_plants.txt".
-  -v, --verbose         print more (text) info to command line
-```
+## Already available 
 
-#### examples:
+### data reuse
+Some scrapers to gather data from good (permaculture and classical) botanical sources, including
+- [x] https://pfaf.org, collecting a.o. plants height, width, growth rate, leaf and flower dates, soil and pH preferences)
+- [x] 🍎 🍏 data from https://orangepippin.com, with year introduced, cropping and keeping ability, uses, and picking season.
+- [ ] https://permapeople.org plants database (and its many filters)
 
-    main.py
+Help us integrate more relevant sources and curating these data at https://github.com/users/jwnigel/projects/1/views/1?layout=board&pane=issue&itemId=19329892
 
-generates `sven_plants.csv` from scraping data for all plants in "sven_plants.txt"
+We still need to consider proper linking/referencing to these original materials.
 
-    main.py -v -i design-john.txt
+### permaculture designer UI
 
-generates `design-john.csv` from scraping data for all plants in `design-john.txt`, while printing a `verbose` progress feedback.
+Some UI sketches for a permaculture designer interface are being drafted... get in touch if you wanna help. It will allow you to drag and drop plants from a list to an arial photo and arrange them.
 
-     main.py -h
+![designer UI prototype](https://user-images.githubusercontent.com/36950/215854303-61ee2ca3-8cde-4578-8c6b-df6c9ee8b66b.png)
 
-prints a usage and documentation information.
-
-### Note
-***The plants.csv file here is not complete.*** You need to edit **all_plants.txt** with the plants you wish to include and run the script.
-
-### Part 2 - UI permaculture design application :art: :paintbrush:
-In progress... I want to use the plant database to create an interactive design application
-
-I want to be able to drag and drop plants from a list to an arial photo and arrange them.
-
-
-### Bonus - Apples 🍎 🍏
-I've scraped apple data from **www.orangepippin.com** and extracted characteristics like year introduced, cropping and keeping ability, uses, and picking season.
-
-The characteristic I'm most interested in is **picking season** because it allows me to organize my site and plant apples according to when they will produce. 
-
-Could be very helpful in designing a U-pick orchard, or just for homestead design. 
-
-Simply pass your apple varieties to **apples_scraper.py** in text file called **my_apples.txt**.
-
-Returns a csv
