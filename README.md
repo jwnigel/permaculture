@@ -22,7 +22,10 @@ This is work in progress, you're welcome to joing the discussions via the [issue
 ## Already available 
 
 ### data reuse
-Some scrapers (see [code/scrapers](https://github.com/jwnigel/permaculture/tree/master/design)) to gather data from good (permaculture and classical) botanical sources, including
+
+Get [useful botanical](https://github.com/jwnigel/permaculture/blob/master/sample/sven_plants.csv) information from a [plain list](https://github.com/jwnigel/permaculture/blob/master/sample/sven_plants.txt) of plants.
+
+Some scrapers (see [code/scrapers](https://github.com/jwnigel/permaculture/tree/master/design)) gather data from good (permaculture and classical) botanical sources, including
 - [x] https://pfaf.org, collecting a.o. plants height, width, growth rate, leaf and flower dates, soil and pH preferences)
 - [x] 🍎 🍏 data from https://orangepippin.com, with year introduced, cropping and keeping ability, uses, and picking season.
 - [ ] https://permapeople.org plants database (and its many filters)
