@@ -5,7 +5,7 @@ import re
 import requests
 import argparse
 
-DEBUG = False
+DEBUG = True
 COLUMNS = ["Family", "Genus", "Species", "CommonName", "GrowthRate", "HardinessZones",
            "Height", "Width", "Type", "Leaf", "Flower", "Ripen", "Reproduction", "Soils",
            "pH", "Preferences", "Tolerances", "Habitat", "HabitatRange",
@@ -20,18 +20,18 @@ parser = argparse.ArgumentParser(formatter_class=argparse.RawDescriptionHelpForm
     This program requires Python 2.7+
 
 examples:
-  
+
   %(prog)s
      generates "sven_plants.csv" from scraping data for all plants in "sven_plants.txt"
 
   %(prog)s -v -i design-john.txt
      generates "design-john.csv" from scraping data for all plants in "design-john.txt", while printing a verbose progress feedback.
-   
+
 more information: https://github.com/jwnigel/permaculture
  ''')
 
-parser.add_argument('-i', '--infile', default="sven_plants.txt",
-                    help='TXT file of list of plants (latin names as: Genus Species) you want to get data for. default is "sven_plants.txt".')
+parser.add_argument('-i', '--infile', default="all_plants.txt",
+                    help='TXT file of list of plants (latin names as: Genus Species) you want to get data for. default is "all_plants.txt".')
 parser.add_argument('-v', '--verbose', action='store_true', default=False,
                     help='print more (text) info to command line')
 args = parser.parse_args()
@@ -47,9 +47,7 @@ with open(args.infile, "r") as f:
 
 
 def get_plant_info(genus, species):
-    # genus_species = input("Enter the genus and species: ")
-    # genus = genus_species.split()[0]
-    # species = genus_species.split()[1]
+
     pfaf_url = f"https://pfaf.org/user/Plant.aspx?LatinName={genus}+{species}"
     headers={"user-agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/109.0.0.0 Safari/537.36"}
     page = requests.get(pfaf_url, headers=headers)
@@ -202,7 +200,8 @@ errors = []
 if(VERBOSE): print(f"retrieving infos for")
 for plant in data:
     if(VERBOSE): print(f". {plant}")
-    genus, species = plant.split(" ",1) # species gest all but first term
+    genus= plant.split(" ")[0].strip()
+    species = ' '.join(plant.split(" ")[1:]).strip()  # species gets all but first term
     try:
         df = pd.concat([df, pd.Series(get_plant_info(genus, species), index=COLUMNS)], axis=1)
         good.append(plant)

@@ -1,0 +1,10 @@
+Bunium	bulbocastanum
+Calamintha	nepeta
+Carex	pensylvanica
+Carya	illinoinensis
+Gymnocarpium	dryopteris
+Halesia	tetraptera
+Juglans	nigra
+Juglans	regia
+Malus	pumila
+Malva	alcea
