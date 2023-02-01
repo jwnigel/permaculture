@@ -1,0 +1,26 @@
+#:kivy 2.1.0
+
+<DraggableImage>:
+	drag_rectangle: self.x, self.y, self.width, self.height
+    drag_timeout: 1000
+    drag_distance: 0
+
+<MasterLayout>:
+	orientation: 'horizontal'
+	BoxLayout:
+		size_hint: (0.1, 1)
+		orientation: 'vertical'
+		IconButton:
+			source: 'tree1.png'
+			on_press: map.add_tree(size=(self.size), pos=(self.pos[0]-self.width, self.pos[1]))
+		Label:
+			text: 'Label 1'
+		Label:
+			text: 'Label 2'
+	MapLayout:
+		id: map
+		size_hint: (0.85, 1)
+		Image:
+			id: background
+			source: 'largefield1.png'
+			size_hint: (1,1)
