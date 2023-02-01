@@ -1,7 +1,7 @@
 #:kivy 2.1.0
 
 <DraggableImage>:
-	drag_rectangle: self.x, self.y, self.width, self.height
+	drag_rectangle: (self.x, self.y + self.width/2, self.width, self.width) # because circle should be equal
     drag_timeout: 1000
     drag_distance: 0
 
@@ -17,10 +17,10 @@
 			text: 'Label 1'
 		Label:
 			text: 'Label 2'
-	MapLayout:
+	MyStencilView:
 		id: map
 		size_hint: (0.85, 1)
-		Image:
+		BackgroundImage:
 			id: background
 			source: 'images/largefield1.png'
 			size_hint: (1,1)
