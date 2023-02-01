@@ -4,9 +4,16 @@ Ever dreamed of designing your permaculture project with ease ? This tool will a
 
 [homepage](https://github.com/jwnigel/permaculture#readme) - [author](https://github.com/jwnigel) - [roadmap](https://github.com/users/jwnigel/projects/1/views/1?layout=board)
 
+
+## Features
+
 Such a tool can be used for any garden design project, not restricted to permaculture. But we will focus on permaculture design, supporting the integration of plants', people's and animals' needs in the design. 
 
-For instance considering the reference **harvest or picking** allows you to organize my site, and plant apple trees according to when they should produce... most helpful in designing a U-pick orchard, or just for homestead design. The tool should help you take into account soil, moisture and companion plants charateristics.... hopefully.
+For instance considering the reference **harvest or picking** period allows you to organize my site, and plant apple trees according to when they should produce... most helpful in designing a U-pick orchard, or just for homestead design.
+
+The tool should help you take into account soil, moisture and companion plants charateristics.
+
+It will help you with installing your designs by giving appropriate location, seeding and planting instructions summary.
 
 ## Work in progress
 
@@ -15,7 +22,10 @@ This is work in progress, you're welcome to joing the discussions via the [issue
 ## Already available 
 
 ### data reuse
-Some scrapers to gather data from good (permaculture and classical) botanical sources, including
+
+Get [useful botanical](https://github.com/jwnigel/permaculture/blob/master/sample/sven_plants.csv) information from a [plain list](https://github.com/jwnigel/permaculture/blob/master/sample/sven_plants.txt) of plants.
+
+Some scrapers (see [code/scrapers](https://github.com/jwnigel/permaculture/tree/master/design)) gather data from good (permaculture and classical) botanical sources, including
 - [x] https://pfaf.org, collecting a.o. plants height, width, growth rate, leaf and flower dates, soil and pH preferences)
 - [x] 🍎 🍏 data from https://orangepippin.com, with year introduced, cropping and keeping ability, uses, and picking season.
 - [ ] https://permapeople.org plants database (and its many filters)
@@ -28,5 +38,5 @@ We still need to consider proper linking/referencing to these original materials
 
 Some UI sketches for a permaculture designer interface are being drafted... get in touch if you wanna help. It will allow you to drag and drop plants from a list to an arial photo and arrange them.
 
-![designer UI prototype](https://user-images.githubusercontent.com/36950/215854303-61ee2ca3-8cde-4578-8c6b-df6c9ee8b66b.png)
+![designer UI prototype](https://share.balsamiq.com/c/c1Ls46qHLyN9ht8nzRtp2G.png)
 
