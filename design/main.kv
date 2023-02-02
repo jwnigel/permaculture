@@ -6,21 +6,56 @@
     drag_distance: 0
 
 <MasterLayout>:
+    id: master_layout
 	orientation: 'horizontal'
-	BoxLayout:
-		size_hint: (0.1, 1)
+    background_color: (223/255, 211/255, 195/255, 1)
+	LeftPanel:
+        id: left_panel
 		orientation: 'vertical'
+        size_hint: (0.25, 1)
+        padding: '24dp'
+        spacing: '24dp'
+        canvas:
+            Color:
+                rgba: (199/255, 177/255, 152/255, 1) # Helps see where the panel is
+            Rectangle:
+                pos: self.pos
+                size: self.size
+
+        MDBoxLayout:
+            adaptive_height: True
+            MDIconButton:
+                icon: 'magnify'
+                icon_size: '36dp'
+            MDTextField:
+                id: search_field
+                font_size: '36dp'
+                hint_text: 'Search'
+                helper_text: 'Search for a plant'
+                mode: 'round'
+
 		IconButton:
 			source: 'images/tree1.png'
-			on_press: map.add_tree(size=(self.size), pos=(self.pos[0]-self.width, self.pos[1]))
+			on_press: design_panel.add_plant(size=(self.size), pos=(self.pos[0]-self.width, self.pos[1]))
 		Label:
 			text: 'Label 1'
 		Label:
 			text: 'Label 2'
-	MyStencilView:
-		id: map
-		size_hint: (0.85, 1)
-		BackgroundImage:
-			id: background
-			source: 'images/largefield1.png'
-			size_hint: (1,1)
+	DesignPanel:
+    	id: design_panel
+		size_hint: (.75,1)
+        Image:
+            size: self.size
+            source: self.parent.background
+            allow_stretch: True
+            keep_ratio: True
+        MDFloatingActionButtonSpeedDial:
+            id: plus_button
+            data: {'My Trees': 'tree', 'pine-tree': 'pine-tree', 'palm-tree': 'palm-tree'}
+            root_button_anim: True
+            anchor: 'right' # default
+            icon: 'plus' # default icon
+            hint_animation: True
+            right_pad: True
+            right_pad_value: '20dp'
+            bg_hint_color: app.theme_cls.primary_dark
