@@ -201,7 +201,7 @@ if(VERBOSE): print(f"retrieving infos for")
 for plant in data:
     if(VERBOSE): print(f". {plant}")
     genus= plant.split(" ")[0].strip()
-    species = plant.split(" ")[1:]  # species gets all but first term
+    species = ' '.join(plant.split(" ")[1:])  # species gets all but first term
     try:
         df = pd.concat([df, pd.Series(get_plant_info(genus, species), index=COLUMNS)], axis=1)
         good.append(plant)
