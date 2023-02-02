@@ -7,7 +7,7 @@ import argparse
 
 DEBUG = True
 COLUMNS = ["Family", "Genus", "Species", "CommonName", "GrowthRate", "HardinessZones",
-           "Height", "Width", "Type", "Leaf", "Flower", "Ripen", "Reproduction", "Soils",
+           "Height", "Width", "Type", "Pollinators", "Leaf", "Flower", "Ripen", "Reproduction", "Soils",
            "pH", "Preferences", "Tolerances", "Habitat", "HabitatRange",
            "Edibility", "Medicinal", "OtherUses", "PFAF"]
 
@@ -61,12 +61,11 @@ def get_plant_info(genus, species):
     ##### Get the characteristics #####
 
     # deciduous or coniferous / shrub / groundcover etc
-    type = description_list[4]
+    type_idx = description_list.index("is") + 2
+    plant_type = " ".join(description_list[type_idx:description_list.index("growing")-1])
 
-    if type in ["deciduous", "coniferous"]:
-        height = description_list[8]
-    else:
-        height = description_list[7]
+    height_idx = description_list.index("growing") + 2
+    height = float(description_list[height_idx])
 
     try:
         growth_rate_idx = description_list.index("rate.") - 1 # growth rate is before "rate."
@@ -76,9 +75,18 @@ def get_plant_info(genus, species):
 
     if "by" in description_list[:15]:
         width_idx = description_list.index("by") + 1 # width is after "by"
-        width = description_list[width_idx]
+        width = float(description_list[width_idx])
     else:
         width = ""
+
+    # Pollinators
+    pollinators = ''
+    if "pollinated by" in description:
+        pollinators_start = description.index("pollinated by") + len("pollinated by") + 1
+        pollinators_end = description.index(".", pollinators_start)
+        # Allow possibility of more than one pollinator
+        pollinators = description[pollinators_start:pollinators_end].strip().lower()
+
 
     # When the plant leafs out
     leaf = "" # Better to do this before or after if statement?
@@ -156,8 +164,14 @@ def get_plant_info(genus, species):
 
     # List of hardiness zones
     hardiness_zones = []
-    for zone in range(int(hardiness_range[0]), int(hardiness_range[-1]) + 1):
-        hardiness_zones.append(zone)
+    match = re.search(r'(\d+)\-(\d+)', hardiness_range)
+    if match:
+        zone_min = match.group(1)
+        zone_max = match.group(2)
+
+        for zone in range(int(zone_min), int(zone_max) + 1):
+            hardiness_zones.append(zone)
+
 
     # Ecosystems
     habitats = table.find("span", id="ContentPlaceHolder1_txtHabitats").text
@@ -176,14 +190,14 @@ def get_plant_info(genus, species):
     # Add Line Space
     # print("")
     # print(f'Common name: {common_name} \nFamily: {family} \nHardiness range: {hardiness_range} \
-    #     \nMedicinal rating: {medicinal_rating} \nGrowth rate: {growth_rate} \nHeight: {height} meters \nType: {type} \
-    #     \nLeaf: {leaf} \nFlower: {flower} \nRipen date: {ripen_date} \nSoils: {soils} \nSoil text: {soil_text} \npH: {ph}\
+    #     \nMedicinal rating: {medicinal_rating} \nGrowth rate: {growth_rate} \nHeight: {height} meters \nType: {plant_type} \
+    #     \nPollinators: {pollinators} \nLeaf: {leaf} \nFlower: {flower} \nRipen date: {ripen_date} \nSoils: {soils} \nSoil text: {soil_text} \npH: {ph}\
     #     \nReproduction: {reproduction} \nPreferences: {preferences} \nTolerances: {tolerances}\
     #     \nHabitats: {habitats} \nHabitat range: {habitat_range} \nEdibility: {edibility} \nOther uses: {other_uses} \
         # \n \nDescription: {description}')
 
     return family, genus, species, common_name, growth_rate, hardiness_zones, height, width,\
-            type, leaf, flower, ripen_date, reproduction, soils, ph, preferences, \
+            plant_type, pollinators, leaf, flower, ripen_date, reproduction, soils, ph, preferences, \
             tolerances, habitats, habitat_range, edibility, medicinal_rating, other_uses, pfaf_url
 
 
@@ -209,9 +223,9 @@ for plant in data:
         if(VERBOSE): print(f"** {genus} {species} : {e}")
         else : print(f"{plant}")
         errors.append(plant)
-        #df = pd.concat([df, plan], axis=1)
 
-df.T[22:].to_csv(outfile, index=False)
+# Each column creates an empty row when transposed
+df.T[24:].to_csv(outfile, index=False)
 if(DEBUG): print(f"Non errors: {good}")
 if(len(errors) > 0) : print(f"Errors: {errors}")
 #TODO output errors list to errors.csv to easy correct+refetch only those.
