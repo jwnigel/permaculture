@@ -9,12 +9,14 @@
     id: master_layout
 	orientation: 'horizontal'
     background_color: (223/255, 211/255, 195/255, 1)
+	padding: '10dp'
+	spacing: '10dp'
 	LeftPanel:
         id: left_panel
 		orientation: 'vertical'
         size_hint: (0.25, 1)
-        padding: '24dp'
-        spacing: '24dp'
+        padding: '42dp'
+        spacing: '30dp'
         canvas:
             Color:
                 rgba: (199/255, 177/255, 152/255, 1) # Helps see where the panel is
@@ -22,25 +24,56 @@
                 pos: self.pos
                 size: self.size
 
-        MDBoxLayout:
-            adaptive_height: True
-            MDIconButton:
-                icon: 'magnify'
-                icon_size: '36dp'
-            MDTextField:
-                id: search_field
-                font_size: '36dp'
-                hint_text: 'Search'
-                helper_text: 'Search for a plant'
-                mode: 'round'
+		MDTextField:
+			id: search_field
+			font_size: '32dp'
+			hint_text: 'Plant Search'
+			hint_text_size: '36dp'
+			mode: 'round'
+			icon_left: 'magnify'
+			background_color: app.theme_cls.bg_normal
 
 		IconButton:
 			source: 'images/tree1.png'
 			on_press: design_panel.add_plant(size=(self.size), pos=(self.pos[0]-self.width, self.pos[1]))
 		Label:
-			text: 'Full Plant Name'
+			id: plant_name
+			text: 'Plant Name'
+			font_size: '48dp'
+	        pos_hint: {"center_x": .5, "center_y": .5}
+			size_hint: (.8, .2)
+		LeftPanelDropdown:
+			icon: 'arrow-down-drop-circle-outline'
+			text: "More Info"
+			font_size: '36dp'
+	        pos_hint: {"center_x": .5, "center_y": .5}
+			theme_text_color: "Secondary" # Secondary, Hint, Error, Custom, ContrastParentBackground
+			text_color: "green"
+			line_color: "black"
+			theme_icon_color: "Primary" # Same options as theme_text_color
+			icon_color: "black"
+			size_hint: (.8, .2)
+
 		Label:
-			text: 'A bunch of useful information about the plant'
+			id: plant_subtitle
+			text: 'A bunch of useful information about the plant. Lets see how text is broken down into lines.'
+			font_size: '24dp'
+			text_size: (self.width * 0.85, None) # fills 85% of panel width, no vertical limit
+			line_height: 1.5 # 1.5 line spacing
+
+		OneLineAvatarListItem:
+    		text: 'First single-line item'
+
+			ImageLeftWidget:
+        		source: 'images/arbustif-arrondi-natural_tree.png'
+
+		OneLineAvatarListItem:
+    		text: 'Second single-line item'
+
+			ImageLeftWidget:
+        		source: 'images/arbustif-arrondi-natural_tree.png'
+
+
 	DesignPanel:
     	id: design_panel
 		size_hint: (.75,1)

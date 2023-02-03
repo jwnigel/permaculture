@@ -11,6 +11,9 @@ from kivy.uix.behaviors import ButtonBehavior
 from kivy.uix.behaviors import DragBehavior
 from kivy.uix.relativelayout import RelativeLayout
 from kivy.graphics import Rectangle
+from kivymd.uix.button import MDRectangleFlatIconButton
+from kivy.properties import ObjectProperty
+from kivymd.uix.menu import MDDropdownMenu
 
 BACKGROUND_IMAGE = 'images/largefield1.png'
 
@@ -51,7 +54,25 @@ class IconButton(ButtonBehavior, Image):
     def __init__(self, **kwargs):
         super(IconButton, self).__init__(**kwargs)
 
+class LeftPanelDropdown(MDRectangleFlatIconButton):
+    dropdown = ObjectProperty()
+    def on_start(self):
+        self.dropdown = MDDropdownMenu(width_mult=3)
+        items = [
+        {
+            "viewclass": "OneLineListItem",
+            "height": '48dp',
+            "text": f"Item {i}",
+        }
+        for i in range(5)
+        ]
+        self.menu = MDDropdownMenu(
+            items=items,
+            width_mult=3
+        )
 
+    def option_callback(self, option_text):
+        print(option_text)
 
 class MainApp(MDApp):
     def build(self):
