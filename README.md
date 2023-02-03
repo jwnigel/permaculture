@@ -17,7 +17,7 @@ When your design is complete you can generate detailed planting maps and guides,
 
 ## Work in progress
 
-This is a work in progress, you're welcome to joing the discussions via the 
+This is a work in progress, you're welcome to join the discussions via the 
 - [issues](https://github.com/jwnigel/permaculture/issues)
 - [roadmap](https://github.com/jwnigel/permaculture/milestones?direction=asc&sort=title&state=open) and
 - [work in progress](https://github.com/users/jwnigel/projects/1/views/1?layout=board)
