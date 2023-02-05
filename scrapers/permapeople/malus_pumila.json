@@ -1,0 +1,242 @@
+[
+  {
+    "id": 5616,
+    "name": "Paradise Apple",
+    "slug": "malus-pumila-paradisiaca-paradise-apple",
+    "data": [
+      {
+        "key": "Edible",
+        "value": "true"
+      },
+      {
+        "key": "Water requirement",
+        "value": "Moist"
+      },
+      {
+        "key": "Light requirement",
+        "value": "Full sun, Partial sun/shade"
+      },
+      {
+        "key": "USDA Hardiness zone",
+        "value": "3-7"
+      },
+      {
+        "key": "Layer",
+        "value": "Trees"
+      },
+      {
+        "key": "Soil type",
+        "value": "Light (sandy), Medium, Heavy (clay)"
+      },
+      {
+        "key": "Family",
+        "value": "Rosaceae"
+      },
+      {
+        "key": "Height",
+        "value": "5.0"
+      },
+      {
+        "key": "Edible parts",
+        "value": "Fruit"
+      },
+      {
+        "key": "Plants For A Future",
+        "value": "https://pfaf.org/User/Plant.aspx?LatinName=Malus pumila paradisiaca"
+      }
+    ],
+    "description": "",
+    "created_at": "2020-11-13T19:04:43.814Z",
+    "updated_at": "2022-11-09T13:31:16.245Z",
+    "scientific_name": "Malus pumila paradisiaca",
+    "parent_id": null,
+    "version": 6,
+    "type": "Plant",
+    "link": "/plants/malus-pumila-paradisiaca-paradise-apple"
+  },
+  {
+    "id": 5611,
+    "name": "Crab Apple",
+    "slug": "malus-pumila-nervosa-crab-apple",
+    "data": [
+      {
+        "key": "Edible",
+        "value": "true"
+      },
+      {
+        "key": "Water requirement",
+        "value": "Moist"
+      },
+      {
+        "key": "Light requirement",
+        "value": "Full sun, Partial sun/shade"
+      },
+      {
+        "key": "USDA Hardiness zone",
+        "value": "3-7"
+      },
+      {
+        "key": "Layer",
+        "value": "Trees"
+      },
+      {
+        "key": "Soil type",
+        "value": "Light (sandy), Medium, Heavy (clay)"
+      },
+      {
+        "key": "Family",
+        "value": "Rosaceae"
+      },
+      {
+        "key": "Height",
+        "value": "5.0"
+      },
+      {
+        "key": "Edible parts",
+        "value": "Fruit"
+      },
+      {
+        "key": "Plants For A Future",
+        "value": "https://pfaf.org/User/Plant.aspx?LatinName=Malus pumila nervosa"
+      }
+    ],
+    "description": "",
+    "created_at": "2020-11-13T19:04:42.634Z",
+    "updated_at": "2022-11-09T13:31:15.877Z",
+    "scientific_name": "Malus pumila nervosa",
+    "parent_id": null,
+    "version": 6,
+    "type": "Plant",
+    "link": "/plants/malus-pumila-nervosa-crab-apple"
+  },
+  {
+    "id": 5609,
+    "name": "Paradise Apple",
+    "slug": "malus-pumila-paradise-apple",
+    "data": [
+      {
+        "key": "Edible",
+        "value": "true"
+      },
+      {
+        "key": "Growth",
+        "value": "Medium"
+      },
+      {
+        "key": "Water requirement",
+        "value": "Moist"
+      },
+      {
+        "key": "Light requirement",
+        "value": "Full sun, Partial sun/shade"
+      },
+      {
+        "key": "USDA Hardiness zone",
+        "value": "3-9"
+      },
+      {
+        "key": "Layer",
+        "value": "Trees"
+      },
+      {
+        "key": "Alternate name",
+        "value": "Common apple, apple tree"
+      },
+      {
+        "key": "Soil type",
+        "value": "Light (sandy), Medium, Heavy (clay)"
+      },
+      {
+        "key": "Family",
+        "value": "Rosaceae"
+      },
+      {
+        "key": "Height",
+        "value": "7.0"
+      },
+      {
+        "key": "Edible parts",
+        "value": "Fruit"
+      },
+      {
+        "key": "Plants For A Future",
+        "value": "https://pfaf.org/User/Plant.aspx?LatinName=Malus pumila"
+      }
+    ],
+    "description": "",
+    "created_at": "2020-11-13T19:04:42.153Z",
+    "updated_at": "2022-11-09T13:31:15.803Z",
+    "scientific_name": "Malus pumila",
+    "parent_id": null,
+    "version": 6,
+    "type": "Plant",
+    "link": "/plants/malus-pumila-paradise-apple"
+  },
+  {
+    "id": 1716,
+    "name": "Japanese mazus",
+    "slug": "mazus-pumilus-japanese-mazus",
+    "data": [
+      {
+        "key": "Life cycle",
+        "value": "Annual"
+      },
+      {
+        "key": "Light requirement",
+        "value": "Full sun"
+      },
+      {
+        "key": "Water requirement",
+        "value": "Moist"
+      },
+      {
+        "key": "Soil type",
+        "value": "Light (sandy), Medium, Heavy (clay)"
+      },
+      {
+        "key": "Height",
+        "value": "0.2"
+      },
+      {
+        "key": "Edible",
+        "value": "true"
+      },
+      {
+        "key": "Edible parts",
+        "value": "Leaves"
+      },
+      {
+        "key": "Wikipedia",
+        "value": "https://en.wikipedia.org/wiki/Mazus_pumilus"
+      },
+      {
+        "key": "Family",
+        "value": "Scrophulariaceae"
+      },
+      {
+        "key": "Plants For A Future",
+        "value": "https://pfaf.org/User/Plant.aspx?LatinName=Mazus pumilus"
+      },
+      {
+        "key": "Native to",
+        "value": "Afghanistan, Altay, Amur, Assam, Bangladesh, Cambodia, China North-Central, China South-Central, China Southeast, East Himalaya, Hainan, India, Japan, Jawa, Khabarovsk, Korea, Laos, Lesser Sunda Is., Manchuria, Myanmar, Nansei-shoto, Nepal, New Guinea, Pakistan, Philippines, Primorye, Sri Lanka, Tadzhikistan, Taiwan, Thailand, Tibet, Vietnam, West Himalaya"
+      },
+      {
+        "key": "Introduced into",
+        "value": "Alabama, Argentina Northeast, Argentina Northwest, Arkansas, Azores, Bahamas, Brazil Northeast, Brazil South, Brazil Southeast, Colombia, Costa Rica, Delaware, District of Columbia, El Salvador, Fiji, Florida, Georgia, Great Britain, Hawaii, Illinois, Jamaica, Kentucky, Louisiana, Maryland, Massachusetts, Mauritius, Mississippi, Missouri, New York, Nicaragua, North Carolina, Ohio, Oklahoma, Oregon, Panam\u00e1, Pennsylvania, South Carolina, Tennessee, Texas, Uzbekistan, Virginia, Washington, West Virginia, Wisconsin"
+      },
+      {
+        "key": "Plants of the World Online Link",
+        "value": "https://powo.science.kew.org/taxon/urn:lsid:ipni.org:names:805568-1"
+      }
+    ],
+    "description": "Japanese mazus, also known as Mazus pumilus, is a low-growing, creeping plant native to Japan, China, and other parts of Asia. It has small, oval-shaped leaves and delicate, purple flowers that bloom in the spring. The plant grows to be about 5-10 cm tall and spreads quickly, making it a good choice for ground cover.\r\n\r\nJapanese mazus prefers moist, well-drained soil and partial shade, though it can tolerate full sun in cooler climates. It is winter hardy and can withstand temperatures down to -15\u00b0C. To cultivate the plant successfully, it is important to keep the soil moist and provide it with a layer of mulch to help retain moisture.\r\n\r\nJapanese mazus is not edible, but it has a number of other uses. It is often used as a ground cover in gardens and can be helpful in controlling erosion on slopes. It is also attractive to pollinators and can provide food and shelter for a variety of insects. Additionally, the plant has been used medicinally in traditional Chinese medicine to treat a variety of ailments.\r\n\r\nOverall, Japanese mazus is a versatile plant that is well-suited to a variety of gardening and landscaping purposes. Its low-growing habit and attractive flowers make it a popular choice among gardeners, and its ability to withstand cold temperatures and thrive in a range of conditions make it easy to grow and maintain.",
+    "created_at": "2020-11-13T18:52:28.561Z",
+    "updated_at": "2023-02-03T20:43:08.527Z",
+    "scientific_name": "Mazus pumilus",
+    "parent_id": null,
+    "version": 10,
+    "type": "Plant",
+    "link": "/plants/mazus-pumilus-japanese-mazus"
+  }
+]
