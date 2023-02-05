@@ -42,7 +42,7 @@ parser = argparse.ArgumentParser(formatter_class=argparse.RawDescriptionHelpForm
 examples:
 
   %(prog)s -t "full sun ground cover" -v
-     generates "full sun ground cover.csv" (and .json) from the full text search results."
+     generates "full sun ground cover.csv" (and .json) from the full text search results.
 
   %(prog)s -v -f design-john.txt
      generates "design-john.csv" from scraping data for all plants in "design-john.txt", while printing a verbose progress feedback.
@@ -53,13 +53,17 @@ more information: https://github.com/jwnigel/permaculture
 parser.add_argument('-t', '--text', default=False,
                     help='Text you want to get data for via full text search. Result is saved in a file with same name.')
 parser.add_argument('-f', '--file', default=False,
-                    help='TXT file of list of plants you want to get data for via full text search. Default is "plants.txt".')
+                    help='Txt file with a list of plants you want to get data for via full text search.')
 parser.add_argument('-v', '--verbose', action='store_true', default=False,
                     help='print more (text) info to command line')
+parser.add_argument('-n', '--noCache', action='store_true', default=False,
+                    help='do not save intermediate research results to their own local JSON file. Default is False.')
+parser.add_argument('-d', '--debug', action='store_true', default=False,
+                    help='print lots of extra obscure information to follow the script progress.')
+
 args = parser.parse_args()
+DEBUG = DEBUG or args.debug
 VERBOSE = args.verbose or DEBUG
-
-
 
 
 
@@ -82,7 +86,7 @@ def list(last: int = 0) -> list:
 
 
 
-def search(text: str = "Malus pumila", max_results: int = -1, file_store: str = "") -> list:
+def searchTxtToJson(text: str = "Malus pumila", max_results: int = -1, file_store: str = "") -> list:
 	"""Performs a full-text search on the permapeople database. See https://permapeople.org/knowledgebase/api-docs.html#search-plants
 
     Args:
@@ -120,25 +124,31 @@ def update(id, content): #content must be an array of dict such as [{"key": "Edi
 """
 
 
-def searchList(file: str = "plants.txt", separator: str = "|"):
+def searchFileToDf(file: str = "plants.txt", separator: str = "|"):
+	""" 
+
+	"""
 	if VERBOSE: print(f"* gathering data for all plants in {file}.")
 	t = pd.read_csv(file, sep = separator, skipinitialspace = True, header = None, 
 		names=["latin"], converters={'latin':simplifySpaces}).to_numpy(dtype = str)
 	frames = []
 	for [p] in t	:  #TODO iterate is the worst performance on DF... got a way to vectorize the operation of search & combine ?
-		found = search(text = p, max_results = 1, file_store = f"{p}.json")[0]
-		df = permaPeopleJsonToDf([found]) # found -> [found] since method expects an array, and json_normalize cleans the array if single element.
+		outf = f"{p}.json" if(args.noCache==False) else ""
+		found = searchTxtToJson(text = p, max_results = 1, file_store = outf)[0]
+		df = convertPermaPeopleJsonToDf([found]) # found -> [found] since method expects an array, and json_normalize cleans the array if single element.
 		frames.append(df)
 	
 	if DEBUG: print(f"  merging {len(frames)} records")
 	details = pd.concat(frames, copy = False, ignore_index=True)
+
+	if DEBUG: print(f"  after concat : {details.columns}")
 	return details
 
 
 ##  Helpers ###############################################
 
-def permaPeopleJsonToDf(plants: list) -> list:
-	"""Convert an array of JSON plants to a pandas DataFrame, flattening the multilevel "data" key described in 
+def convertPermaPeopleJsonToDf(plants: list) -> list:
+	""" Convert an array of JSON plants to a pandas DataFrame, flattening the multilevel "data" key described in 
 	https://permapeople.org/knowledgebase/api-docs.html#get-a-single-plant  to multiple first-level attributes: "data.key:value"
 
     Args:
@@ -187,8 +197,8 @@ def simplifySpaces(text: str):
 ## run the app ################################################
 
 if(args.text) :
-	json = search(args.text, file_store= f"{args.text}.json")
-	df = permaPeopleJsonToDf(json)
+	json = searchTxtToJson(args.text, file_store= f"{args.text}.json")
+	df = convertPermaPeopleJsonToDf(json)
 	df.to_csv(f"{args.text}.csv")
 	if VERBOSE: print(f"single search result :\n{df}.")
 	print(f"text search result is available in '{args.text}.csv'")
@@ -196,13 +206,12 @@ if(args.text) :
 
 # todo add --load option to merge multiple permapeople.json's files from command line, eg full search history.
 #t = loadJson("malus_pumila.json")
-#t = permaPeopleJsonToDf(j)
+#t = convertPermaPeopleJsonToDf(j)
 #print(f"result from loading from local search history file :\n{t}.")
 
 
 if(args.file) :
-	json = searchList(file=args.file)
-	df = permaPeopleJsonToDf(json)
+	df = searchFileToDf(file=args.file)
 	outf = args.file.rsplit(".",1)[0]
 	df.to_csv(f"{outf}.csv")
 	if VERBOSE: print(f"list search result :\n{df}.")
