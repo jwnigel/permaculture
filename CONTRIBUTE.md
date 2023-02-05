@@ -6,13 +6,17 @@ Some day there may be a packaging tool configuration to handle dependencies and 
 1. fork this repository
 1. clone your fork locally
 1. update your python install
-     pip3 install --upgrade pip
- 	 pip3 install jupyter kivy kivymd kivy_garden matplotlib seaborn
- 	 pip3 install --upgrade Pygments
-1. run the notebooks with
-     cd notebooks
-     jupyter notebook
-1. run the various other scripts (usually) from command line ``python3 ./script.py``, check the
+```
+pip3 install --upgrade pip
+pip3 install jupyter kivy kivymd kivy_garden matplotlib seaborn
+pip3 install --upgrade Pygments
+```
+4. run the notebooks with
+```
+cd notebooks
+jupyter notebook
+```
+5. run the various other scripts (usually) from command line ``python3 ./script.py``, check the
 various README for more infos.
 
 
