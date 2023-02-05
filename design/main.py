@@ -6,6 +6,7 @@ from kivymd.uix.relativelayout import MDRelativeLayout
 from kivy.uix.screenmanager import ScreenManager, Screen
 from kivymd.uix.boxlayout import MDBoxLayout
 from kivy.uix.boxlayout import BoxLayout
+from kivy.uix.floatlayout import FloatLayout
 from kivy.uix.image import Image
 from kivy.uix.behaviors import ButtonBehavior
 from kivy.uix.behaviors import DragBehavior
@@ -14,6 +15,10 @@ from kivy.graphics import Rectangle
 from kivymd.uix.button import MDRectangleFlatIconButton
 from kivy.properties import ObjectProperty
 from kivymd.uix.menu import MDDropdownMenu
+from kivy.graphics.vertex_instructions import Ellipse
+from kivy.graphics.context_instructions import Color
+from kivy.uix.button import Button
+from kivy.lang import Builder
 
 BACKGROUND_IMAGE = 'images/largefield1.png'
 
@@ -36,9 +41,7 @@ class DesignPanel(MDRelativeLayout):
         self.background = BACKGROUND_IMAGE
 
     def add_plant(self, size, pos):
-        plant = DraggableImage(source='images/tree1.png',
-                              size_hint=(None, None),
-                              size=size,
+        plant = DraggableImage(size=size,
                               pos=pos)
         # tree.on_motion(me=True, etype='begin') #This didn't work to make drag default
         self.add_widget(plant)
@@ -50,29 +53,37 @@ class DesignPanel(MDRelativeLayout):
 class DraggableImage(DragBehavior, Image):
     pass
 
-class IconButton(ButtonBehavior, Image):
-    def __init__(self, **kwargs):
-        super(IconButton, self).__init__(**kwargs)
+class TreeButton(Button):
+    pass
 
-class LeftPanelDropdown(MDRectangleFlatIconButton):
-    dropdown = ObjectProperty()
-    def on_start(self):
-        self.dropdown = MDDropdownMenu(width_mult=3)
-        items = [
-        {
-            "viewclass": "OneLineListItem",
-            "height": '48dp',
-            "text": f"Item {i}",
-        }
-        for i in range(5)
+class LeftPanelDropdown(FloatLayout):
+    def dropdown(self):
+        self.menu_list = [
+            {
+                'viewclass': 'OneLineListItem',
+                'text': 'Example 1',
+                'on_release': lambda x = 'Example 1': self.test1()
+            },
+            {
+                'viewclass': 'OneLineListItem',
+                'text': 'Example 2',
+                'on_release': lambda x = 'Example 2': self.test2()
+            }
         ]
         self.menu = MDDropdownMenu(
-            items=items,
-            width_mult=3
+            caller = self.ids.menu,
+            items = self.menu_list,
+            width_mult = 3
         )
+        self.menu.open()
 
-    def option_callback(self, option_text):
-        print(option_text)
+    def test1(self):
+        print('Function test1 activated.')
+
+    def test2(self):
+        print('Function test2 activated.')
+
+    Builder.load_file('left_dropdown.kv')
 
 class MainApp(MDApp):
     def build(self):
