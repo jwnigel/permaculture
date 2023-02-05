@@ -9,6 +9,7 @@ import argparse
 API_KEY_ID="Dbt02E5ZLbY4"
 API_KEY_SECRET="f3b7ede2-2083-4163-b1c1-ca77e2814c5a"
 DEBUG = False
+VERBOSE = False
 
 CONTACT="Ben <hello@permapeople.org>"
 HEADERS={'x-permapeople-key-id':API_KEY_ID,
@@ -62,10 +63,6 @@ parser.add_argument('-d', '--debug', action='store_true', default=False,
                     help='print lots of extra obscure information to follow the script progress.')
 
 args = parser.parse_args()
-DEBUG = DEBUG or args.debug
-VERBOSE = args.verbose or DEBUG
-
-
 
 
 
@@ -82,7 +79,7 @@ def list(last: int = 0) -> list:
 	if VERBOSE: print(f"* listing 100 plants from {last} on, please be patient")
 	r = requests.get("https://permapeople.org/api/plants", headers=AUTH, 
 		params={'last':last})
-	return ifNoHttpError(r)
+	return _ifNoHttpError(r)
 
 
 
@@ -95,13 +92,13 @@ def searchTxtToJson(text: str = "Malus pumila", max_results: int = -1, file_stor
 		file_store: save (all) search results in the given file as a list of JSON records, overwriting its content.
 
     Returns:
-        Array of the first next 100 plants, starting after the {last} id.
+        Array JSON records plants matching search text.
     """
 
 	if VERBOSE: print(f"* searching for {text}.")
 	r = requests.post("https://permapeople.org/api/search", headers=HEADERS, 
 		params={'q':text})
-	plants = ifNoHttpError(r)['plants']
+	plants = _ifNoHttpError(r)['plants']
 	if VERBOSE:
 		print(f"  found {len(plants)} plants, returning {max_results}.")
 	
@@ -114,17 +111,25 @@ def searchTxtToJson(text: str = "Malus pumila", max_results: int = -1, file_stor
 	return plants if (max_results==-1) else plants[:max_results]
 
 
-"""
-def update(id, content): #content must be an array of dict such as [{"key": "Edible", "value": "true" }+ ]
-	if DEBUG: print(f"* updating plant {id} is not yet implemented.")
- #	data = ['data':content] 
- #	r = requests.put(f"https://permapeople.org/api/plants/{id}", headers=AUTH, 
- #		params={'q':text})
-	return
-"""
 
+def searchTxtToDf(text: str = "Malus pumila", max_results: int = -1, file_store: str = "") -> pd.DataFrame:
+	"""Performs a full-text search on the permapeople database. See https://permapeople.org/knowledgebase/api-docs.html#search-plants
 
-def searchFileToDf(file: str = "plants.txt", separator: str = "|"):
+    Args:
+		text: text to be searched.
+		max_results: maximum number of matching plants to be returned. Defaults to -1, returning all.
+		file_store: save (all) search results in the given file as a list of JSON records, overwriting its content.
+
+    Returns:
+        DataFrame of plants matching search text.
+    """
+
+	json = searchTxtToJson(text, max_results, file_store)
+	return _convertPermaPeopleJsonToDf(json)
+
+		
+
+def searchFileToDf(file: str = "plants.txt", separator: str = "|") -> pd.DataFrame:
 	""" 
 
 	"""
@@ -135,7 +140,7 @@ def searchFileToDf(file: str = "plants.txt", separator: str = "|"):
 	for [p] in t	:  #TODO iterate is the worst performance on DF... got a way to vectorize the operation of search & combine ?
 		outf = f"{p}.json" if(args.noCache==False) else ""
 		found = searchTxtToJson(text = p, max_results = 1, file_store = outf)[0]
-		df = convertPermaPeopleJsonToDf([found]) # found -> [found] since method expects an array, and json_normalize cleans the array if single element.
+		df = _convertPermaPeopleJsonToDf([found]) # found -> [found] since method expects an array, and json_normalize cleans the array if single element.
 		frames.append(df)
 	
 	if DEBUG: print(f"  merging {len(frames)} records")
@@ -145,9 +150,19 @@ def searchFileToDf(file: str = "plants.txt", separator: str = "|"):
 	return details
 
 
+"""
+def update(id, content): #content must be an array of dict such as [{"key": "Edible", "value": "true" }+ ]
+	if DEBUG: print(f"* updating plant {id} is not yet implemented.")
+ #	data = ['data':content] 
+ #	r = requests.put(f"https://permapeople.org/api/plants/{id}", headers=AUTH, 
+ #		params={'q':text})
+	return
+"""
+
+
 ##  Helpers ###############################################
 
-def convertPermaPeopleJsonToDf(plants: list) -> list:
+def _convertPermaPeopleJsonToDf(plants: list) -> list:
 	""" Convert an array of JSON plants to a pandas DataFrame, flattening the multilevel "data" key described in 
 	https://permapeople.org/knowledgebase/api-docs.html#get-a-single-plant  to multiple first-level attributes: "data.key:value"
 
@@ -169,13 +184,7 @@ def convertPermaPeopleJsonToDf(plants: list) -> list:
 	
 	return df
 
-def loadJson(file: str ="plants.json"):
-	if VERBOSE: print(f"* loading data from {file}.")
-	data = pd.read_json(file)
-	#if DEBUG: print(f"  loaded data of type {type(data)}.")
-	return data
-
-def ifNoHttpError(response):
+def _ifNoHttpError(response):
 	c = response.status_code
 	if (200 <= c < 300): 
 		return response.json()
@@ -189,31 +198,40 @@ def ifNoHttpError(response):
 		print(f"Something's wrong with the internet ({response})")
 	quit()
 
-def simplifySpaces(text: str):
+def _simplifySpaces(text: str):
 	return re.sub("\s+"," ",text)
 
 
 
-## run the app ################################################
-
-if(args.text) :
-	json = searchTxtToJson(args.text, file_store= f"{args.text}.json")
-	df = convertPermaPeopleJsonToDf(json)
-	df.to_csv(f"{args.text}.csv")
-	if VERBOSE: print(f"single search result :\n{df}.")
-	print(f"text search result is available in '{args.text}.csv'")
+## run from command line ################################################
 
 
-# todo add --load option to merge multiple permapeople.json's files from command line, eg full search history.
-#t = loadJson("malus_pumila.json")
-#t = convertPermaPeopleJsonToDf(j)
-#print(f"result from loading from local search history file :\n{t}.")
+def main():
+	print("running permapeople scrapper")
+
+	DEBUG = args.debug
+	VERBOSE = args.verbose or DEBUG
+
+	if(args.text) :
+		df = searchTxtToDf(args.text, file_store= f"{args.text}.json")
+		df.to_csv(f"{args.text}.csv")
+		if VERBOSE: print(f"single search result :\n{df}.")
+		print(f"text search result is available in '{args.text}.csv'")
 
 
-if(args.file) :
-	df = searchFileToDf(file=args.file)
-	outf = args.file.rsplit(".",1)[0]
-	df.to_csv(f"{outf}.csv")
-	if VERBOSE: print(f"list search result :\n{df}.")
-	print(f"list search result is available in '{outf}.csv'")
+	# todo add --load option to merge multiple permapeople.json's files from command line, eg full search history.
+	#t = pd.read_json("malus_pumila.json")
+	#t = _convertPermaPeopleJsonToDf(j)
+	#print(f"result from loading from local search history file :\n{t}.")
 
+
+	if(args.file) :
+		df = searchFileToDf(file=args.file)
+		outf = args.file.rsplit(".",1)[0]
+		df.to_csv(f"{outf}.csv")
+		if VERBOSE: print(f"list search result :\n{df}.")
+		print(f"list search result is available in '{outf}.csv'")
+
+
+if __name__ == '__main__':
+    main()
