@@ -1,6 +1,6 @@
 # Permaculture designer tool
 
-Ever dreamed of designing your permaculture project with ease ? This tool will allow you to access inspiration from established *botanical databases*, easily *lay out* your favorite plants in a way that considers their ecological functions and the synergy of the whole. Then with a click you can break down your design into an organized guide with plant totals and row-by-row layouts. Then export it--either for the world... or just for friends to go plant together !
+Ever dreamed of designing your permaculture project with ease ? This tool will allow you to access inspiration from established *botanical databases*, easily *lay out* your favorite plants in a way that considers their ecological functions and the synergy of the whole. Then with a click you can break down your design into an organized guide with plant totals and row-by-row layouts. Then export it, either for the world... or just for friends to go plant together !
 
 [🌐 homepage](https://github.com/jwnigel/permaculture#readme) - [🍎 author](https://github.com/jwnigel) - [👣 roadmap](https://github.com/jwnigel/permaculture/milestones?direction=asc&sort=title&state=open) - [🐜 progress](https://github.com/users/jwnigel/projects/1/views/1?layout=board) - [🗪 say hello](https://github.com/jwnigel/permaculture/issues/new/choose)
 
@@ -30,7 +30,7 @@ Our scapers gather [useful botanical](sample/sven_plants.csv) information from a
 
 Some scrapers (see [code/scrapers](scrapers/)) to gather data from good (permaculture and classical) botanical sources, including
 - [x] https://pfaf.org, collecting a.o. plants height, width, growth rate, leaf and flower dates, soil and pH preferences)
-- [ ] https://permapeople.org plants database (and its many filters)
+- [x] https://permapeople.org plants database (and its many filters)
 - [x] 🍎 data from https://orangepippin.com, with year introduced, cropping and keeping ability, uses, and picking season.
 - [ ] 🍏 https://pomiferous.com for an even larger apple database (over 7,000 varieties)
 
