@@ -24,6 +24,11 @@ from kivy.lang import Builder
 from kivy.uix.widget import Widget
 from kivy.uix.label import Label
 from kivy.uix.screenmanager import ScreenManager, Screen, FadeTransition
+from kivymd.uix.floatlayout import MDFloatLayout
+from kivymd.uix.tab import MDTabsBase
+from kivymd.icon_definitions import md_icons
+from kivy.uix.tabbedpanel import TabbedPanel
+
 
 BACKGROUND_IMAGE = 'images/largefield1.png'
 
@@ -39,7 +44,7 @@ class PlantsScreen(Screen):
 class MasterLayout(MDBoxLayout):
     pass
 
-class LeftPanel(BoxLayout):
+class LeftPanel(TabbedPanel):
     pass
 
 class DesignPanel(MDRelativeLayout):
@@ -60,6 +65,9 @@ class DesignPanel(MDRelativeLayout):
     # def activate_drag(self, instance):
     #     # to-do
     #     pass
+
+class Tab(MDFloatLayout, MDTabsBase):
+    pass
 
 class DraggableImage(DragBehavior, Image):
     pass
@@ -105,6 +113,7 @@ class LeftPanelDropdown(FloatLayout):
     # Builder.load_file('left_dropdown.kv')
 
 class MainApp(MDApp):
+
     def build(self):
         self.theme_cls.theme_style = "Light"
         self.theme_cls.primary_palette = "Green"
