@@ -14,16 +14,20 @@
 		size_hint_y: None
 		height: self.minimum_height
 		orientation: 'vertical'
-		multiselect: True
-		touch_multiselect: True
+		multiselect: False
+		touch_multiselect: False
 
 <MainLayout>:
 	orientation: 'vertical'
 	TextInput:
-		hint_text: 'hint'
+		hint_text: 'Search for a plant'
+		font_size: dp(48)
+		size_hint_y: None
+		height: dp(80)
 		multiline: False
 		on_text_validate: root.search(self)
 	RV:
 		id: rv
 	Label:
 		id: plant_attrs
+		text: ''
