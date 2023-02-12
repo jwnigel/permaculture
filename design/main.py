@@ -112,7 +112,7 @@ class RV(RecycleView):
 class Main(BoxLayout):
 
     def search(self, value): # called from TextInput on_text_validate (Enter)
-        self.results = {plant_series[1]['CommonName']: plant_series[1].drop(columns='CommonName')\
+        self.results = {plant_series[1]['CommonName'].split(',')[0]: plant_series[1].drop(columns='CommonName')\
             for plant_series in plant_data.call_plant(value.text).iterrows()}
 
         rv = self.ids.rv
