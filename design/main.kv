@@ -1,10 +1,11 @@
 #:kivy 2.1.0
 
 <SelectableLabel>:
+	font_size: '28dp'
   	# Draw a background to indicate selection
 	canvas.before:
 		Color:
-			rgba: (.0, 0.9, .1, .3) if self.selected else (0, 0, 0, 1)
+			rgba: (66/255, 139/255, 70/255, 1) if self.selected else (199/255, 177/255, 152/255, 1)
 		Rectangle:
 			pos: self.pos
 			size: self.size
@@ -65,9 +66,15 @@
 				RV:
 					id: rv
 
-				Label:
-					id: plant_attrs
-					text: ''
+				ScrollableLabel:
+					Label:
+						id: plant_attrs
+						text: ''
+						font_size: '20dp'
+						text_size: self.width, None
+						size_hint_y: None
+						height: '350dp'
+
 
 				TreeButton:
 					id: tree_button
@@ -88,36 +95,6 @@
 							pos: self.center_x - self.height/20, self.center_y - self.height/20
 							size: self.height/10, self.height/10
 
-				LeftPanelDropdown:
-					# icon: 'arrow-down-drop-circle-outline'
-					# text: "More Info"
-					# font_size: '36dp'
-					# pos_hint: {"center_x": .5, "center_y": .5}
-					# theme_text_color: "Secondary" # Secondary, Hint, Error, Custom, ContrastParentBackground
-					# text_color: "green"
-					# line_color: "black"
-					# theme_icon_color: "Primary" # Same options as theme_text_color
-					# icon_color: "black"
-					# size_hint: (.8, .2)
-
-				Label:
-					id: plant_subtitle
-					text: 'A bunch of useful information about the plant. Lets see how text is broken down into lines.'
-					font_size: '24dp'
-					text_size: (self.width * 0.85, None) # fills 85% of panel width, no vertical limit
-					line_height: 1.5 # 1.5 line spacing
-
-				OneLineAvatarListItem:
-					text: 'First single-line item'
-
-					ImageLeftWidget:
-						source: 'images/arbustif-arrondi-natural_tree.png'
-
-				OneLineAvatarListItem:
-					text: 'Second single-line item'
-
-					ImageLeftWidget:
-						source: 'images/arbustif-arrondi-natural_tree.png'
 
 		TabbedPanelItem:
 			text: 'Database'
@@ -164,18 +141,6 @@
 				size_hint: None, None
 				color: 0, 0, 0, 1
 				text: str(round(int(plot_length.text) * int(plot_width.text) / (10000 if unit_selection.units=='meters' else 43560), 2)) if plot_length.text and plot_width.text else '0'
-
-
-		# MDFloatingActionButtonSpeedDial:
-		#     id: plus_button
-		#     data: {'My Trees': 'tree', 'pine-tree': 'pine-tree', 'palm-tree': 'palm-tree'}
-		#     root_button_anim: True
-		#     anchor: 'right' # default
-		#     icon: 'plus' # default icon
-		#     hint_animation: True
-		#     right_pad: True
-		#     right_pad_value: '20dp'
-		#     bg_hint_color: app.theme_cls.primary_dark
 
 <Check@MDCheckbox>:
 	group: 'group'

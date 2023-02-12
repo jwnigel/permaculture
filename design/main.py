@@ -21,6 +21,8 @@ from kivy.uix.label import Label
 from kivy.uix.screenmanager import ScreenManager, Screen, FadeTransition
 from kivymd.uix.floatlayout import MDFloatLayout
 from kivymd.uix.tab import MDTabsBase
+from kivy.uix.scrollview import ScrollView
+from kivy.properties import StringProperty
 from kivymd.icon_definitions import md_icons
 from kivy.uix.tabbedpanel import TabbedPanel
 from kivymd.uix.list import OneLineAvatarListItem
@@ -57,40 +59,14 @@ class UnitSelection(GridLayout):
             return 'feet'
 
 
-class LeftPanelDropdown(FloatLayout):
-    def dropdown(self):
-        self.menu_list = [
-            {
-                'viewclass': 'OneLineListItem',
-                'text': 'Example 1',
-                'on_release': lambda x = 'Example 1': self.test1()
-            },
-            {
-                'viewclass': 'OneLineListItem',
-                'text': 'Example 2',
-                'on_release': lambda x = 'Example 2': self.test2()
-            }
-        ]
-        self.menu = MDDropdownMenu(
-            caller = self.ids.menu,
-            items = self.menu_list,
-            width_mult = 3
-        )
-        self.menu.open()
-
-    def test1(self):
-        print('Function test1 activated.')
-
-    def test2(self):
-        print('Function test2 activated.')
-
-    # Builder.load_file('left_dropdown.kv')
-
 class SelectableRecycleBoxLayout(FocusBehavior, LayoutSelectionBehavior,
                                  RecycleBoxLayout):
     ''' Adds selection and focus behaviour to the view. '''
     # allow deleselection ***How can I make this clear plant_attr text?
     touch_deselect_last = BooleanProperty(True)
+
+class ScrollableLabel(ScrollView):
+    text = StringProperty('')
 
 class SelectableLabel(RecycleDataViewBehavior, Label):
     ''' Add selection support to the Label '''
