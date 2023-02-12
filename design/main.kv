@@ -1,269 +1,181 @@
 #:kivy 2.1.0
-#:import FadeTransition kivy.uix.screenmanager.FadeTransition
 
+<SelectableLabel>:
+  	# Draw a background to indicate selection
+	canvas.before:
+		Color:
+			rgba: (.0, 0.9, .1, .3) if self.selected else (0, 0, 0, 1)
+		Rectangle:
+			pos: self.pos
+			size: self.size
+<RV>:
+	viewclass: 'SelectableLabel'
+	SelectableRecycleBoxLayout:
+		default_size: None, dp(56)
+		default_size_hint: 1, None
+		size_hint_y: None
+		height: self.minimum_height
+		orientation: 'vertical'
+		multiselect: False
+		touch_multiselect: False
 
-MyScreenManager:
-    transition: FadeTransition()
-    DesignScreen:
-		id: design
-    PlantsScreen:
-		id: plants
+<SearchTextField>:
+	font_size: '32dp'
+	hint_text: 'Plant Search'
+	hint_text_size: '36dp'
+	mode: 'round'
+	icon_left: 'magnify'
+	background_color: app.theme_cls.bg_normal
 
-<DesignScreen>:
-	id: design
-	BoxLayout:
-		LeftPanel:
-			id: left_panel
-			do_default_tab: False
-			tab_pos: 'top_mid'
-			tab_height: 50
-			size_hint: (0.25, 1)
-			TabbedPanelItem:
-	            text: 'Current Plant'
-				BoxLayout:
-					orientation: 'vertical'
-					padding: '42dp'
-					spacing: '30dp'
-					canvas:
-						Color:
-							rgba: (199/255, 177/255, 152/255, 1) # Helps see where the panel is
-						Rectangle:
-							pos: self.pos
-							size: self.size
+<NameLabel>:
+	text: 'Plant Name'
+	font_size: '48dp'
+	pos_hint: {"center_x": .5, "center_y": .5}
+	size_hint: (.8, .2)
 
-					MDTextField:
-						id: search_field
-						font_size: '32dp'
-						hint_text: 'Plant Search'
-						hint_text_size: '36dp'
-						mode: 'round'
-						icon_left: 'magnify'
-						background_color: app.theme_cls.bg_normal
-
-					TreeButton:
-						id: tree_button
-						background_normal: ''
-						background_color: 0, 0, 0, 0
-						pos_hint: {"center_x": .5, "center_y": .5}
-						size_hint: None, 2
-						size: self.height, self.height
-						canvas.after:
-							Color:
-								rgba: 66/255, 139/255, 70/255, 1
-							Ellipse: # Outer circle
-								pos: self.center_x - self.height/2, self.center_y - self.height/2
-								size: min(self.width, self.height), min(self.width, self.height)
-							Color:
-								rgba: 60/255, 42/255, 33/255, 1
-							Ellipse: # Trunk (center circle)
-								pos: self.center_x - self.height/20, self.center_y - self.height/20
-								size: self.height/10, self.height/10
-
-
-					Label:
-						id: plant_name
-						text: 'Plant Name'
-						font_size: '48dp'
-						pos_hint: {"center_x": .5, "center_y": .5}
-						size_hint: (.8, .2)
-					LeftPanelDropdown:
-						# icon: 'arrow-down-drop-circle-outline'
-						# text: "More Info"
-						# font_size: '36dp'
-						# pos_hint: {"center_x": .5, "center_y": .5}
-						# theme_text_color: "Secondary" # Secondary, Hint, Error, Custom, ContrastParentBackground
-						# text_color: "green"
-						# line_color: "black"
-						# theme_icon_color: "Primary" # Same options as theme_text_color
-						# icon_color: "black"
-						# size_hint: (.8, .2)
-
-					Label:
-						id: plant_subtitle
-						text: 'A bunch of useful information about the plant. Lets see how text is broken down into lines.'
-						font_size: '24dp'
-						text_size: (self.width * 0.85, None) # fills 85% of panel width, no vertical limit
-						line_height: 1.5 # 1.5 line spacing
-
-					OneLineAvatarListItem:
-						text: 'First single-line item'
-
-						ImageLeftWidget:
-							source: 'images/arbustif-arrondi-natural_tree.png'
-
-					OneLineAvatarListItem:
-						text: 'Second single-line item'
-
-						ImageLeftWidget:
-							source: 'images/arbustif-arrondi-natural_tree.png'
-
-			TabbedPanelItem:
-				text: 'Database'
-				BoxLayout:
-					orientation: 'vertical'
-					Label:
-						text: 'Plant Database'
-			TabbedPanelItem:
-				text: 'My Designs'
-
-
-		DesignPanel:
-			id: design_panel
-			size_hint: (.75,1)
+<Main>:
+	LeftPanel:
+		id: left_panel
+		do_default_tab: False
+		tab_pos: 'top_mid'
+		tab_height: 50
+		size_hint: (0.25, 1)
+		TabbedPanelItem:
+			text: 'Current Plant'
 			BoxLayout:
 				orientation: 'vertical'
-				spacing: '24dp'
-				padding: '24dp'
-				size_hint: .2, None
-				pos_hint: {"center_x": .5, "center_y": .5}
-				MDTextField:
-					id: plot_length
-					input_filter: 'int'
-					font_size: '32dp'
-					hint_text: 'Length'
-					hint_text_size: '36dp'
-					mode: 'round'
-					input_type: 'number'
-				MDTextField:
-					id: plot_width
-					input_filter: 'int'
-					font_size: '32dp'
-					hint_text: 'Width'
-					hint_text_size: '36dp'
-					mode: 'round'
-					background_color: app.theme_cls.bg_normal
-				UnitSelection:
-					id: unit_selection
-					size_hint: None, None
+				padding: '42dp'
+				spacing: '30dp'
+				canvas:
+					Color:
+						rgba: (199/255, 177/255, 152/255, 1) # Helps see where the panel is
+					Rectangle:
+						pos: self.pos
+						size: self.size
+
+				SearchTextField:
+					id: search_field
+					hint_text: 'Search for a plant'
+					font_size: dp(48)
+					size_hint_y: None
+					height: dp(80)
+					multiline: False
+					on_text_validate: root.search(self)
+
+				RV:
+					id: rv
+
 				Label:
-					id: total_area
-					font_size: '32dp'
-					hint_text: 0
-					size_hint: None, None
-					color: 0, 0, 0, 1
-					text: str(round(int(plot_length.text) * int(plot_width.text) / (10000 if unit_selection.units=='meters' else 43560), 2)) if plot_length.text and plot_width.text else '0'
-			Button:
-				text: 'Go to plants screen'
-				size_hint: .3, None
-				pos_hint: {"center_x": .5, "center_y": .4}
-				font_size: 30
-				on_press: root.manager.current = 'plants'
+					id: plant_attrs
+					text: ''
+
+				TreeButton:
+					id: tree_button
+					background_normal: ''
+					background_color: 0, 0, 0, 0
+					pos_hint: {"center_x": .5, "center_y": .5}
+					size_hint: None, 2
+					size: self.height, self.height
+					canvas.after:
+						Color:
+							rgba: 66/255, 139/255, 70/255, 1
+						Ellipse: # Outer circle
+							pos: self.center_x - self.height/2, self.center_y - self.height/2
+							size: min(self.width, self.height), min(self.width, self.height)
+						Color:
+							rgba: 60/255, 42/255, 33/255, 1
+						Ellipse: # Trunk (center circle)
+							pos: self.center_x - self.height/20, self.center_y - self.height/20
+							size: self.height/10, self.height/10
+
+				LeftPanelDropdown:
+					# icon: 'arrow-down-drop-circle-outline'
+					# text: "More Info"
+					# font_size: '36dp'
+					# pos_hint: {"center_x": .5, "center_y": .5}
+					# theme_text_color: "Secondary" # Secondary, Hint, Error, Custom, ContrastParentBackground
+					# text_color: "green"
+					# line_color: "black"
+					# theme_icon_color: "Primary" # Same options as theme_text_color
+					# icon_color: "black"
+					# size_hint: (.8, .2)
+
+				Label:
+					id: plant_subtitle
+					text: 'A bunch of useful information about the plant. Lets see how text is broken down into lines.'
+					font_size: '24dp'
+					text_size: (self.width * 0.85, None) # fills 85% of panel width, no vertical limit
+					line_height: 1.5 # 1.5 line spacing
+
+				OneLineAvatarListItem:
+					text: 'First single-line item'
+
+					ImageLeftWidget:
+						source: 'images/arbustif-arrondi-natural_tree.png'
+
+				OneLineAvatarListItem:
+					text: 'Second single-line item'
+
+					ImageLeftWidget:
+						source: 'images/arbustif-arrondi-natural_tree.png'
+
+		TabbedPanelItem:
+			text: 'Database'
+			BoxLayout:
+				orientation: 'vertical'
+				Label:
+					text: 'Plant Database'
+		TabbedPanelItem:
+			text: 'My Designs'
 
 
-			# MDFloatingActionButtonSpeedDial:
-			#     id: plus_button
-			#     data: {'My Trees': 'tree', 'pine-tree': 'pine-tree', 'palm-tree': 'palm-tree'}
-			#     root_button_anim: True
-			#     anchor: 'right' # default
-			#     icon: 'plus' # default icon
-			#     hint_animation: True
-			#     right_pad: True
-			#     right_pad_value: '20dp'
-			#     bg_hint_color: app.theme_cls.primary_dark
-
-<PlantsScreen>:
-	id: plants
-	BoxLayout:
-		orientation: 'horizontal'
-		background_color: (223/255, 211/255, 195/255, 1)
-		padding: '10dp'
-		spacing: '10dp'
-		LeftPanel:
-			id: left_panel
-			size_hint: (0.25, 1)
-			padding: '42dp'
-			spacing: '30dp'
-			canvas:
-				Color:
-					rgba: (199/255, 177/255, 152/255, 1) # Helps see where the panel is
-				Rectangle:
-					pos: self.pos
-					size: self.size
-
+	DesignPanel:
+		id: design_panel
+		size_hint: (.75,1)
+		BoxLayout:
+			orientation: 'vertical'
+			spacing: '24dp'
+			padding: '24dp'
+			size_hint: .2, None
+			pos_hint: {"center_x": .5, "center_y": .5}
 			MDTextField:
-				id: search_field
+				id: plot_length
+				input_filter: 'int'
 				font_size: '32dp'
-				hint_text: 'Plant Search'
+				hint_text: 'Length'
 				hint_text_size: '36dp'
 				mode: 'round'
-				icon_left: 'magnify'
+				input_type: 'number'
+			MDTextField:
+				id: plot_width
+				input_filter: 'int'
+				font_size: '32dp'
+				hint_text: 'Width'
+				hint_text_size: '36dp'
+				mode: 'round'
 				background_color: app.theme_cls.bg_normal
-
-			TreeButton:
-				id: tree_button
-				background_normal: ''
-				background_color: 0, 0, 0, 0
-				pos_hint: {"center_x": .5, "center_y": .5}
-				size_hint: None, 2
-				size: self.height, self.height
-				canvas.after:
-					Color:
-						rgba: 66/255, 139/255, 70/255, 1
-					Ellipse: # Outer circle
-						pos: self.center_x - self.height/2, self.center_y - self.height/2
-						size: min(self.width, self.height), min(self.width, self.height)
-					Color:
-						rgba: 60/255, 42/255, 33/255, 1
-					Ellipse: # Trunk (center circle)
-						pos: self.center_x - self.height/20, self.center_y - self.height/20
-						size: self.height/10, self.height/10
-
-
+			UnitSelection:
+				id: unit_selection
+				size_hint: None, None
 			Label:
-				id: plant_name
-				text: 'Plant Name'
-				font_size: '48dp'
-				pos_hint: {"center_x": .5, "center_y": .5}
-				size_hint: (.8, .2)
-			LeftPanelDropdown:
-				# icon: 'arrow-down-drop-circle-outline'
-				# text: "More Info"
-				# font_size: '36dp'
-				# pos_hint: {"center_x": .5, "center_y": .5}
-				# theme_text_color: "Secondary" # Secondary, Hint, Error, Custom, ContrastParentBackground
-				# text_color: "green"
-				# line_color: "black"
-				# theme_icon_color: "Primary" # Same options as theme_text_color
-				# icon_color: "black"
-				# size_hint: (.8, .2)
+				id: total_area
+				font_size: '32dp'
+				hint_text: 0
+				size_hint: None, None
+				color: 0, 0, 0, 1
+				text: str(round(int(plot_length.text) * int(plot_width.text) / (10000 if unit_selection.units=='meters' else 43560), 2)) if plot_length.text and plot_width.text else '0'
 
-			Label:
-				id: plant_subtitle
-				text: 'A bunch of useful information about the plant. Lets see how text is broken down into lines.'
-				font_size: '24dp'
-				text_size: (self.width * 0.85, None) # fills 85% of panel width, no vertical limit
-				line_height: 1.5 # 1.5 line spacing
 
-			OneLineAvatarListItem:
-				text: 'First single-line item'
-
-				ImageLeftWidget:
-					source: 'images/arbustif-arrondi-natural_tree.png'
-
-			OneLineAvatarListItem:
-				text: 'Second single-line item'
-
-				ImageLeftWidget:
-					source: 'images/arbustif-arrondi-natural_tree.png'
-
-		DesignPanel:
-			id: plants_db
-			size_hint: (.75,1)
-			BoxLayout:
-				orientation: 'vertical'
-				spacing: '24dp'
-				padding: '24dp'
-				size_hint: .2, None
-				pos_hint: {"center_x": .5, "center_y": .5}
-				Label:
-					text: 'Plants DB goes here'
-				Button:
-					text: 'Go to design screen'
-					size_hint: 1.5, None
-					pos_hint: {"center_x": .5, "center_y": .4}
-					font_size: 30
-					on_press: root.manager.current = 'design'
-
+		# MDFloatingActionButtonSpeedDial:
+		#     id: plus_button
+		#     data: {'My Trees': 'tree', 'pine-tree': 'pine-tree', 'palm-tree': 'palm-tree'}
+		#     root_button_anim: True
+		#     anchor: 'right' # default
+		#     icon: 'plus' # default icon
+		#     hint_animation: True
+		#     right_pad: True
+		#     right_pad_value: '20dp'
+		#     bg_hint_color: app.theme_cls.primary_dark
 
 <Check@MDCheckbox>:
 	group: 'group'
