@@ -42,7 +42,9 @@
 		tab_height: 50
 		size_hint: (0.25, 1)
 		TabbedPanelItem:
-			text: 'Current Plant'
+			text: 'Filters'
+		TabbedPanelItem:
+			text: 'Design View'
 			BoxLayout:
 				orientation: 'vertical'
 				padding: '42dp'
@@ -62,28 +64,15 @@
 					height: dp(80)
 					multiline: False
 					on_text_validate: root.search(self)
-
-				RV:
-					id: rv
-
-				ScrollableLabel:
-					Label:
-						id: plant_attrs
-						text: ''
-						font_size: '20dp'
-						text_size: self.width, None
-						size_hint_y: None
-						height: '350dp'
-
-
 				TreeButton:
 					id: tree_button
 					background_normal: ''
 					background_color: 0, 0, 0, 0
 					pos_hint: {"center_x": .5, "center_y": .5}
+					text: 'Drag and drop on canvas'
 					size_hint: None, 2
 					size: self.height, self.height
-					canvas.after:
+					canvas.before:
 						Color:
 							rgba: 66/255, 139/255, 70/255, 1
 						Ellipse: # Outer circle
@@ -94,27 +83,36 @@
 						Ellipse: # Trunk (center circle)
 							pos: self.center_x - self.height/20, self.center_y - self.height/20
 							size: self.height/10, self.height/10
-
-
+				RV:
+					id: rv
+				ScrollableLabel:
+					Label:
+						id: plant_attrs
+						text: ''
+						font_size: '20dp'
+						text_size: self.width, None
+						size_hint_y: None
+						height: '350dp'
 		TabbedPanelItem:
-			text: 'Database'
-			BoxLayout:
-				orientation: 'vertical'
-				Label:
-					text: 'Plant Database'
+			text: 'Design Sheets'
 		TabbedPanelItem:
 			text: 'My Designs'
+		TabbedPanelItem:
+			text: 'Settings'
 
 
-	DesignPanel:
+	DesignPanel: # Here I have the initialize design panel, need to create the grid upon 'submit'
 		id: design_panel
 		size_hint: (.75,1)
 		BoxLayout:
 			orientation: 'vertical'
 			spacing: '24dp'
 			padding: '24dp'
-			size_hint: .2, None
+			size_hint: .3, None
 			pos_hint: {"center_x": .5, "center_y": .5}
+			MDLabel:
+				text: 'Initialize Design'
+				font_size: '36dp'
 			MDTextField:
 				id: plot_length
 				input_filter: 'int'
@@ -131,16 +129,20 @@
 				hint_text_size: '36dp'
 				mode: 'round'
 				background_color: app.theme_cls.bg_normal
-			UnitSelection:
-				id: unit_selection
-				size_hint: None, None
 			Label:
 				id: total_area
 				font_size: '32dp'
 				hint_text: 0
 				size_hint: None, None
-				color: 0, 0, 0, 1
-				text: str(round(int(plot_length.text) * int(plot_width.text) / (10000 if unit_selection.units=='meters' else 43560), 2)) if plot_length.text and plot_width.text else '0'
+				color: 0, 0, 0, 1    # Sorry for the long line below
+				text: str(round(int(plot_length.text) * int(plot_width.text) / (10000 if unit_selection.units=='meters' else 43560), 2)) if plot_length.text and plot_width.text else '0'  + ' ' + unit_selection.units + '\u00b2'
+			MDFillRoundFlatButton:
+				id: upload_background
+				text: 'Add aerial background photo'
+				font_size: '24dp'
+			UnitSelection:
+				id: unit_selection
+				size_hint: None, None
 
 <Check@MDCheckbox>:
 	group: 'group'
@@ -178,12 +180,6 @@
 		font_size: '18dp'
 		color: 0, 0, 0, 1
 
-#### BIND BUTTON TO total_area LABEL in DesignPanel
-	# MDFillRoundFlatButton:
-	# 	id: calculate_button
-	# 	text: 'Calculate Area'
-	# 	font_size: '24dp'
-	# 	on_release: total_area.show_text()
 
 	MDFillRoundFlatButton:
 		id: submit_button

@@ -103,9 +103,9 @@ class RV(RecycleView):
     def get_selected(self):
         app = MDApp.get_running_app()
         if len(self.layout_manager.selected_nodes) > 0:
-            all_attrs = str(app.root.results[self.data[self.layout_manager.selected_nodes[-1]]['text']])
+            all_attrs = app.root.results[self.data[self.layout_manager.selected_nodes[-1]]['text']]
             attrs_label = app.root.ids['plant_attrs']
-            attrs_label.text = all_attrs
+            attrs_label.text = f"Height: {str(all_attrs['Height'])} \nHabitat: {str(all_attrs['Habitat'])}"
         else:
             return ''
 
