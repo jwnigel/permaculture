@@ -44,4 +44,6 @@ Some UI sketches for a permaculture designer interface are being drafted... get 
 
 ![designer UI prototype](https://share.balsamiq.com/c/c1Ls46qHLyN9ht8nzRtp2G.png)
 
+![mobile prototype](https://share.balsamiq.com/c/1CWMYz1ebUzjxiPsSWPqaM.png)
+
 Programmers, Graphic artists, translators and permaculture designers : You are welcome to get in touch if you want to join the fun by answering [any issue you can help with! ](https://github.com/jwnigel/permaculture/issues/)... or create a new one to [say hello!](https://github.com/jwnigel/permaculture/issues/new/choose).
