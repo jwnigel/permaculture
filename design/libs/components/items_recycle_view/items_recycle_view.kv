@@ -1,0 +1,12 @@
+#:import SelectableLabel libs.components.selectable_label
+
+<RV>:
+	viewclass: 'SelectableLabel'
+	SelectableRecycleBoxLayout:
+		default_size: None, dp(56)
+		default_size_hint: 1, None
+		size_hint_y: None
+		height: self.minimum_height
+		orientation: 'vertical'
+		multiselect: False
+		touch_multiselect: False

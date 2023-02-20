@@ -1,0 +1,48 @@
+#:import TabbedPanelItem libs.components.tabbed_panel_item
+#:import RV libs.components.items_recycle_view.RV
+
+<SecondLeftScreen@TabbedPanelItem>:
+    id: design_view_tab
+    text: 'Design View'
+    BoxLayout:
+        orientation: 'vertical'
+        padding: '42dp'
+        spacing: '30dp'
+
+        SearchTextField:
+            id: search_field
+            hint_text: 'Search for a plant'
+            font_size: dp(48)
+            size_hint_y: None
+            height: dp(80)
+            multiline: False
+            on_text_validate: app.search(self)
+        TreeButton:
+            id: tree_button
+            background_normal: ''
+            background_color: 0, 0, 0, 0
+            pos_hint: {"center_x": .5, "center_y": .5}
+            text: 'Drag and drop on canvas'
+            size_hint: None, 2
+            size: self.height, self.height
+            canvas.before:
+                Color:
+                    rgba: 66/255, 139/255, 70/255, 1
+                Ellipse: # Outer circle
+                    pos: self.center_x - self.height/2, self.center_y - self.height/2
+                    size: min(self.width, self.height), min(self.width, self.height)
+                Color:
+                    rgba: 60/255, 42/255, 33/255, 1
+                Ellipse: # Trunk (center circle)
+                    pos: self.center_x - self.height/20, self.center_y - self.height/20
+                    size: self.height/10, self.height/10
+        RV:
+            id: rv
+        ScrollableLabel:
+            Label:
+                id: plant_attrs
+                text: ''
+                font_size: '20dp'
+                text_size: self.width, None
+                size_hint_y: None
+                height: '350dp'

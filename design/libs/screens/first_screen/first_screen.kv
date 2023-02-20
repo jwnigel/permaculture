@@ -1,0 +1,44 @@
+#:import UnitSelection libs.components.unit_selection
+
+<FirstScreen>:
+	id: design_panel
+	size_hint: (.7,1)
+	BoxLayout:
+		orientation: 'vertical'
+		spacing: '24dp'
+		padding: '24dp'
+		size_hint: .3, None
+		pos_hint: {"center_x": .5, "center_y": .5}
+		MDLabel:
+			text: 'Initialize Design'
+			font_size: '36dp'
+		MDTextField:
+			id: plot_length
+			input_filter: 'int'
+			font_size: '32dp'
+			hint_text: 'Length'
+			hint_text_size: '36dp'
+			mode: 'round'
+			input_type: 'number'
+		MDTextField:
+			id: plot_width
+			input_filter: 'int'
+			font_size: '32dp'
+			hint_text: 'Width'
+			hint_text_size: '36dp'
+			mode: 'round'
+			background_color: app.theme_cls.bg_normal
+		Label:
+			id: total_area
+			font_size: '32dp'
+			hint_text: 0
+			size_hint: None, None
+			color: 0, 0, 0, 1    # Sorry for the long line below
+			text: str(round(int(plot_length.text) * int(plot_width.text) / (10000 if unit_selection.units=='meters' else 43560), 2)) if plot_length.text and plot_width.text else '0'  + ' ' + unit_selection.units + '\u00b2'
+		MDFillRoundFlatButton:
+			id: upload_background
+			text: 'Add aerial background photo'
+			font_size: '24dp'
+		UnitSelection:
+			id: unit_selection
+			size_hint: None, None

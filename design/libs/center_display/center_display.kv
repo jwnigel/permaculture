@@ -1,0 +1,11 @@
+#:import FirstScreen libs.screens.first_screen
+
+<CenterDisplay@ScreenManager>: # Here I have the initialize design panel, need to create the grid upon 'submit'
+# I want to bind this display to the tabs in the LeftPanel, depending on which tab is selected
+	FirstScreen:
+		id: first_screen
+		name: "first_screen"
+
+	SecondScreen:
+		id: second_screen
+		name: "second_screen"

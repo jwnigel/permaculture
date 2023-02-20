@@ -1,0 +1,26 @@
+<UnitSelection>:
+	cols: 2
+	size_hint: .6, None
+	units: self.units_selected(self, metric_check.active)
+	MetricCheck:
+		id: metric_check
+		active: True
+		group: 'units'
+		pos_hint: {'center_x': .5, 'center_y': .5}
+		on_active: root.units_selected(self, self.active)
+	Label:
+		text: 'Meters / Hectares'
+		font_size: '18dp'
+		color: 0, 0, 0, 1
+	Check: # Feet / Acres checkbox but only MetricCheck needs to be connected
+		group: 'units'
+		pos_hint: {'center_x': .5, 'center_y': .5}
+	Label:
+		text: 'Feet / Acres'
+		font_size: '18dp'
+		color: 0, 0, 0, 1
+	MDFillRoundFlatButton:
+		id: submit_button
+		text: 'Submit'
+		font_size: '24dp'
+		on_release: print(root.units_selected(root, metric_check.active))

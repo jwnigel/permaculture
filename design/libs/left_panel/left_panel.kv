@@ -1,0 +1,33 @@
+#:import TabbedPanelItem libs.components.tabbed_panel_item
+# #:import FirstLeftScreen libs.left_screens.first_left_screen
+# #:import SecondLeftScreen libs.left_screens.second_left_screen
+
+<LeftPanel>:
+	id: left_panel
+	do_default_tab: False
+	tab_pos: 'top_mid'
+	tab_height: 50
+	size_hint: (0.3, 1)
+	canvas.before:
+		Color:
+			rgba: (199/255, 177/255, 152/255, 1) # Helps see where the panel is
+		Rectangle:
+			pos: self.pos
+			size: self.size
+
+	FirstLeftScreen:
+		id: first_screen
+
+	SecondLeftScreen:
+		id: second_screen
+
+	TabbedPanelItem:
+		text: 'Design Sheets'
+		on_press: app.root.ids.main_display.current = "second_screen"
+	TabbedPanelItem:
+		text: 'My Designs'
+	TabbedPanelItem:
+		text: 'Settings'
+		Button:
+			text: 'Print Children'
+			on_release: root.print_ids()

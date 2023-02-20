@@ -1,0 +1,116 @@
+#:import TabbedPanelItem libs.components.tabbed_panel_item
+#:import MyChip libs.components.my_chip
+
+<FirstLeftScreen@TabbedPanelItem>:
+    id: filters_tab
+    text: 'Filters'
+
+    MDBoxLayout:
+        orientation: 'vertical'
+        padding: '42dp'
+        spacing: '30dp'
+        md_bg_color: (199/255, 177/255, 152/255, 1)
+
+        MDBoxLayout:
+            id: hardiness_zones_container
+            orientation: 'vertical'
+            spacing: '20dp'
+            Label:
+                text: 'Hardiness Zone'
+                font_size: '28dp'
+
+            MDBoxLayout:
+                MDSlider:
+                    id: hardiness_zone_slider
+                    min: 2
+                    max: 13
+                    step: 1
+                    hint: False
+                Label:
+                    size_hint: (.2, 1)
+                    text: str(hardiness_zone_slider.value)
+                    font_size: '24dp'
+
+        MDBoxLayout:
+            id: form_box
+            orientation: 'vertical'
+            Label:
+                text: 'Plant Form'
+                font_size: '28dp'
+
+            MDBoxLayout:
+                id: form_chips
+                orientation: 'horizontal'
+                padding: '10dp'
+                spacing: '5dp'
+                MyChip:
+                    id: herb_chip
+                    text: "Herb"
+                MyChip:
+                    id: shrub_chip
+                    text: "Shrub"
+                MyChip:
+                    id: tree_chip
+                    text: "Tree"
+                MyChip:
+                    id: bamboo_chip
+                    text: 'Other'
+
+        MDBoxLayout:
+            id: pollinator_box
+            orientation: 'vertical'
+            Label:
+                text: 'Pollinators'
+                font_size: '28dp'
+            MDBoxLayout:
+                id: pollinator_chips
+                orientation: 'vertical'
+                spacing: '5dp'
+                MDBoxLayout:
+                    orientation: 'horizontal'
+                    padding: '10dp'
+                    spacing: '5dp'
+                    MyChip:
+                        id: wind_chip
+                        text: 'Wind'
+                    MyChip:
+                        id: insects_chip
+                        text: 'Insects'
+                    MyChip:
+                        id: bees_chip
+                        text: 'Bees'
+                MDBoxLayout:
+                    orientation: 'horizontal'
+                    padding: '10dp'
+                    spacing: '5dp'
+                    MyChip:
+                        id: butterflies_chip
+                        text: 'Butterflies'
+                    MyChip:
+                        id: flies_chip
+                        text: 'Flies'
+                    MyChip:
+                        id: bats_chip
+                        text: 'Bats'
+        MDBoxLayout:
+            Label:
+                text: 'Flower Month: '
+                font_size: '24sp'
+            MDDropDownItem:
+                id: flower_month_dropitem
+                size_hint: None, None
+                pos_hint: {'center_x': .5, 'center_y': .5}
+                text: 'Any'
+                font_size: '20dp'
+                # on_release: something()
+            Label:
+                text: 'Nectary Value: '
+                font_size: '24sp'
+            MDDropDownItem:
+                id: flower_month_dropitem
+                background_color: 'white'
+                size_hint: None, None
+                pos_hint: {'center_x': .5, 'center_y': .5}
+                text: 'Any'
+                font_size: '20dp'
+                # on_release: something()

@@ -1,0 +1,9 @@
+<SelectableLabel>:
+	font_size: '28dp'
+  	# Draw a background to indicate selection
+	canvas.before:
+		Color:
+			rgba: (66/255, 139/255, 70/255, 1) if self.selected else (199/255, 177/255, 152/255, 1)
+		Rectangle:
+			pos: self.pos
+			size: self.size
