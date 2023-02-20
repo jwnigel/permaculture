@@ -1,5 +1,6 @@
 #:import TabbedPanelItem libs.components.tabbed_panel_item
 #:import MyChip libs.components.my_chip
+#:import MyCheckbox	libs.components.my_checkbox
 
 <FirstLeftScreen@TabbedPanelItem>:
     id: filters_tab
@@ -38,23 +39,32 @@
                 text: 'Plant Form'
                 font_size: '28dp'
 
-            MDBoxLayout:
-                id: form_chips
-                orientation: 'horizontal'
+            MDGridLayout:
+                id: form_checks
+				cols: 2
                 padding: '10dp'
                 spacing: '5dp'
-                MyChip:
-                    id: herb_chip
-                    text: "Herb"
-                MyChip:
-                    id: shrub_chip
-                    text: "Shrub"
-                MyChip:
-                    id: tree_chip
-                    text: "Tree"
-                MyChip:
-                    id: bamboo_chip
-                    text: 'Other'
+				Label:
+					text: 'Herb'
+                MyCheckbox:
+                    id: herb
+					on_active: app.process_checkbox(self,self.state,'herb', 'form')
+				Label:
+					text: 'Shrub'
+                MyCheckbox:
+                    id: shrub
+					on_active:app.process_checkbox(self,self.state,'shrub', 'form')
+				Label:
+					text: 'Tree'
+                MyCheckbox:
+                    id: tree
+					on_active:app.process_checkbox(self,self.state,'tree', 'form')
+				Label:
+					text: 'Bamboo'
+                MyCheckbox:
+                    id: bamboo
+					on_active:app.process_checkbox(self,self.state,'bamboo', 'form')
+
 
         MDBoxLayout:
             id: pollinator_box
@@ -62,36 +72,44 @@
             Label:
                 text: 'Pollinators'
                 font_size: '28dp'
-            MDBoxLayout:
-                id: pollinator_chips
-                orientation: 'vertical'
+
+            MDGridLayout:
+                id: form_checks
+				cols: 2
+                padding: '10dp'
                 spacing: '5dp'
-                MDBoxLayout:
-                    orientation: 'horizontal'
-                    padding: '10dp'
-                    spacing: '5dp'
-                    MyChip:
-                        id: wind_chip
-                        text: 'Wind'
-                    MyChip:
-                        id: insects_chip
-                        text: 'Insects'
-                    MyChip:
-                        id: bees_chip
-                        text: 'Bees'
-                MDBoxLayout:
-                    orientation: 'horizontal'
-                    padding: '10dp'
-                    spacing: '5dp'
-                    MyChip:
-                        id: butterflies_chip
-                        text: 'Butterflies'
-                    MyChip:
-                        id: flies_chip
-                        text: 'Flies'
-                    MyChip:
-                        id: bats_chip
-                        text: 'Bats'
+				Label:
+					text: 'Bees'
+                MyCheckbox:
+                    id: bees
+					on_active: app.process_checkbox(self,self.state,'bees', 'pollinators')
+				Label:
+					text: 'Flies'
+                MyCheckbox:
+                    id: flies
+					on_active:app.process_checkbox(self,self.state,'flies', 'pollinators')
+				Label:
+					text: 'Other Insects'
+                MyCheckbox:
+                    id: insects
+					on_active:app.process_checkbox(self,self.state,'insects', 'pollinators')
+				Label:
+					text: 'Lepidoptera'
+                MyCheckbox:
+                    id: lepidoptera
+					on_active:app.process_checkbox(self,self.state,'lepidoptera', 'pollinators')
+				Label:
+					text: 'Wind'
+                MyCheckbox:
+                    id: wind
+					on_active:app.process_checkbox(self,self.state,'wind', 'pollinators')
+				Label:
+					text: 'Bats'
+                MyCheckbox:
+                    id: bats
+					on_active:app.process_checkbox(self,self.state,'bats', 'pollinators')
+
+
         MDBoxLayout:
             Label:
                 text: 'Flower Month: '

@@ -7,7 +7,15 @@ class PlantData():
     def __init__(self):
         # Maybe make this a static element (outside the init) so that it can be edited??
         self.data = pd.read_csv('../scrapers/pfaf/all_plants.csv')
+        self.filters = {'pollinators': []}
         self.filtered_df = pd.DataFrame()
+
+    def get_filters(self):
+        pollinator_cbs = self.root.ids.left_panel.ids.filters_screen.ids.form_checks
+        for cb in pollinator_cbs:
+            if cb.active:
+                self.filters['pollinators'].append(cb.id)
+        print(self.filters)
 
     def search(self, value): # called from TextInput on_text_validate (Enter)
 
@@ -16,7 +24,7 @@ class PlantData():
         self.results_dict = {plant_series[1]['CommonName'].split(',')[0]: plant_series[1].drop(columns='CommonName')\
             for plant_series in self.results_df.iterrows()}
 
-        rv = self.root.ids.left_panel.ids.second_screen.ids.rv
+        rv = self.root.ids.left_panel.ids.second_screen.ids.rv # I think I can delete root?
         if len(self.results_dict) > 0:
             rv.data = [{'text': plant} for plant in self.results_dict.keys()]
         else:
