@@ -11,6 +11,10 @@ from kivy.uix.recycleboxlayout import RecycleBoxLayout
 from kivy.uix.behaviors import FocusBehavior
 from kivy.uix.recycleview.layout import LayoutSelectionBehavior
 from kivy.uix.anchorlayout import AnchorLayout
+from kivymd.uix.chip import MDChip
+from kivymd.uix.selectioncontrol import MDCheckbox
+from libs.components.my_checkbox import MyCheckbox
+from kivy.properties import StringProperty
 from kivy.metrics import dp
 from kivy.lang.builder import Builder
 
@@ -52,17 +56,28 @@ class SelectableRecycleBoxLayout(FocusBehavior, LayoutSelectionBehavior,
 class ScrollableLabel(ScrollView):
     text = StringProperty('')
 
-
 class MainApp(MDApp, PlantData):
+
     def __init__(self):
         super(MainApp, self).__init__()
         # Because App inherits from PlantData I can manage all database functionality there
+        self.checkbox_filters = {'form': [],
+                                 'pollinators': [],
+                                 }
 
     def build(self):
         self.theme_cls.theme_style = "Light"
         self.theme_cls.primary_palette = "Green"
         self.load_kvs()
         return Builder.load_file("main.kv")
+
+    def process_checkbox(self, widget, state, value, cat):
+        if state == 'down':
+            self.checkbox_filters[cat].append(value)
+        else:
+            self.checkbox_filters[cat].remove(value)
+        print(self.checkbox_filters)
+
 
     def load_kvs(self):
         # load components
