@@ -61,8 +61,10 @@ class MainApp(MDApp, PlantData):
     def __init__(self):
         super(MainApp, self).__init__()
         # Because App inherits from PlantData I can manage all database functionality there
-        self.checkbox_filters = {'form': [],
+        self.checkbox_filters = {'hardiness_zone': [],
+                                 'form': [],
                                  'pollinators': [],
+                                 'growth_rate': [],
                                  }
 
     def build(self):
@@ -102,9 +104,6 @@ class MainApp(MDApp, PlantData):
         for instance_chip in self.ids.chip_box.children:
             if instance_chip.active:
                 instance_chip.active = False
-
-
-
 
 
 if __name__ == '__main__':
