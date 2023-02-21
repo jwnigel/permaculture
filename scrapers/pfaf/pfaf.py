@@ -85,7 +85,7 @@ def get_plant_info(genus, species):
         pollinators_start = description.index("pollinated by") + len("pollinated by") + 1
         pollinators_end = description.index(".", pollinators_start)
         # Allow possibility of more than one pollinator
-        pollinators = description[pollinators_start:pollinators_end].strip().lower()
+        pollinators = description[pollinators_start:pollinators_end].strip().lower().split(',')
 
 
     # When the plant leafs out
