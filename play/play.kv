@@ -1,21 +1,17 @@
+#:import MDDropdownMenu kivymd.uix.menu
+#:import MDRaisedButton kivymd.uix.button
 
+<MDMenuItem>:
+    on_release: app.change_variable(self.text)
 
-BoxLayout:
-    DraggableBoxLayout:
-        drag_classes: ['label']
-        orientation: 'vertical'
-        Label:
-            text: 'A'
-        Label:
-            text: 'A'
-        Label:
-            text: 'A'
-    DraggableBoxLayout:
-        drag_classes: ['label']
-        orientation: 'vertical'
-        DragLabel:
-            text: 'A*'
-            drag_cls: 'label'
-        DragLabel:
-            text: 'A*'
-            drag_cls: 'label'
+Screen:
+    name: 'menu'
+    MDRaisedButton:
+        id: button
+        size_hint: None, None
+        size: 3 * dp(48), dp(48)
+        text: 'Menu labels'
+        opposite_colors: True
+        elevation_normal: 0
+        pos_hint: {'center_x': 0.1, 'center_y': 0.9}
+        on_release: MDDropdownMenu(items=app.menu_labels, width_mult=4).open()

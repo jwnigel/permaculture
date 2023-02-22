@@ -2,6 +2,33 @@
 #:import MyChip libs.components.my_chip
 #:import MyCheckbox	libs.components.my_checkbox
 
+ # Defining dropdown Menu
+<RightContentCls>
+    disabled: True
+    adaptive_size: True
+    pos_hint: {"center_y": .5}
+
+    MDIconButton:
+        icon: root.icon
+        user_font_size: "16sp"
+        md_bg_color_disabled: 0, 0, 0, 0
+
+    MDLabel:
+        text: root.text
+        font_style: "Caption"
+        adaptive_size: True
+        pos_hint: {"center_y": .5}
+
+<Item>
+    IconLeftWidget:
+        icon: root.left_icon
+
+    RightContentCls:
+        id: container
+        icon: root.right_icon
+        text: root.right_text
+
+# Start creating UI
 <FirstLeftScreen@TabbedPanelItem>:
     id: filters_tab
     text: 'Filters'
@@ -144,21 +171,21 @@
             Label:
                 text: 'Flower Month: '
                 font_size: '24sp'
-            MDDropDownItem:
+            MyDropDownItem:
                 id: flower_month_dropitem
                 size_hint: None, None
                 pos_hint: {'center_x': .5, 'center_y': .5}
                 text: 'Any'
                 font_size: '20dp'
-                # on_release: something()
+                on_release: app.menu.open()
             Label:
                 text: 'Nectary Value: '
                 font_size: '24sp'
-            MDDropDownItem:
+            MyDropDownItem:
                 id: flower_month_dropitem
                 background_color: 'white'
                 size_hint: None, None
                 pos_hint: {'center_x': .5, 'center_y': .5}
                 text: 'Any'
                 font_size: '20dp'
-                # on_release: something()
+                on_release: app.menu.open()

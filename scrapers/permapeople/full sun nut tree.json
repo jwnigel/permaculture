@@ -1,0 +1,1570 @@
+[
+  {
+    "id": 2587,
+    "name": "Marking Nut Tree Oriental Cashew",
+    "slug": "semecarpus-anacardium-marking-nut-tree-oriental-cashew",
+    "data": [
+      {
+        "key": "Wikipedia",
+        "value": "https://en.wikipedia.org/wiki/Semecarpus_anacardium"
+      },
+      {
+        "key": "Edible",
+        "value": "true"
+      },
+      {
+        "key": "Growth",
+        "value": "Medium"
+      },
+      {
+        "key": "Water requirement",
+        "value": "Dry, Moist"
+      },
+      {
+        "key": "Light requirement",
+        "value": "Full sun"
+      },
+      {
+        "key": "USDA Hardiness zone",
+        "value": "10-12"
+      },
+      {
+        "key": "Layer",
+        "value": "Tall trees"
+      },
+      {
+        "key": "Alternate name",
+        "value": "Balia, bela, bhalai, bhalay, bhalayo, bhallataki, bhela, bhelatuki, bhelwa, bhilamo, bhilamu, bhilava, bhilawa, bholaguti, bhollia, bhularva, bibba, bibbo, bibha, bilva, bilwa, che, chera, dieng-soh-bhala, erimugi, goddu geru, jidi, karigeru, kawh-tebel, mai-ka-aung, marany nut, marsh nut, nalla jeedi, pohon rengas tinta, shenkotta, shenkottei, thitsi-bo, varnish tree"
+      },
+      {
+        "key": "Soil type",
+        "value": "Light (sandy), Medium, Heavy (clay)"
+      },
+      {
+        "key": "Family",
+        "value": "Anacardiaceae"
+      },
+      {
+        "key": "Height",
+        "value": "25.0"
+      },
+      {
+        "key": "Edible parts",
+        "value": "Flowers, Fruit, Seed"
+      },
+      {
+        "key": "Plants For A Future",
+        "value": "https://pfaf.org/User/Plant.aspx?LatinName=Semecarpus anacardium"
+      },
+      {
+        "key": "Native to",
+        "value": "Assam, Bangladesh, East Himalaya, India, Myanmar, Nepal, West Himalaya"
+      },
+      {
+        "key": "Introduced into",
+        "value": "Trinidad-Tobago"
+      },
+      {
+        "key": "Plants of the World Online Link",
+        "value": "https://powo.science.kew.org/taxon/urn:lsid:ipni.org:names:71196-1"
+      }
+    ],
+    "description": "",
+    "created_at": "2020-11-13T18:54:15.640Z",
+    "updated_at": "2023-02-03T21:14:59.292Z",
+    "scientific_name": "Semecarpus anacardium",
+    "parent_id": null,
+    "version": 10,
+    "type": "Plant",
+    "link": "/plants/semecarpus-anacardium-marking-nut-tree-oriental-cashew"
+  },
+  {
+    "id": 1916,
+    "name": "Dika Nut",
+    "slug": "irvingia-gabonensis-dika-nut",
+    "data": [
+      {
+        "key": "Wikipedia",
+        "value": "https://en.wikipedia.org/wiki/Irvingia_gabonensis"
+      },
+      {
+        "key": "Edible",
+        "value": "true"
+      },
+      {
+        "key": "Growth",
+        "value": "Slow"
+      },
+      {
+        "key": "Water requirement",
+        "value": "Moist"
+      },
+      {
+        "key": "Light requirement",
+        "value": "Full sun, Partial sun/shade"
+      },
+      {
+        "key": "USDA Hardiness zone",
+        "value": "10-12"
+      },
+      {
+        "key": "Layer",
+        "value": "Tall trees"
+      },
+      {
+        "key": "Alternate name",
+        "value": "Abesebuo, andok, boborou, bush mango, dika, duika, ebi, eniok, esele, mango-bravo, mopae, n'corobaque, ntwa, ogbono, ogwe, oro, pekie, ugiri, uncorobaque, upupa, uyo, synonyms irvingia barteri hook f; mangifera gabonensis aubry-lecomte ex o'rorke; irvingia tenuifolia hookf; african wild mango, chocolatier, dika du gabon, dika nut tree, dikabread-tree, dikanut, dikanut-tree, dikanu\u00df, irvingia, manguier sauvage, odika, rainy season bush-mango, sweet bush-mango, \u00e1rbol chocolate"
+      },
+      {
+        "key": "Soil type",
+        "value": "Light (sandy), Medium, Heavy (clay)"
+      },
+      {
+        "key": "Family",
+        "value": "Irvingiaceae"
+      },
+      {
+        "key": "Height",
+        "value": "30.0"
+      },
+      {
+        "key": "Edible parts",
+        "value": "Fruit, Seed"
+      },
+      {
+        "key": "Edible uses",
+        "value": "Oil"
+      },
+      {
+        "key": "Plants For A Future",
+        "value": "https://pfaf.org/User/Plant.aspx?LatinName=Irvingia gabonensis"
+      },
+      {
+        "key": "Native to",
+        "value": "Angola, Benin, Cabinda, Cameroon, Central African Repu, Congo, Equatorial Guinea, Gabon, Gulf of Guinea Is., Nigeria, Uganda, Za\u00efre"
+      },
+      {
+        "key": "Plants of the World Online Link",
+        "value": "https://powo.science.kew.org/taxon/urn:lsid:ipni.org:names:813766-1"
+      }
+    ],
+    "description": "",
+    "created_at": "2020-11-13T18:52:53.480Z",
+    "updated_at": "2023-02-03T20:50:35.675Z",
+    "scientific_name": "Irvingia gabonensis",
+    "parent_id": null,
+    "version": 9,
+    "type": "Plant",
+    "link": "/plants/irvingia-gabonensis-dika-nut"
+  },
+  {
+    "id": 3417,
+    "name": "Manketti nut",
+    "slug": "ricinodendron-heudelotii-manketti-nut",
+    "data": [
+      {
+        "key": "Edible",
+        "value": "true"
+      },
+      {
+        "key": "Growth",
+        "value": "Fast"
+      },
+      {
+        "key": "Water requirement",
+        "value": "Moist"
+      },
+      {
+        "key": "Light requirement",
+        "value": "Full sun"
+      },
+      {
+        "key": "USDA Hardiness zone",
+        "value": "10-12"
+      },
+      {
+        "key": "Layer",
+        "value": "Tall trees"
+      },
+      {
+        "key": "Alternate name",
+        "value": "Zambezi almond, african oil-nut-tree, agele, bidjabarrana, eho, erinmado, essang nut, essessang, gobo, mkungonolo, mkungunolo, mtondoro, mtwatwa, musodo, n'tonte, ndjansang, ngoza, nkangaula, nyangsang, okhuen, okwe, putu, sanga sanga, songo, suli, tandoa, tonta, ungozo, wamma, african nut-tree, african oil-nut-tree, african wood-oil nut-tree, afrikanisches mahagoni, bois jasanga, erimado, essang, essessang, ezang, ground nut tree, menguela, muawa, munguella, musodo, okwe"
+      },
+      {
+        "key": "Soil type",
+        "value": "Light (sandy), Medium"
+      },
+      {
+        "key": "Family",
+        "value": "Euphorbiaceae"
+      },
+      {
+        "key": "Height",
+        "value": "40.0"
+      },
+      {
+        "key": "Edible parts",
+        "value": "Leaves, Seed"
+      },
+      {
+        "key": "Edible uses",
+        "value": "Oil"
+      },
+      {
+        "key": "Plants For A Future",
+        "value": "https://pfaf.org/User/Plant.aspx?LatinName=Ricinodendron heudelotii"
+      },
+      {
+        "key": "Native to",
+        "value": "Angola, Benin, Cabinda, Cameroon, Central African Repu, Congo, Equatorial Guinea, Gabon, Ghana, Guinea, Guinea-Bissau, Gulf of Guinea Is., Ivory Coast, Kenya, Liberia, Mozambique, Nigeria, Senegal, Sierra Leone, Sudan, Tanzania, Uganda, Za\u00efre"
+      },
+      {
+        "key": "Plants of the World Online Link",
+        "value": "https://powo.science.kew.org/taxon/urn:lsid:ipni.org:names:1016790-1"
+      }
+    ],
+    "description": "",
+    "created_at": "2020-11-13T18:56:14.096Z",
+    "updated_at": "2023-02-03T21:44:01.186Z",
+    "scientific_name": "Ricinodendron heudelotii",
+    "parent_id": null,
+    "version": 6,
+    "type": "Plant",
+    "link": "/plants/ricinodendron-heudelotii-manketti-nut"
+  },
+  {
+    "id": 5501,
+    "name": "Java Almond",
+    "slug": "canarium-vulgare-java-almond",
+    "data": [
+      {
+        "key": "Edible",
+        "value": "true"
+      },
+      {
+        "key": "Growth",
+        "value": "Fast"
+      },
+      {
+        "key": "Water requirement",
+        "value": "Moist"
+      },
+      {
+        "key": "Light requirement",
+        "value": "Full sun"
+      },
+      {
+        "key": "USDA Hardiness zone",
+        "value": "10-12"
+      },
+      {
+        "key": "Layer",
+        "value": "Tall trees"
+      },
+      {
+        "key": "Alternate name",
+        "value": "Kenari nut, canarium vulgare other names: chinese-olive, kenari nut-tree, gisau"
+      },
+      {
+        "key": "Soil type",
+        "value": "Light (sandy), Medium, Heavy (clay)"
+      },
+      {
+        "key": "Family",
+        "value": "Burseraceae"
+      },
+      {
+        "key": "Height",
+        "value": "45.0"
+      },
+      {
+        "key": "Edible parts",
+        "value": "Seed"
+      },
+      {
+        "key": "Edible uses",
+        "value": "Oil"
+      },
+      {
+        "key": "Plants For A Future",
+        "value": "https://pfaf.org/User/Plant.aspx?LatinName=Canarium vulgare"
+      },
+      {
+        "key": "Native to",
+        "value": "Jawa, Lesser Sunda Is., Maluku, New Guinea, Solomon Is., Sulawesi"
+      },
+      {
+        "key": "Introduced into",
+        "value": "Caroline Is."
+      },
+      {
+        "key": "Plants of the World Online Link",
+        "value": "https://powo.science.kew.org/taxon/urn:lsid:ipni.org:names:127560-1"
+      }
+    ],
+    "description": "",
+    "created_at": "2020-11-13T19:04:12.530Z",
+    "updated_at": "2023-02-05T10:58:58.498Z",
+    "scientific_name": "Canarium vulgare",
+    "parent_id": null,
+    "version": 6,
+    "type": "Plant",
+    "link": "/plants/canarium-vulgare-java-almond"
+  },
+  {
+    "id": 1652,
+    "name": "Almondette",
+    "slug": "buchanania-lanzan-almondette",
+    "data": [
+      {
+        "key": "Wikipedia",
+        "value": "https://en.wikipedia.org/wiki/Buchanania_lanzan"
+      },
+      {
+        "key": "Edible",
+        "value": "true"
+      },
+      {
+        "key": "Growth",
+        "value": "Medium"
+      },
+      {
+        "key": "Water requirement",
+        "value": "Dry, Moist"
+      },
+      {
+        "key": "Light requirement",
+        "value": "Full sun"
+      },
+      {
+        "key": "USDA Hardiness zone",
+        "value": "10-12"
+      },
+      {
+        "key": "Layer",
+        "value": "Trees"
+      },
+      {
+        "key": "Alternate name",
+        "value": "Charoli nut, buchanania lanzan, charoli nut or almondetteseeds are known as charoli or chironji achar, calumpang nut tree, chara, charee, charkoli, charoli, cheronjee, chirauli-nut, chirauli, chironji, chivoli, cuddapah almond, erpe, hak phuu, kalompang, lambo, lone-hpo, ma ca, mamuang maeng wan, men van, morala, munga pera, nurkal, pival, piyar, pyar, rak muu, tapasya-priya"
+      },
+      {
+        "key": "Soil type",
+        "value": "Light (sandy), Medium, Heavy (clay)"
+      },
+      {
+        "key": "Family",
+        "value": "Anacardiaceae"
+      },
+      {
+        "key": "Height",
+        "value": "12.0"
+      },
+      {
+        "key": "Edible parts",
+        "value": "Fruit, Seed"
+      },
+      {
+        "key": "Edible uses",
+        "value": "Oil"
+      },
+      {
+        "key": "Plants For A Future",
+        "value": "https://pfaf.org/User/Plant.aspx?LatinName=Buchanania lanzan"
+      },
+      {
+        "key": "Native to",
+        "value": "Bangladesh, Cambodia, China South-Central, Hainan, India, Laos, Myanmar, Nepal, Thailand, Vietnam, West Himalaya"
+      },
+      {
+        "key": "Plants of the World Online Link",
+        "value": "https://powo.science.kew.org/taxon/urn:lsid:ipni.org:names:69300-1"
+      },
+      {
+        "key": "Plants of the World Online Name (Synonym)",
+        "value": "Buchanania cochinchinensis"
+      },
+      {
+        "key": "Plants of the World Online Link (Synonym)",
+        "value": "https://powo.science.kew.org/taxon/urn:lsid:ipni.org:names:20008347-1"
+      }
+    ],
+    "description": "",
+    "created_at": "2020-11-13T18:52:21.355Z",
+    "updated_at": "2023-02-03T20:40:38.886Z",
+    "scientific_name": "Buchanania lanzan",
+    "parent_id": null,
+    "version": 10,
+    "type": "Plant",
+    "link": "/plants/buchanania-lanzan-almondette"
+  },
+  {
+    "id": 313,
+    "name": "Chinese Soapberry",
+    "slug": "sapindus-mukorossi-chinese-soapberry",
+    "data": [
+      {
+        "key": "Wikipedia",
+        "value": "https://en.wikipedia.org/wiki/Sapindus_mukorossi"
+      },
+      {
+        "key": "Edible",
+        "value": "true"
+      },
+      {
+        "key": "Growth",
+        "value": "Fast"
+      },
+      {
+        "key": "Water requirement",
+        "value": "Dry, Moist"
+      },
+      {
+        "key": "Light requirement",
+        "value": "Full sun"
+      },
+      {
+        "key": "USDA Hardiness zone",
+        "value": "8-12"
+      },
+      {
+        "key": "Layer",
+        "value": "Tall trees"
+      },
+      {
+        "key": "Alternate name",
+        "value": "Soap berry, soapnut tree, dodan, dodani, reettha, soapnut, thali, aretha mota, bhakri, chhopra, chinese soap berry, chinese soapberry, dodan, gundarasi, hathan, indian soapberry, jharlyang, kalalgera, makalawa, mukuroji, ritha, soap nut tree"
+      },
+      {
+        "key": "Soil type",
+        "value": "Light (sandy), Medium, Heavy (clay)"
+      },
+      {
+        "key": "Family",
+        "value": "Sapindaceae"
+      },
+      {
+        "key": "Height",
+        "value": "20.0"
+      },
+      {
+        "key": "Edible parts",
+        "value": "Seed"
+      },
+      {
+        "key": "Plants For A Future",
+        "value": "https://pfaf.org/User/Plant.aspx?LatinName=Sapindus mukorossi"
+      },
+      {
+        "key": "Native to",
+        "value": "Assam, China South-Central, China Southeast, Hainan, India, Japan, Kazan-retto, Korea, Laos, Myanmar, Nansei-shoto, Nepal, Ogasawara-shoto, Taiwan, Thailand, Vietnam, West Himalaya"
+      },
+      {
+        "key": "Introduced into",
+        "value": "Georgia, Pakistan"
+      },
+      {
+        "key": "Plants of the World Online Link",
+        "value": "https://powo.science.kew.org/taxon/urn:lsid:ipni.org:names:784657-1"
+      }
+    ],
+    "description": "",
+    "created_at": "2020-11-13T18:50:07.277Z",
+    "updated_at": "2023-02-03T19:52:22.724Z",
+    "scientific_name": "Sapindus mukorossi",
+    "parent_id": null,
+    "version": 9,
+    "type": "Plant",
+    "link": "/plants/sapindus-mukorossi-chinese-soapberry"
+  },
+  {
+    "id": 8113,
+    "name": "Mongongo Nut Manketti Tree",
+    "slug": "schinziophyton-rautanenii-mongongo-nut-manketti-tree",
+    "data": [
+      {
+        "key": "Edible",
+        "value": "true"
+      },
+      {
+        "key": "Growth",
+        "value": "Medium"
+      },
+      {
+        "key": "Water requirement",
+        "value": "Dry, Moist"
+      },
+      {
+        "key": "Light requirement",
+        "value": "Full sun"
+      },
+      {
+        "key": "USDA Hardiness zone",
+        "value": "10-12"
+      },
+      {
+        "key": "Layer",
+        "value": "Trees"
+      },
+      {
+        "key": "Alternate name",
+        "value": "False balsa mangetti, m'paca, m'panga, mankettibaum, mankettiboom, mgomwa, mkanganaugu, mokongwa, mongongo, mugongo, mukusu, mungongoma, muoma, nalungue, omunkete, ugongo, umganuompobola, umgoma, ungoma"
+      },
+      {
+        "key": "Soil type",
+        "value": "Light (sandy), Medium"
+      },
+      {
+        "key": "Family",
+        "value": "Euphorbiaceae"
+      },
+      {
+        "key": "Height",
+        "value": "12.0"
+      },
+      {
+        "key": "Edible parts",
+        "value": "Fruit, Seed"
+      },
+      {
+        "key": "Edible uses",
+        "value": "Oil"
+      },
+      {
+        "key": "Plants For A Future",
+        "value": "https://pfaf.org/User/Plant.aspx?LatinName=Schinziophyton rautanenii"
+      },
+      {
+        "key": "Native to",
+        "value": "Angola, Botswana, Caprivi Strip, Malawi, Mozambique, Namibia, Tanzania, Zambia, Za\u00efre, Zimbabwe"
+      },
+      {
+        "key": "Plants of the World Online Link",
+        "value": "https://powo.science.kew.org/taxon/urn:lsid:ipni.org:names:947611-1"
+      }
+    ],
+    "description": "",
+    "created_at": "2020-11-13T19:15:22.692Z",
+    "updated_at": "2023-02-05T12:55:08.223Z",
+    "scientific_name": "Schinziophyton rautanenii",
+    "parent_id": null,
+    "version": 8,
+    "type": "Plant",
+    "link": "/plants/schinziophyton-rautanenii-mongongo-nut-manketti-tree"
+  },
+  {
+    "id": 644,
+    "name": "Water Chestnut",
+    "slug": "trapa-natans-water-chestnut",
+    "data": [
+      {
+        "key": "Edible",
+        "value": "true"
+      },
+      {
+        "key": "Water requirement",
+        "value": "Water"
+      },
+      {
+        "key": "Light requirement",
+        "value": "Full sun"
+      },
+      {
+        "key": "USDA Hardiness zone",
+        "value": "6-12"
+      },
+      {
+        "key": "Alternate name",
+        "value": "Dyavolski oreh, european water chestnut, heikak, horn nut, ling-chio, rasac, saligot, shinghada, bat nut, buffalo nut, charcoal tree|diya ikili / ikiliya, devil pod, gara, gaunaree, horn nut, jalaphala, jalaphalam, jalfal, karimpola, karimpolam, kubyakam, paniphal, paniphala, shingoda, simgara, simgoda, singada, singade, singhada, singhade, singhara, singoda, srngataka, triko?aphala, vankotta, water caltrop, water chestnut, sr?gata, s??ga?aka (dried seed)"
+      },
+      {
+        "key": "Soil type",
+        "value": "Light (sandy), Medium, Heavy (clay)"
+      },
+      {
+        "key": "Family",
+        "value": "Trapaceae"
+      },
+      {
+        "key": "Edible parts",
+        "value": "Seed"
+      },
+      {
+        "key": "Warning",
+        "value": "Weed potential"
+      },
+      {
+        "key": "Life cycle",
+        "value": "Perennial"
+      },
+      {
+        "key": "Plants For A Future",
+        "value": "https://pfaf.org/User/Plant.aspx?LatinName=Trapa natans"
+      },
+      {
+        "key": "Native to",
+        "value": "Albania, Algeria, Altay, Amur, Angola, Assam, Austria, Baleares, Baltic States, Bangladesh, Belarus, Botswana, Bulgaria, Burkina, Buryatiya, Cambodia, Cameroon, Central African Repu, Central European Rus, Chad, China North-Central, China South-Central, China Southeast, Chita, Congo, Czechoslovakia, East European Russia, France, Germany, Greece, Guinea-Bissau, Hainan, Hungary, India, Inner Mongolia, Iran, Irkutsk, Italy, Japan, Jawa, Kazakhstan, Khabarovsk, Korea, Krasnoyarsk, Krym, KwaZulu-Natal, Laos, Malawi, Manchuria, Mozambique, Myanmar, Namibia, Nepal, Nigeria, North Caucasus, Northwest European R, Pakistan, Philippines, Poland, Primorye, Romania, South European Russi, Sri Lanka, Sudan, Sumatera, Switzerland, Taiwan, Tanzania, Thailand, Tibet, Transcaucasus, Tunisia, Turkey-in-Europe, Uganda, Ukraine, Vietnam, West Himalaya, West Siberia, Xinjiang, Yugoslavia, Zambia, Za\u00efre, Zimbabwe"
+      },
+      {
+        "key": "Introduced into",
+        "value": "Spain, Sweden"
+      },
+      {
+        "key": "Plants of the World Online Link",
+        "value": "https://powo.science.kew.org/taxon/urn:lsid:ipni.org:names:614405-1"
+      }
+    ],
+    "description": "",
+    "created_at": "2020-11-13T18:50:36.068Z",
+    "updated_at": "2023-02-03T20:03:59.222Z",
+    "scientific_name": "Trapa natans",
+    "parent_id": null,
+    "version": 6,
+    "type": "Plant",
+    "link": "/plants/trapa-natans-water-chestnut"
+  },
+  {
+    "id": 5447,
+    "name": "Soapberry",
+    "slug": "sapindus-saponaria-soapberry",
+    "data": [
+      {
+        "key": "Wikipedia",
+        "value": "https://en.wikipedia.org/wiki/Sapindus_saponaria"
+      },
+      {
+        "key": "Growth",
+        "value": "Medium"
+      },
+      {
+        "key": "Water requirement",
+        "value": "Dry, Moist"
+      },
+      {
+        "key": "Light requirement",
+        "value": "Full sun"
+      },
+      {
+        "key": "USDA Hardiness zone",
+        "value": "10-12"
+      },
+      {
+        "key": "Layer",
+        "value": "Trees"
+      },
+      {
+        "key": "Alternate name",
+        "value": "Wild chinaberry, florida soap berry, soap nut, soap tree, bilo, checo, chereco, cuyas, focu, jurupe, pacon, sasabila, tasabia, amole, amole de bolita, bibi, bois de panama, boliche, casita-r\u00e1, cholulo, cuentas del xabon, devanador, false dogwood, fruta-de-sab\u00e3o, gualulo, ina sasili, jaboncillo, jamoncillo, jequirigua\u00e7\u00fa, jit\u00f3, manele, matamuchacho, palo blanco, palo de cueatas, palo jabon, palo jab\u00f3n, para-para, pau-de-sab\u00e3o, pipal, pipe, quillai iba-ro, saboeira, sabonete, saboneteira, sab\u00e3o-de-macaco, sab\u00e3o-de-soldado, savonnier, savonnier des antilles, seifenbaum, soapberry, soaptree, southern soapberry, s\u00e5pb\u00e4rstr\u00e4d, tehoitzli, tehuistle, tehuixtle, tehuiztle, western soapberry, wing-leaf soapberry, wingleaf soapberry, yamole (nahuatli), yamolli, yuquit\u00ed"
+      },
+      {
+        "key": "Soil type",
+        "value": "Light (sandy), Medium, Heavy (clay)"
+      },
+      {
+        "key": "Family",
+        "value": "Sapindaceae"
+      },
+      {
+        "key": "Height",
+        "value": "10.0"
+      },
+      {
+        "key": "Plants For A Future",
+        "value": "https://pfaf.org/User/Plant.aspx?LatinName=Sapindus saponaria"
+      },
+      {
+        "key": "1000 Seed Weight (g)",
+        "value": "767"
+      },
+      {
+        "key": "Native to",
+        "value": "Assam, Bangladesh, Cambodia, Chad, East Himalaya, India, Jawa, Laos, Lesser Sunda Is., Malaya, Myanmar, Sri Lanka, Sumatera, Taiwan, Thailand, Vietnam"
+      },
+      {
+        "key": "Plants of the World Online Link",
+        "value": "https://powo.science.kew.org/taxon/urn:lsid:ipni.org:names:784680-1"
+      },
+      {
+        "key": "Plants of the World Online Name (Synonym)",
+        "value": "Sapindus rarak"
+      },
+      {
+        "key": "Plants of the World Online Link (Synonym)",
+        "value": "https://powo.science.kew.org/taxon/urn:lsid:ipni.org:names:784673-1"
+      }
+    ],
+    "description": "",
+    "created_at": "2020-11-13T19:03:57.568Z",
+    "updated_at": "2023-02-05T10:56:14.282Z",
+    "scientific_name": "Sapindus saponaria",
+    "parent_id": null,
+    "version": 9,
+    "type": "Plant",
+    "link": "/plants/sapindus-saponaria-soapberry"
+  },
+  {
+    "id": 609,
+    "name": "Black Myrobalan",
+    "slug": "terminalia-chebula-black-myrobalan",
+    "data": [
+      {
+        "key": "Wikipedia",
+        "value": "https://en.wikipedia.org/wiki/Terminalia_chebula"
+      },
+      {
+        "key": "Edible",
+        "value": "true"
+      },
+      {
+        "key": "Growth",
+        "value": "Slow"
+      },
+      {
+        "key": "Water requirement",
+        "value": "Moist"
+      },
+      {
+        "key": "Light requirement",
+        "value": "Full sun"
+      },
+      {
+        "key": "USDA Hardiness zone",
+        "value": "10-12"
+      },
+      {
+        "key": "Layer",
+        "value": "Tall trees"
+      },
+      {
+        "key": "Alternate name",
+        "value": "Chebulic myroblan, harada, harida, harar, haritaki, black myrobalan, chebula, chebulic myrobalans, har, haradh, harda, hardo, haridra, haritaka, harra, harro, hirda, kadukkai, karakkai, ma-muangpa, ortoki, panga, samo thai, shilikha thai, silikha, srama, a-ru, a-ru-ra, abhaya, ahlilaj k\u00e2buli, alalekai, alalikai, alayla, amagola, ammai, amutam, arabi, aralu, areyra, aridadi, aritaki, arubharelu, badamier chebule, badamier ch\u00e9bule, bal har, black myrobalan, bush kaduka, chebula-myrobalane, chebulae fructus, chebulae fructus immaturus, chebulic myrobalan, chebulic myrobalan (terminalia chebula), chebulic myrobalans, chebulic myrobalan|aralu, chebulische myrobalane, divya, fructus chebulae, ga ja, gali nut, habra, hacha, hala, halela, halela kabuli, halela zard, halelaj, halileh, halileh kaboli, halileh zard, halilehsiy\u00e2h, hallilaj, hangsep, har, har hush, harad, harar, harara, harba, harda, hardo, harida, haridra, harir, haritaki, haritaki karaka, haritali, harra, harrar, harre, harro, harroh, haritak\u00ec (fruit), haser, he zi, helikha, hezi, himaj, himaja, himakaia, hirada, hirda, hirdar, hirdo, hireda, hlijej sfer, hlilej khel, hokikha, hora, horida, ihlilaj kabuli, indian gall-nut, ink nut, inknut tree, jivathi, kabuli-harda, kadukhai, kadukka, kadukkai, kadukkay, kale har, karaka, karakai, karakkaya, kashi, katukka, kayastha, ka?ukkay (fruit), kotpung-pla, kurka, k\u00e3yasth\u00e3, lisai, medicine terminalia, medicine terminalia fruit, mirobalan de caboul, mirobalano, mirobalanos \u00edndicos, myrobalan, myrobalan ch\u00e9bule, myrobalan noire, myrobalani fructus, myrobalano nero, myrobalans, myrobaran, pathya, pathy\u00e3, pattiyam, pile har, pilo-harde, post-e-haleela kabli, post-e-haleela siyah, post-e-haleela zard, pulo-harda, rispiger myrobalanenbaum, rong mao he zi, sa-mothai, samo-thai, shajar shiir hindi, shilikha, silikha, sirri hindi, siva, siv\u00e3, sringitiga, suddha, terminaalia, terminalia chebula fruit, terminalia chebula fruit for use in thmp, terminalia fruit, terminaliae fructus, true myrobalan, tupchi, varikkay, vayastha, vijay\u00e3, vijaya (not bha?ga), wei mao he zi, western fruit, xiqingguo, yellow myrobalan, yellow myrobalanplum, zama, zangli har"
+      },
+      {
+        "key": "Soil type",
+        "value": "Light (sandy), Medium, Heavy (clay)"
+      },
+      {
+        "key": "Family",
+        "value": "Combretaceae"
+      },
+      {
+        "key": "Height",
+        "value": "25.0"
+      },
+      {
+        "key": "Edible parts",
+        "value": "Fruit, Seed"
+      },
+      {
+        "key": "Edible uses",
+        "value": "Oil"
+      },
+      {
+        "key": "Plants For A Future",
+        "value": "https://pfaf.org/User/Plant.aspx?LatinName=Terminalia chebula"
+      },
+      {
+        "key": "Native to",
+        "value": "Assam, Bangladesh, Cambodia, China South-Central, East Himalaya, India, Laos, Myanmar, Nepal, Pakistan, Sri Lanka, Thailand, Vietnam"
+      },
+      {
+        "key": "Introduced into",
+        "value": "China Southeast, Malaya, Taiwan, Za\u00efre"
+      },
+      {
+        "key": "Plants of the World Online Link",
+        "value": "https://powo.science.kew.org/taxon/urn:lsid:ipni.org:names:171037-1"
+      }
+    ],
+    "description": "",
+    "created_at": "2020-11-13T18:50:33.120Z",
+    "updated_at": "2023-02-03T20:02:39.706Z",
+    "scientific_name": "Terminalia chebula",
+    "parent_id": null,
+    "version": 8,
+    "type": "Plant",
+    "link": "/plants/terminalia-chebula-black-myrobalan"
+  },
+  {
+    "id": 8079,
+    "name": "Clearing Nut",
+    "slug": "strychnos-potatorum-clearing-nut",
+    "data": [
+      {
+        "key": "Wikipedia",
+        "value": "https://en.wikipedia.org/wiki/Strychnos_potatorum"
+      },
+      {
+        "key": "Edible",
+        "value": "true"
+      },
+      {
+        "key": "Growth",
+        "value": "Slow"
+      },
+      {
+        "key": "Water requirement",
+        "value": "Dry, Moist"
+      },
+      {
+        "key": "Light requirement",
+        "value": "Partial sun/shade, Full shade"
+      },
+      {
+        "key": "USDA Hardiness zone",
+        "value": "10-12"
+      },
+      {
+        "key": "Layer",
+        "value": "Trees"
+      },
+      {
+        "key": "Alternate name",
+        "value": "Ambu-prasada, chillachettu, chilladabeeja, chillaginjalu, chilu, clearing nut, dupa, gajrah, induga, indupachettu, iriya, kataka, katakami, kotaku, kuchla, m'tupa, mitupe, neimal, nelmal, nirmali, tetan-kotai, tetran-paral, tetta, tettamparel, tettan cottay marum, tettran, toillaghenjaloo, water-filter nut, chilla, chillikavi, cleaning nuts, clearing nut, clearing-nut tree, clearing-nut-tree, grape strychnos, ingini, kataka, kataka (seed), katakam, kottai, nirmal, nirmali, nirmalitr\u00e4d, payah prasadisa, tetramabaral"
+      },
+      {
+        "key": "Soil type",
+        "value": "Light (sandy), Medium, Heavy (clay)"
+      },
+      {
+        "key": "Family",
+        "value": "Loganiaceae"
+      },
+      {
+        "key": "Height",
+        "value": "12.0"
+      },
+      {
+        "key": "Edible parts",
+        "value": "Fruit"
+      },
+      {
+        "key": "Plants For A Future",
+        "value": "https://pfaf.org/User/Plant.aspx?LatinName=Strychnos potatorum"
+      },
+      {
+        "key": "Native to",
+        "value": "Botswana, Burundi, Caprivi Strip, India, Madagascar, Malawi, Mozambique, Myanmar, Northern Provinces, Rwanda, Sri Lanka, Tanzania, Zambia, Za\u00efre, Zimbabwe"
+      },
+      {
+        "key": "Plants of the World Online Link",
+        "value": "https://powo.science.kew.org/taxon/urn:lsid:ipni.org:names:547420-1"
+      }
+    ],
+    "description": "",
+    "created_at": "2020-11-13T19:15:11.101Z",
+    "updated_at": "2023-02-05T12:53:34.207Z",
+    "scientific_name": "Strychnos potatorum",
+    "parent_id": null,
+    "version": 10,
+    "type": "Plant",
+    "link": "/plants/strychnos-potatorum-clearing-nut"
+  },
+  {
+    "id": 6730,
+    "name": "Monkey Pot Sapucaia nut",
+    "slug": "lecythis-ollaria-monkey-pot-sapucaia-nut",
+    "data": [
+      {
+        "key": "Wikipedia",
+        "value": "https://en.wikipedia.org/wiki/Lecythis_ollaria"
+      },
+      {
+        "key": "Edible",
+        "value": "true"
+      },
+      {
+        "key": "Growth",
+        "value": "Slow"
+      },
+      {
+        "key": "Water requirement",
+        "value": "Moist"
+      },
+      {
+        "key": "Light requirement",
+        "value": "Full sun"
+      },
+      {
+        "key": "USDA Hardiness zone",
+        "value": "11-12"
+      },
+      {
+        "key": "Layer",
+        "value": "Tall trees"
+      },
+      {
+        "key": "Alternate name",
+        "value": "Pot nut, olla de mono, moix do sapucaia, monkey pot, monkey pot tree, sapucaia-nut, coco de mono"
+      },
+      {
+        "key": "Soil type",
+        "value": "Light (sandy), Medium, Heavy (clay)"
+      },
+      {
+        "key": "Family",
+        "value": "Lecythidaceae"
+      },
+      {
+        "key": "Height",
+        "value": "35.0"
+      },
+      {
+        "key": "Edible parts",
+        "value": "Seed"
+      },
+      {
+        "key": "Edible uses",
+        "value": "Oil"
+      },
+      {
+        "key": "Plants For A Future",
+        "value": "https://pfaf.org/User/Plant.aspx?LatinName=Lecythis ollaria"
+      },
+      {
+        "key": "Native to",
+        "value": "Venezuela"
+      },
+      {
+        "key": "Plants of the World Online Link",
+        "value": "https://powo.science.kew.org/taxon/urn:lsid:ipni.org:names:597300-1"
+      }
+    ],
+    "description": "",
+    "created_at": "2020-11-13T19:09:02.673Z",
+    "updated_at": "2023-02-05T11:57:26.175Z",
+    "scientific_name": "Lecythis ollaria",
+    "parent_id": null,
+    "version": 7,
+    "type": "Plant",
+    "link": "/plants/lecythis-ollaria-monkey-pot-sapucaia-nut"
+  },
+  {
+    "id": 3929,
+    "name": "African Locust Bean",
+    "slug": "parkia-biglobosa-african-locust-bean",
+    "data": [
+      {
+        "key": "Wikipedia",
+        "value": "https://en.wikipedia.org/wiki/Parkia_biglobosa"
+      },
+      {
+        "key": "Edible",
+        "value": "true"
+      },
+      {
+        "key": "Growth",
+        "value": "Medium"
+      },
+      {
+        "key": "Water requirement",
+        "value": "Moist"
+      },
+      {
+        "key": "Light requirement",
+        "value": "Full sun"
+      },
+      {
+        "key": "USDA Hardiness zone",
+        "value": "10-12"
+      },
+      {
+        "key": "Layer",
+        "value": "Tall trees"
+      },
+      {
+        "key": "Alternate name",
+        "value": "African locust, anjambane, biaie, buiai, canhando, caroubier-africain, daudawa, dodoli, dondo, 'dorawa, dorowa, dours, dowa, dso, duaga, em-bando, faroba, farroba, farrobe, fernleaf nitta-tree, gante, kolgo, mehante, mimosa-poupre, n'andu, nando, nere, neri, netch, nete, netto, nitta tree, nitta-nut, nutta-nut, olele, poroba, runo, ulele, unhando, monkey cutlass tree, nerre, nette, netteh, ouli"
+      },
+      {
+        "key": "Soil type",
+        "value": "Light (sandy), Medium, Heavy (clay)"
+      },
+      {
+        "key": "Family",
+        "value": "Fabaceae"
+      },
+      {
+        "key": "Height",
+        "value": "15.0"
+      },
+      {
+        "key": "Edible parts",
+        "value": "Flowers, Leaves, Seed, Seedpod"
+      },
+      {
+        "key": "Plants For A Future",
+        "value": "https://pfaf.org/User/Plant.aspx?LatinName=Parkia biglobosa"
+      },
+      {
+        "key": "Native to",
+        "value": "Benin, Burkina, Guinea, Mali, Togo"
+      },
+      {
+        "key": "Plants of the World Online Link",
+        "value": "https://powo.science.kew.org/taxon/urn:lsid:ipni.org:names:552015-1"
+      }
+    ],
+    "description": "",
+    "created_at": "2020-11-13T18:57:38.617Z",
+    "updated_at": "2023-02-03T22:03:19.574Z",
+    "scientific_name": "Parkia biglobosa",
+    "parent_id": null,
+    "version": 11,
+    "type": "Plant",
+    "link": "/plants/parkia-biglobosa-african-locust-bean"
+  },
+  {
+    "id": 2568,
+    "name": "Conophor Nigerian walnut Awusa nut",
+    "slug": "plukenetia-conophora-conophor-nigerian-walnut-awusa-nut",
+    "data": [
+      {
+        "key": "Edible",
+        "value": "true"
+      },
+      {
+        "key": "Growth",
+        "value": "Fast"
+      },
+      {
+        "key": "Water requirement",
+        "value": "Moist"
+      },
+      {
+        "key": "Light requirement",
+        "value": "Full sun, Partial sun/shade"
+      },
+      {
+        "key": "USDA Hardiness zone",
+        "value": "10-12"
+      },
+      {
+        "key": "Layer",
+        "value": "Vines"
+      },
+      {
+        "key": "Alternate name",
+        "value": "Conophor tree or conophor nut nigerian walnut, botito, conophor, ekporo, kaso, kasu, lokaso, ngezi, okhue, owusa nut, tiito, tito, ukpa, wanut tetracarpidium conophorum (m\u00fcllarg) hutch & dalziel is a synonym of plukenetia conophora m\u00fcllarg"
+      },
+      {
+        "key": "Soil type",
+        "value": "Light (sandy), Medium, Heavy (clay)"
+      },
+      {
+        "key": "Family",
+        "value": "Euphorbiaceae"
+      },
+      {
+        "key": "Height",
+        "value": "18.0"
+      },
+      {
+        "key": "Edible parts",
+        "value": "Fruit, Leaves, Seed"
+      },
+      {
+        "key": "Edible uses",
+        "value": "Oil"
+      },
+      {
+        "key": "Life cycle",
+        "value": "Perennial"
+      },
+      {
+        "key": "Plants For A Future",
+        "value": "https://pfaf.org/User/Plant.aspx?LatinName=Plukenetia conophora"
+      },
+      {
+        "key": "Native to",
+        "value": "Benin, Cameroon, Central African Repu, Congo, Equatorial Guinea, Gabon, Gulf of Guinea Is., Nigeria, Sierra Leone, Za\u00efre"
+      },
+      {
+        "key": "Plants of the World Online Link",
+        "value": "https://powo.science.kew.org/taxon/urn:lsid:ipni.org:names:354953-1"
+      }
+    ],
+    "description": "",
+    "created_at": "2020-11-13T18:54:12.936Z",
+    "updated_at": "2023-02-03T21:14:22.778Z",
+    "scientific_name": "Plukenetia conophora",
+    "parent_id": null,
+    "version": 9,
+    "type": "Plant",
+    "link": "/plants/plukenetia-conophora-conophor-nigerian-walnut-awusa-nut"
+  },
+  {
+    "id": 4908,
+    "name": "Jengkol",
+    "slug": "archidendron-jiringa-jengkol",
+    "data": [
+      {
+        "key": "Edible",
+        "value": "true"
+      },
+      {
+        "key": "Growth",
+        "value": "Medium"
+      },
+      {
+        "key": "Water requirement",
+        "value": "Moist"
+      },
+      {
+        "key": "Light requirement",
+        "value": "Full sun, Partial sun/shade"
+      },
+      {
+        "key": "USDA Hardiness zone",
+        "value": "10-12"
+      },
+      {
+        "key": "Layer",
+        "value": "Tall trees"
+      },
+      {
+        "key": "Alternate name",
+        "value": "Jiringa, jengkol or archidendron jiringa other common names are blackbead, dog fruit, djengkol tree, luk nieng tree, and ngapi nut other names: jing, nieng, niang, kanieng, chanieng, yawng, ngapi nut, dhinyindi, jering, cha niang, jaring, tutung"
+      },
+      {
+        "key": "Soil type",
+        "value": "Light (sandy), Medium, Heavy (clay)"
+      },
+      {
+        "key": "Family",
+        "value": "Fabaceae"
+      },
+      {
+        "key": "Height",
+        "value": "20.0"
+      },
+      {
+        "key": "Edible parts",
+        "value": "Flowers, Fruit, Leaves, Seed, Seedpod, Shoots"
+      },
+      {
+        "key": "Plants For A Future",
+        "value": "https://pfaf.org/User/Plant.aspx?LatinName=Archidendron jiringa"
+      },
+      {
+        "key": "Native to",
+        "value": "Bangladesh, Borneo, Jawa, Malaya, Myanmar, Sumatera, Thailand"
+      },
+      {
+        "key": "Plants of the World Online Link",
+        "value": "https://powo.science.kew.org/taxon/urn:lsid:ipni.org:names:475066-1"
+      }
+    ],
+    "description": "",
+    "created_at": "2020-11-13T19:01:36.398Z",
+    "updated_at": "2023-02-03T22:39:40.295Z",
+    "scientific_name": "Archidendron jiringa",
+    "parent_id": null,
+    "version": 13,
+    "type": "Plant",
+    "link": "/plants/archidendron-jiringa-jengkol"
+  },
+  {
+    "id": 4200,
+    "name": "Breadnut Maya nut",
+    "slug": "brosimum-alicastrum-breadnut-maya-nut",
+    "data": [
+      {
+        "key": "Wikipedia",
+        "value": "https://en.wikipedia.org/wiki/Brosimum_alicastrum"
+      },
+      {
+        "key": "Edible",
+        "value": "true"
+      },
+      {
+        "key": "Growth",
+        "value": "Medium"
+      },
+      {
+        "key": "Water requirement",
+        "value": "Moist"
+      },
+      {
+        "key": "Light requirement",
+        "value": "Full sun, Partial sun/shade"
+      },
+      {
+        "key": "USDA Hardiness zone",
+        "value": "10-12"
+      },
+      {
+        "key": "Layer",
+        "value": "Tall trees"
+      },
+      {
+        "key": "Alternate name",
+        "value": "Bread nut, snakewood, ramon, ojoche, ujushte, ramon tree, breadnut, janita, muiratinga, guamaro, berba, cacique, nuez de pan"
+      },
+      {
+        "key": "Soil type",
+        "value": "Light (sandy), Medium, Heavy (clay)"
+      },
+      {
+        "key": "Family",
+        "value": "Moraceae"
+      },
+      {
+        "key": "Height",
+        "value": "30.0"
+      },
+      {
+        "key": "Edible parts",
+        "value": "Fruit, Seed"
+      },
+      {
+        "key": "Warning",
+        "value": "Weed potential"
+      },
+      {
+        "key": "Plants For A Future",
+        "value": "https://pfaf.org/User/Plant.aspx?LatinName=Brosimum alicastrum"
+      },
+      {
+        "key": "Native to",
+        "value": "Belize, Bolivia, Brazil North, Colombia, Costa Rica, Cuba, Ecuador, El Salvador, Guatemala, Guyana, Honduras, Jamaica, Mexico Central, Mexico Gulf, Mexico Northeast, Mexico Northwest, Mexico Southeast, Mexico Southwest, Nicaragua, Panam\u00e1, Peru, Venezuela"
+      },
+      {
+        "key": "Introduced into",
+        "value": "Florida, Trinidad-Tobago, Windward Is."
+      },
+      {
+        "key": "Plants of the World Online Link",
+        "value": "https://powo.science.kew.org/taxon/urn:lsid:ipni.org:names:850824-1"
+      }
+    ],
+    "description": "",
+    "created_at": "2020-11-13T18:58:41.312Z",
+    "updated_at": "2023-02-03T22:13:27.107Z",
+    "scientific_name": "Brosimum alicastrum",
+    "parent_id": null,
+    "version": 9,
+    "type": "Plant",
+    "link": "/plants/brosimum-alicastrum-breadnut-maya-nut"
+  },
+  {
+    "id": 5914,
+    "name": "American Beech",
+    "slug": "fagus-grandifolia-american-beech",
+    "data": [
+      {
+        "key": "USDA Hardiness zone",
+        "value": "4-8"
+      },
+      {
+        "key": "Light requirement",
+        "value": "Full sun, Partial sun/shade, Full shade"
+      },
+      {
+        "key": "Water requirement",
+        "value": "Dry, Moist"
+      },
+      {
+        "key": "Soil type",
+        "value": "Light (sandy), Medium"
+      },
+      {
+        "key": "Height",
+        "value": "10.0"
+      },
+      {
+        "key": "Layer",
+        "value": "Trees"
+      },
+      {
+        "key": "Edible",
+        "value": "true"
+      },
+      {
+        "key": "Edible parts",
+        "value": "Inner bark, Leaves, Seed"
+      },
+      {
+        "key": "Wikipedia",
+        "value": "https://en.wikipedia.org/wiki/Fagus_grandifolia"
+      },
+      {
+        "key": "Growth",
+        "value": "Slow"
+      },
+      {
+        "key": "Family",
+        "value": "Fagaceae"
+      },
+      {
+        "key": "Edible uses",
+        "value": "Oil"
+      },
+      {
+        "key": "Plants For A Future",
+        "value": "https://pfaf.org/User/Plant.aspx?LatinName=Fagus grandifolia"
+      },
+      {
+        "key": "Native to",
+        "value": "Alabama, Arkansas, Connecticut, Delaware, District of Columbia, Florida, Georgia, Illinois, Indiana, Kentucky, Louisiana, Maine, Maryland, Massachusetts, Mexico Central, Mexico Gulf, Mexico Northeast, Michigan, Mississippi, Missouri, New Brunswick, New Hampshire, New Jersey, New York, North Carolina, Nova Scotia, Ohio, Oklahoma, Ontario, Pennsylvania, Prince Edward I., Qu\u00e9bec, Rhode I., South Carolina, Tennessee, Texas, Vermont, Virginia, West Virginia, Wisconsin"
+      },
+      {
+        "key": "Plants of the World Online Link",
+        "value": "https://powo.science.kew.org/taxon/urn:lsid:ipni.org:names:295597-1"
+      }
+    ],
+    "description": "The American Beech is a large deciduous tree native to the eastern United States and Canada. It is commonly found in the eastern deciduous forest biome. The leaves of the American Beech are simple, alternate, and have a smooth, glossy texture. They are typically 3-6 inches long and have a pointed tip. The bark of the American Beech is smooth and gray, and the tree can grow to be more than 100 feet tall.\r\n\r\nThe American Beech has large, showy flowers that bloom in the spring. They are often pollinated by bees and other insects. The tree produces a small, triangular nut that is edible for humans and wildlife alike. American Beech nuts are often harvested in the fall and can be stored for long periods of time.\r\n\r\nThe American Beech prefers well-drained, fertile soil and full sun to partial shade. It is winter hardy and can withstand cold temperatures. In order to cultivate the American Beech successfully, a grower will need to provide the tree with adequate water and sunlight. The tree can be grown as a specimen plant or as part of a larger landscape.\r\n\r\nIn addition to its aesthetic value, the American Beech has many practical uses. The nuts can be eaten raw or cooked, and the leaves can be used as mulch or as a source of nitrogen for compost. The wood of the American Beech is strong and flexible, and has been used for a variety of purposes, including building material and firewood. The tree also provides food and shelter for a variety of wildlife, including birds and small mammals.",
+    "created_at": "2020-11-13T19:05:52.087Z",
+    "updated_at": "2023-02-05T11:19:19.618Z",
+    "scientific_name": "Fagus grandifolia",
+    "parent_id": null,
+    "version": 13,
+    "type": "Plant",
+    "link": "/plants/fagus-grandifolia-american-beech"
+  },
+  {
+    "id": 7542,
+    "name": "Korean Nut Pine",
+    "slug": "pinus-koraiensis-korean-nut-pine",
+    "data": [
+      {
+        "key": "USDA Hardiness zone",
+        "value": "4-7"
+      },
+      {
+        "key": "Light requirement",
+        "value": "Full sun"
+      },
+      {
+        "key": "Water requirement",
+        "value": "Dry, Moist"
+      },
+      {
+        "key": "Soil type",
+        "value": "Light (sandy), Medium"
+      },
+      {
+        "key": "Height",
+        "value": "20.0"
+      },
+      {
+        "key": "Layer",
+        "value": "Tall trees"
+      },
+      {
+        "key": "Edible",
+        "value": "true"
+      },
+      {
+        "key": "Edible parts",
+        "value": "Seed"
+      },
+      {
+        "key": "Wikipedia",
+        "value": "https://en.wikipedia.org/wiki/Pinus_koraiensis"
+      },
+      {
+        "key": "Growth",
+        "value": "Medium"
+      },
+      {
+        "key": "Alternate name",
+        "value": "Chinese pinenut"
+      },
+      {
+        "key": "Family",
+        "value": "Pinaceae"
+      },
+      {
+        "key": "Edible uses",
+        "value": "Oil"
+      },
+      {
+        "key": "Plants For A Future",
+        "value": "https://pfaf.org/User/Plant.aspx?LatinName=Pinus koraiensis"
+      },
+      {
+        "key": "Native to",
+        "value": "Amur, Japan, Khabarovsk, Korea, Manchuria, Primorye"
+      },
+      {
+        "key": "Plants of the World Online Link",
+        "value": "https://powo.science.kew.org/taxon/urn:lsid:ipni.org:names:263037-1"
+      }
+    ],
+    "description": "The Korean Nut Pine (Pinus koraiensis) is a species of pine native to northeastern Asia, including parts of Korea, China, and Russia. It is an evergreen tree with a conical shape and a straight trunk, typically growing to heights of 25-35 meters. The leaves are needle-like and grow in clusters of two or three, and the bark is gray and scaly.\r\n\r\nThe Korean Nut Pine is distinguished from other pine species by its large, edible seeds, which are encased in a hard, wooden shell. The seeds, also known as pine nuts, are typically harvested in the fall.\r\n\r\nIn terms of growing conditions, the Korean Nut Pine prefers well-drained, sandy soils and full sun, and is tolerant of cold temperatures. It can be grown successfully in a variety of climates, including cool temperate and subalpine regions.\r\n\r\nIn addition to its edible seeds, the Korean Nut Pine has a number of other uses. Its wood is used for construction and papermaking. It is also valued by wildlife, as its seeds are a food source for birds and small mammals.",
+    "created_at": "2020-11-13T19:12:40.725Z",
+    "updated_at": "2023-02-05T12:32:01.852Z",
+    "scientific_name": "Pinus koraiensis",
+    "parent_id": null,
+    "version": 9,
+    "type": "Plant",
+    "link": "/plants/pinus-koraiensis-korean-nut-pine"
+  },
+  {
+    "id": 2280,
+    "name": "Surli nut",
+    "slug": "mesua-ferrea-surli-nut",
+    "data": [
+      {
+        "key": "Wikipedia",
+        "value": "https://en.wikipedia.org/wiki/Mesua_ferrea"
+      },
+      {
+        "key": "Edible",
+        "value": "true"
+      },
+      {
+        "key": "Growth",
+        "value": "Slow"
+      },
+      {
+        "key": "Water requirement",
+        "value": "Moist"
+      },
+      {
+        "key": "Light requirement",
+        "value": "Full sun, Partial sun/shade"
+      },
+      {
+        "key": "USDA Hardiness zone",
+        "value": "10-12"
+      },
+      {
+        "key": "Layer",
+        "value": "Tall trees"
+      },
+      {
+        "key": "Alternate name",
+        "value": "Poached egg tree, mesua indian rose chestnut, bosneak, bun nak, bun-naak, changkok, dieng-ngai, gangane, gangaw, ironwood, irul, kawtanok, kesaramu, lenggapus, mai-kam-kaw, mai-ting, matopus, mentepus, mesua, na, nag champa, naga sari, nagacesara, nagachambagam, nagachampakamu, nagakeshara, nagasampige, nagasari, nagchampa, nagesar, nageswar, nagkesar, nagkesara, nahor, nak but, nanga, nangal, nangu, ngai-ching, penaga lilin, penaga puteh, penaga sabut, penaga suga, penaga, penga kunyit, peri, poached egg tree, pohon nagasari, tapis, vap, veluthapala"
+      },
+      {
+        "key": "Soil type",
+        "value": "Light (sandy), Medium, Heavy (clay)"
+      },
+      {
+        "key": "Family",
+        "value": "Clusiaceae"
+      },
+      {
+        "key": "Height",
+        "value": "18.0"
+      },
+      {
+        "key": "Edible parts",
+        "value": "Fruit, Leaves, Seed"
+      },
+      {
+        "key": "Edible uses",
+        "value": "Oil"
+      },
+      {
+        "key": "Plants For A Future",
+        "value": "https://pfaf.org/User/Plant.aspx?LatinName=Mesua ferrea"
+      },
+      {
+        "key": "Native to",
+        "value": "Andaman Is., Assam, Bangladesh, Borneo, Cambodia, East Himalaya, India, Jawa, Laos, Lesser Sunda Is., Malaya, Myanmar, Nepal, Nicobar Is., Philippines, Sri Lanka, Thailand, Vietnam"
+      },
+      {
+        "key": "Introduced into",
+        "value": "China South-Central, China Southeast, Trinidad-Tobago"
+      },
+      {
+        "key": "Plants of the World Online Link",
+        "value": "https://powo.science.kew.org/taxon/urn:lsid:ipni.org:names:428832-1"
+      }
+    ],
+    "description": "",
+    "created_at": "2020-11-13T18:53:37.372Z",
+    "updated_at": "2023-02-03T21:04:16.555Z",
+    "scientific_name": "Mesua ferrea",
+    "parent_id": null,
+    "version": 11,
+    "type": "Plant",
+    "link": "/plants/mesua-ferrea-surli-nut"
+  },
+  {
+    "id": 1672,
+    "name": "Saba Nut",
+    "slug": "pachira-glabra-saba-nut",
+    "data": [
+      {
+        "key": "Wikipedia",
+        "value": "https://en.wikipedia.org/wiki/Pachira_glabra"
+      },
+      {
+        "key": "Edible",
+        "value": "true"
+      },
+      {
+        "key": "Growth",
+        "value": "Fast"
+      },
+      {
+        "key": "Water requirement",
+        "value": "Dry, Moist"
+      },
+      {
+        "key": "Light requirement",
+        "value": "Full sun, Partial sun/shade"
+      },
+      {
+        "key": "USDA Hardiness zone",
+        "value": "10-12"
+      },
+      {
+        "key": "Layer",
+        "value": "Tall trees"
+      },
+      {
+        "key": "Alternate name",
+        "value": "American chestnut, pachira nut amendoim-de-arvore, american chestnut, cacau-do-maranhao, cacau-selvagem, castanha-da-praia, castanha-do-maranhao, mamorana, malabar chestnut, provision tree, guiana chestnut, guyana chestnut, monguba, munguba, pumpo, money tree"
+      },
+      {
+        "key": "Soil type",
+        "value": "Light (sandy), Medium, Heavy (clay)"
+      },
+      {
+        "key": "Family",
+        "value": "Malvaceae"
+      },
+      {
+        "key": "Height",
+        "value": "15.0"
+      },
+      {
+        "key": "Edible parts",
+        "value": "Leaves, Seed"
+      },
+      {
+        "key": "Edible uses",
+        "value": "Oil"
+      },
+      {
+        "key": "Plants For A Future",
+        "value": "https://pfaf.org/User/Plant.aspx?LatinName=Pachira glabra"
+      },
+      {
+        "key": "Native to",
+        "value": "Brazil South, Brazil Southeast"
+      },
+      {
+        "key": "Introduced into",
+        "value": "Benin, Brazil Northeast, Brazil West-Central, Burundi, Cabinda, Cameroon, Chad, Congo, Ghana, Guinea, Gulf of Guinea Is., Ivory Coast, Liberia, Mali, New Caledonia, Nigeria, Rwanda, Senegal, Sierra Leone, Sudan, Tanzania, Trinidad-Tobago, Uganda, Zambia, Za\u00efre, Zimbabwe"
+      },
+      {
+        "key": "Plants of the World Online Link",
+        "value": "https://powo.science.kew.org/taxon/urn:lsid:ipni.org:names:562664-1"
+      }
+    ],
+    "description": "",
+    "created_at": "2020-11-13T18:52:23.715Z",
+    "updated_at": "2023-02-03T20:41:26.107Z",
+    "scientific_name": "Pachira glabra",
+    "parent_id": null,
+    "version": 11,
+    "type": "Plant",
+    "link": "/plants/pachira-glabra-saba-nut"
+  }
+]
