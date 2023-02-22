@@ -1,10 +1,11 @@
-from kivy.lang import Builder
 from kivy.metrics import dp
 from kivy.properties import StringProperty
 from kivymd.uix.boxlayout import MDBoxLayout
 from kivymd.uix.list import IRightBodyTouch, OneLineAvatarIconListItem
 from kivymd.uix.menu import MDDropdownMenu
 from kivymd.uix.dropdownitem.dropdownitem import MDDropDownItem
+
+MONTHS = ['Jan', 'Feb', 'MAr', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec']
 
 
 class RightContentCls(IRightBodyTouch, MDBoxLayout):
@@ -33,11 +34,12 @@ class MyDropDownItem(MDDropDownItem):
             } for i in range(5)
         ]
         self.menu = MDDropdownMenu(
-            caller=self.screen.ids.button,
+            caller=self,
             items=menu_items,
             width_mult=4,
         )
 
     def menu_callback(self, text_item):
         print(text_item)
+        self.text = text_item
         self.menu.dismiss()

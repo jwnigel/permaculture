@@ -1,6 +1,8 @@
 #:import TabbedPanelItem libs.components.tabbed_panel_item
 #:import MyChip libs.components.my_chip
 #:import MyCheckbox	libs.components.my_checkbox
+#:import MyDropDownItem libs.left_screens.first_left_screen
+
 
  # Defining dropdown Menu
 <RightContentCls>
@@ -27,6 +29,11 @@
         id: container
         icon: root.right_icon
         text: root.right_text
+
+<MyDropDownItem>
+    background_color: 'white'
+    size_hint: None, None
+    pos_hint: {'center_x': .5, 'center_y': .5}
 
 # Start creating UI
 <FirstLeftScreen@TabbedPanelItem>:
@@ -173,19 +180,15 @@
                 font_size: '24sp'
             MyDropDownItem:
                 id: flower_month_dropitem
-                size_hint: None, None
-                pos_hint: {'center_x': .5, 'center_y': .5}
                 text: 'Any'
                 font_size: '20dp'
-                on_release: app.menu.open()
+                on_release: self.menu.open()
+        MDBoxLayout:
             Label:
                 text: 'Nectary Value: '
                 font_size: '24sp'
             MyDropDownItem:
                 id: flower_month_dropitem
-                background_color: 'white'
-                size_hint: None, None
-                pos_hint: {'center_x': .5, 'center_y': .5}
                 text: 'Any'
                 font_size: '20dp'
-                on_release: app.menu.open()
+                on_release: self.menu.open()
