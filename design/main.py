@@ -2,7 +2,6 @@ from kivy.config import Config
 Config.set('graphics', 'window_state', 'maximized') # Maximize window on startup
 from kivymd.app import MDApp
 from kivymd.uix.datatables import MDDataTable
-
 from kivy.uix.button import Button
 from kivy.uix.scrollview import ScrollView
 from kivy.properties import StringProperty
@@ -17,15 +16,14 @@ from libs.components.my_checkbox import MyCheckbox
 from kivy.properties import StringProperty
 from kivy.metrics import dp
 from kivy.lang.builder import Builder
-
 import os
 import pandas as pd
-
 from plantdata import PlantData
 
 # How can I avoid instantiating class here? I should be able to use it within class later...
 # I think I want to combine PlantsDB and PlantData classes...
 plant_data = PlantData()
+
 
 class PlantsDB(AnchorLayout, PlantData):
     def __init__(self, **kwargs):
@@ -49,23 +47,24 @@ class TreeButton(Button):
 class SelectableRecycleBoxLayout(FocusBehavior, LayoutSelectionBehavior,
                                  RecycleBoxLayout):
     ''' Adds selection and focus behaviour to the view. '''
-    # allow deleselection ***How can I make this clear plant_attr text?
+    # allow deselection ***How can I make this clear plant_attr text?
     touch_deselect_last = BooleanProperty(True)
 
 
 class ScrollableLabel(ScrollView):
     text = StringProperty('')
 
+
 class MainApp(MDApp, PlantData):
 
     def __init__(self):
         super(MainApp, self).__init__()
         # Because App inherits from PlantData I can manage all database functionality there
-        self.checkbox_filters = {'hardiness_zone': [],
-                                 'form': [],
-                                 'pollinators': [],
-                                 'growth_rate': [],
-                                 }
+        self.all_filters = {'hardiness_zone': [],
+                            'form': [],
+                            'pollinators': [],
+                            'growth_rate': [],
+                            }
 
     def build(self):
         self.theme_cls.theme_style = "Light"
@@ -73,13 +72,17 @@ class MainApp(MDApp, PlantData):
         self.load_kvs()
         return Builder.load_file("main.kv")
 
-    def process_checkbox(self, widget, state, value, cat):
+    def process_checkbox(self, widget, state, value, category):
         if state == 'down':
-            self.checkbox_filters[cat].append(value)
+            self.all_filters[category].append(value)
         else:
-            self.checkbox_filters[cat].remove(value)
-        print(self.checkbox_filters)
+            self.all_filters[category].remove(value)
+        print(self.all_filters)
 
+    def process_slider(self, *args):
+        category = args[0]
+        value = args[2]
+        self.all_filters[category] = value
 
     def load_kvs(self):
         # load components

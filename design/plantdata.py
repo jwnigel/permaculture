@@ -2,20 +2,13 @@ import numpy as np
 import pandas as pd
 import random
 
-class PlantData():
 
+class PlantData:
     def __init__(self):
         # Maybe make this a static element (outside the init) so that it can be edited??
         self.data = pd.read_csv('../scrapers/pfaf/all_plants.csv')
         self.filters = {'pollinators': []}
         self.filtered_df = pd.DataFrame()
-
-    def get_filters(self):
-        pollinator_cbs = self.root.ids.left_panel.ids.filters_screen.ids.form_checks
-        for cb in pollinator_cbs:
-            if cb.active:
-                self.filters['pollinators'].append(cb.id)
-        print(self.filters)
 
     def search(self, value): # called from TextInput on_text_validate (Enter)
 
@@ -40,72 +33,92 @@ class PlantData():
         self.root.ids.left_panel.ids.second_screen.ids.plant_attrs.text = ''
 
     def filter_plants(self, family=None, genus=None, species=None, common_name=None, growth_rate=None,
-                  hardiness_zones=None, height=None, width=None, plant_type=None, pollinators=None,
-                  leaf=None, flower=None, ripen=None, reproduction=None, soils=None, pH=None,
-                  preferences=None, tolerances=None, habitat=None, habitat_range=None,
-                  edibility=None, medicinal=None, other_uses=None, pfaf=None):
+                      hardiness_zone=None, height=None, width=None, plant_type=None, pollinators=None,
+                      leaf=None, flower=None, ripen=None, reproduction=None, soils=None, pH=None,
+                      preferences=None, tolerances=None, habitat=None, habitat_range=None,
+                      edibility=None, medicinal=None, other_uses=None, pfaf=None):
 
         # Define the list of valid pollinators
-        valid_pollinators = ['bees', 'insects', 'wind', 'flies', 'lepidoptera']
+        valid_pollinators = ['bees', 'insects', 'wind', 'flies', 'lepidoptera', 'beetles']
 
+        filtered_df = self.data
         # Filter by each column if a value is provided
         # Starting with full dataframe self.data
         if family is not None:
-            self.filtered_df = self.data[self.data['Family'] == family]
+            filtered_df = filtered_df[filtered_df['Family'] == family]
+
         if genus is not None:
-            self.filtered_df = self.filtered_df[self.filtered_df['Genus'] == genus]
+            filtered_df = filtered_df[filtered_df['Genus'] == genus]
+
         if species is not None:
-            self.filtered_df = self.filtered_df[self.filtered_df['Species'] == species]
+            filtered_df = filtered_df[filtered_df['Species'] == species]
+
         if common_name is not None:
-            self.filtered_df = self.filtered_df[self.filtered_df['CommonName'] == common_name]
+            filtered_df = filtered_df[filtered_df['CommonName'] == common_name]
+
         if growth_rate is not None:
-            self.filtered_df = self.filtered_df[self.filtered_df['GrowthRate'] == growth_rate]
-        if hardiness_zones is not None:
-            if isinstance(hardiness_zones, int) and 2 <= hardiness_zones <= 12:
-                self.filtered_df = self.filtered_df[self.filtered_df['HardinessZones'] == hardiness_zones]
-            else:
-                raise ValueError('HardinessZones must be an integer between 2 and 12')
+            filtered_df = filtered_df[filtered_df['GrowthRate'].isin(growth_rate) | filtered_df['GrowthRate'].isna()]
+
+        if hardiness_zone is not None:
+            filtered_df = filtered_df[
+                filtered_df['HardinessZones'].apply(lambda zones: hardiness_zone in ast.literal_eval(zones))]
+
         if height is not None:
-            self.filtered_df = self.filtered_df[self.filtered_df['Height'] == height]
+            filtered_df = filtered_df[filtered_df['Height'] == height]
+
         if width is not None:
-            self.filtered_df = self.filtered_df[self.filtered_df['Width'] == width]
+            filtered_df = filtered_df[filtered_df['Width'] == width]
+
         if plant_type is not None:
-            self.filtered_df = self.filtered_df[self.filtered_df['Type'] == plant_type]
+            filtered_df = filtered_df[filtered_df['Type'] == plant_type]
+
         if pollinators is not None:
             if isinstance(pollinators, list) and all(p in valid_pollinators for p in pollinators):
-                self.filtered_df = self.filtered_df[self.filtered_df['Pollinators'].apply(lambda x: all(p in x.split(', ') for p in pollinators))]
+                filtered_df = filtered_df[filtered_df['Pollinators'].apply(lambda x: all(p in x for p in pollinators))]
             else:
                 raise ValueError(f'Pollinators must be a list of any combination of {valid_pollinators}')
-        if leaf is not None:
-            self.filtered_df = self.filtered_df[self.filtered_df['Leaf'] == leaf]
-        if flower is not None:
-            self.filtered_df = self.filtered_df[self.filtered_df['Flower'] == flower]
-        if ripen is not None:
-            self.filtered_df = self.filtered_df[self.filtered_df['Ripen'] == ripen]
-        if reproduction is not None:
-            self.filtered_df = self.filtered_df[self.filtered_df['Reproduction'] == reproduction]
-        if soils is not None:
-            self.filtered_df = self.filtered_df[self.filtered_df['Soils'] == soils]
-        if pH is not None:
-            self.filtered_df = self.filtered_df[self.filtered_df['pH'] == pH]
-        if preferences is not None:
-            self.filtered_df = self.filtered_df[self.filtered_df['Preferences'] == preferences]
-        if tolerances is not None:
-            self.filtered_df = self.filtered_df[self.filtered_df['Tolerances'] == tolerances]
-        if habitat is not None:
-            self.filtered_df = self.filtered_df[self.filtered_df['Habitat'] == habitat]
-        if habitat_range is not None:
-            self.filtered_df = self.filtered_df[self.filtered_df['HabitatRange'] == habitat_range]
-        if edibility is not None:
-            self.filtered_df = self.filtered_df[self.filtered_df['Edibility'] == edibility]
-        if medicinal is not None:
-            self.filtered_df = self.filtered_df[self.filtered_df['Medicinal'] == medicinal]
-        if other_uses is not None:
-            self.filtered_df = self.filtered_df[self.filtered_df['OtherUses'] == other_uses]
-        if pfaf is not None:
-            self.filtered_df = self.filtered_df[self.filtered_df['PFAF'] == pfaf]
 
-        return self.filtered_df
+        if leaf is not None:
+            filtered_df = filtered_df[filtered_df['Leaf'] == leaf]
+
+        if flower is not None:
+            filtered_df = filtered_df[filtered_df['Flower'] == flower]
+
+        if ripen is not None:
+            filtered_df = filtered_df[filtered_df['Ripen'] == ripen]
+
+        if reproduction is not None:
+            filtered_df = filtered_df[filtered_df['Reproduction'] == reproduction]
+
+        if soils is not None:
+            filtered_df = filtered_df[filtered_df['Soils'] == soils]
+
+        if pH is not None:
+            filtered_df = filtered_df[filtered_df['pH'] == pH]
+
+        if preferences is not None:
+            filtered_df = filtered_df[filtered_df['Preferences'] == preferences]
+
+        if tolerances is not None:
+            filtered_df = filtered_df[filtered_df['Tolerances'] == tolerances]
+
+        if habitat is not None:
+            filtered_df = filtered_df[filtered_df['Habitat'] == habitat]
+
+        if habitat_range is not None:
+            filtered_df = filtered_df[filtered_df['HabitatRange'] == habitat_range]
+
+        if edibility is not None:
+            filtered_df = filtered_df[filtered_df['Edibility'] == edibility]
+
+        if medicinal is not None:
+            filtered_df = filtered_df[filtered_df['Medicinal'] == medicinal]
+
+        if other_uses is not None:
+            filtered_df = filtered_df[filtered_df['OtherUses'] == other_uses]
+
+        return filtered_df
+
 
 class MyDesign:
     # Takes length, width and units args from design layout

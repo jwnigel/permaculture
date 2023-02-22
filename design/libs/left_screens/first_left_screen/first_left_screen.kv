@@ -16,10 +16,13 @@
             id: hardiness_zones_container
             orientation: 'vertical'
             spacing: '20dp'
+            Button:
+                id: submit_filters
+                text: 'Submit Filters'
+                on_release: app.root.ids.main_display.ids.db_screen.refresh(filters=app.all_filters)
             Label:
                 text: 'Hardiness Zone'
                 font_size: '28dp'
-
             MDBoxLayout:
                 MDSlider:
                     id: hardiness_zone_slider
@@ -27,10 +30,39 @@
                     max: 13
                     step: 1
                     hint: False
+					on_value:app.process_slider('hardiness_zone', *args)
                 Label:
                     size_hint: (.2, 1)
                     text: str(hardiness_zone_slider.value)
                     font_size: '24dp'
+
+        MDBoxLayout:
+            id: growth_rate_box
+            orientation: 'vertical'
+            Label:
+                text: 'Growth Rate'
+                font_size: '28dp'
+
+            MDGridLayout:
+                id: growth_rate_checks
+				rows: 1
+                padding: '5dp'
+                spacing: '5dp'
+				Label:
+					text: 'Slow'
+                MyCheckbox:
+                    id: slow
+					on_active: app.process_checkbox(self,self.state,'slow', 'growth_rate')
+				Label:
+					text: 'Medium'
+                MyCheckbox:
+                    id: medium
+					on_active:app.process_checkbox(self,self.state,'medium', 'growth_rate')
+				Label:
+					text: 'Fast'
+                MyCheckbox:
+                    id: fast
+					on_active:app.process_checkbox(self,self.state,'fast', 'growth_rate')
 
         MDBoxLayout:
             id: form_box
@@ -41,7 +73,7 @@
 
             MDGridLayout:
                 id: form_checks
-				cols: 2
+				rows: 2
                 padding: '10dp'
                 spacing: '5dp'
 				Label:
@@ -75,9 +107,7 @@
 
             MDGridLayout:
                 id: form_checks
-				cols: 2
-                padding: '10dp'
-                spacing: '5dp'
+				rows: 3
 				Label:
 					text: 'Bees'
                 MyCheckbox:
@@ -104,10 +134,10 @@
                     id: wind
 					on_active:app.process_checkbox(self,self.state,'wind', 'pollinators')
 				Label:
-					text: 'Bats'
+					text: 'Beetles'
                 MyCheckbox:
-                    id: bats
-					on_active:app.process_checkbox(self,self.state,'bats', 'pollinators')
+                    id: beetles
+					on_active:app.process_checkbox(self,self.state,'beetles', 'pollinators')
 
 
         MDBoxLayout:

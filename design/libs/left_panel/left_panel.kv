@@ -3,6 +3,7 @@
 # #:import SecondLeftScreen libs.left_screens.second_left_screen
 
 <LeftPanel>:
+	id: left_panel
 	do_default_tab: False
 	tab_pos: 'top_mid'
 	tab_height: 50
@@ -15,14 +16,15 @@
 			size: self.size
 
 	FirstLeftScreen:
-		id: filters_screen
+		id: first_screen
+		on_press: app.root.ids.main_display.current = 'db_screen'
 
 	SecondLeftScreen:
 		id: second_screen
 
 	TabbedPanelItem:
 		text: 'Design Sheets'
-		on_press: app.root.ids.main_display.current = "second_screen"
+		on_press: app.root.ids.main_display.current = 'second_screen'
 	TabbedPanelItem:
 		text: 'My Designs'
 	TabbedPanelItem:
