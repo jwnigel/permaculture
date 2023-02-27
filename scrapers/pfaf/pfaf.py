@@ -62,7 +62,7 @@ def get_plant_info(genus, species):
 
     # deciduous or coniferous / shrub / groundcover etc
     type_idx = description_list.index("is") + 2
-    plant_type = " ".join(description_list[type_idx:description_list.index("growing")-1])
+    plant_type = " ".join(description_list[type_idx:description_list.index("growing")])
 
     height_idx = description_list.index("growing") + 2
     height = float(description_list[height_idx])
