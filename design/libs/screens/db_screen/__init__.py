@@ -1,17 +1,19 @@
 from kivymd.uix.screen import MDScreen
 from kivy.uix.anchorlayout import AnchorLayout
+from kivy.uix.boxlayout import BoxLayout
 from kivymd.uix.datatables.datatables import MDDataTable
+from kivymd.uix.toolbar.toolbar import MDTopAppBar
 from kivy.metrics import dp
 import ast
 import pandas as pd
 
 
-data = pd.read_csv('/home/nigel/code/jwnigel/permaculture/scrapers/pfaf/all_plants.csv')
+data = pd.read_csv('/home/nigel/Code/permaculture/scrapers/pfaf/all_plants.csv')
 
 
-def get_data_table(dataframe):
-    column_data = list(dataframe.columns)
-    row_data = dataframe.to_records(index=False)
+def get_data_table(dataframe: pd.DataFrame, columns: list):
+    column_data = columns
+    row_data = dataframe[columns].to_records(index=False)
     return column_data, row_data
 
 
@@ -50,7 +52,12 @@ def filter_plants(df, filters_dict=None):
 class DBScreen(MDScreen):
     def __init__(self, **kwargs):
         super(DBScreen, self).__init__(**kwargs)
-        self.add_widget(MyDB())
+        layout = BoxLayout(orientation='vertical')
+        top_bar = MyTopBar()
+        db = MyDB()
+        layout.add_widget(top_bar)
+        layout.add_widget(db)
+        self.add_widget(layout)
 
     def refresh(self, filters):
         self.clear_widgets()
@@ -58,20 +65,74 @@ class DBScreen(MDScreen):
         self.add_widget(db)
         print('database screen refreshed')
 
+class MyTopBar(MDTopAppBar):
+    def __init__(self, **kwargs):
+        super(MyTopBar, self).__init__(**kwargs)
+        self.title='Search Filters'
+        self.left_action_items= [
+        ["home", lambda x: self.callback(x), "Home"],
+        ["message-star", lambda x: self.callback(x), "Message star"],
+        ["message-question", lambda x: self.callback(x), "Message question"],
+        ["message-reply", lambda x: self.callback(x), "Message reply"],
+        ]
+
 
 class MyDB(AnchorLayout):
 
-    def __init__(self, filters=None):
-        super().__init__()
-        db_data = pd.read_csv('/home/nigel/code/jwnigel/permaculture/scrapers/pfaf/all_plants.csv')
+    def __init__(self, filters=None, **kwargs):
+        super(MyDB, self).__init__(**kwargs)
+        db_data = pd.read_csv('/home/nigel/Code/permaculture/scrapers/pfaf/all_plants.csv')
         db_data = filter_plants(df=db_data, filters_dict=filters)
-        column_data, row_data = get_data_table(db_data)
-        column_data = [(x, dp(60)) for x in column_data]
-        table = MDDataTable(
+        column_data, row_data = get_data_table(db_data, columns=['Genus','Species','CommonName','GrowthRate','Height','Width','Type', 'Pollinators', 'Reproduction', 'Soils', 'pH'])
+        column_widths = {'Genus': 32, 
+                         'Species': 35, 
+                         'CommonName': 60,
+                         'GrowthRate': 22,
+                         'HardinessZones': 40,
+                         'Height': 16,
+                         'Width': 16,
+                         'Type': 30,
+                         'Pollinators': 40,
+                         'Leaf': 30,
+                         'Flower': 30,
+                         'Ripen': 30,
+                         'Reproduction': 30,
+                         'Soils': 60,
+                         'pH': 45,
+                         'Preferences': 80,
+                         'Tolerances': 60,
+                         'Habitat': 60,
+                         'HabitatRange': 60,
+                         'Edibility': 25,
+                         'Medicinal': 25,
+                         'OtherUses': 25}
+        column_data = [(x, dp(column_widths[x])) for x in column_data]
+        self.table = MDDataTable(
             column_data=column_data,
             row_data=row_data,
             use_pagination=True,
+            check=True,
             rows_num=25
         )
-        self.add_widget(table)
+        self.table.bind(on_row_press=self.on_row_press)
+        self.table.bind(on_check_pres=self.on_row_press)
+        self.add_widget(self.table)
 
+    def on_row_press(self, instance_table, instance_row):
+        '''Called when a table row is clicked.'''
+        print(instance_table, instance_row)
+        index = instance_row.index
+        cols_num = len(instance_table. column_data)
+        row_num = int(index/cols_num)
+        col_num = index%cols_num
+        cell_row =instance_table.table_data.view_adapter.get_visible_view(row_num*cols_num)
+        if cell_row.ids.check.state == 'normal':
+            instance_table.table_data.select_all('normal')
+            cell_row.ids.check.state = 'down'
+        else:
+            cell_row.ids.check.state = 'normal'
+        instance_table.table_data.on_mouse_select(instance_row)
+
+
+
+# Pollinators,Leaf,Flower,Ripen,Reproduction,Soils,pH,Preferences,Tolerances,Habitat,HabitatRange,Edibility,Medicinal,OtherUses
