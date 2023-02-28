@@ -22,11 +22,13 @@ def filter_plants(df, filters_dict=None):
     growth_rate = None
     hardiness_zone = None
     pollinators = None
+    flower_month = None
 
     if filters_dict:
         hardiness_zone = filters_dict.get('hardiness_zone')
         pollinators = filters_dict.get('pollinators')
         growth_rate = filters_dict.get('growth_rate')
+        flower_month = filters_dict.get('flower_month')
 
     filtered_df = df
     # Filter by each column if a value is provided
@@ -45,6 +47,9 @@ def filter_plants(df, filters_dict=None):
         print(filtered_df['Pollinators'])
         filtered_df['Pollinators'] = filtered_df['Pollinators'].apply(lambda x: str(x).split(','))
         filtered_df = filtered_df[filtered_df['Pollinators'].apply(lambda x: all(p in x for p in pollinators))]
+
+    # if flower_month is not None:
+    #     filtered_df
 
     return filtered_df
 
@@ -83,7 +88,7 @@ class MyDB(AnchorLayout):
         super(MyDB, self).__init__(**kwargs)
         db_data = pd.read_csv('/home/nigel/Code/permaculture/scrapers/pfaf/all_plants.csv')
         db_data = filter_plants(df=db_data, filters_dict=filters)
-        column_data, row_data = get_data_table(db_data, columns=['Genus','Species','CommonName','GrowthRate','Height','Width','Type', 'Pollinators', 'Reproduction', 'Soils', 'pH'])
+        column_data, row_data = get_data_table(db_data, columns=['Genus','Species','CommonName','GrowthRate','Height','Width','Type', 'Pollinators', 'Flower'])
         column_widths = {'Genus': 32, 
                          'Species': 35, 
                          'CommonName': 60,
@@ -112,7 +117,7 @@ class MyDB(AnchorLayout):
             row_data=row_data,
             use_pagination=True,
             check=True,
-            rows_num=25
+            rows_num=20
         )
         self.table.bind(on_row_press=self.on_row_press)
         self.table.bind(on_check_pres=self.on_row_press)

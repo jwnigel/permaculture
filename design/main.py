@@ -35,6 +35,7 @@ class PlantsDB(AnchorLayout, PlantData):
             column_data = column_data,
             row_data = row_data,
             use_pagination=True,
+            check=True,
             rows_num = 25
         )
         self.add_widget(table)
@@ -64,6 +65,7 @@ class MainApp(MDApp, PlantData):
                             'form': [],
                             'pollinators': [],
                             'growth_rate': [],
+                            'flower_month': 'Any'
                             }
 
     def build(self):
