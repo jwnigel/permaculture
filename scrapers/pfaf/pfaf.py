@@ -62,7 +62,7 @@ def get_plant_info(genus, species):
 
     # deciduous or coniferous / shrub / groundcover etc
     type_idx = description_list.index("is") + 2
-    plant_type = " ".join(description_list[type_idx:description_list.index("growing")])
+    plant_type = " ".join(description_list[type_idx:description_list.index("growing")]).title()
 
     height_idx = description_list.index("growing") + 2
     height = float(description_list[height_idx])
@@ -85,7 +85,9 @@ def get_plant_info(genus, species):
         pollinators_start = description.index("pollinated by") + len("pollinated by") + 1
         pollinators_end = description.index(".", pollinators_start)
         # Allow possibility of more than one pollinator
-        pollinators = description[pollinators_start:pollinators_end].strip().lower().split(',')
+        pollinators = description[pollinators_start:pollinators_end]
+        # Turn string into list, with commas and spaces stripped and capitalized
+        pollinators = [pnator.strip().capitalize() for pnator in pollinators.split(',')]
 
 
     # When the plant leafs out
@@ -141,16 +143,25 @@ def get_plant_info(genus, species):
         else:
             ph = "Error: end index not found"
             end_idx=6
-    ph = " ".join(ph_list[:end_idx])
+    ph = " ".join(ph_list[:end_idx]).replace(r' (mildly alkaline)', '').capitalize()
 
     # Monoecious or dioecious ("hermaprodite")
-    reproduction = re.findall(r"The species is\s(\w+)", description)[0]
+    try:
+        reproduction = re.findall(r"The species is\s(\w+)", description)[0].capitalize()
+    except IndexError:
+        reproduction = ''
 
     # What the plant likes
-    preferences = re.findall("prefers (.*?)\ and", description)
+    try:
+        preferences = re.findall("prefers (.*?)\ and", description)[0].strip().capitalize()
+    except IndexError:
+        preferences = ''
 
     # What the plant can tolerate
-    tolerances = re.findall("can tolerate (.*?)\.", description)
+    try:
+        tolerances = re.findall("can tolerate (.*?)\.", description)[0].capitalize()
+    except IndexError:
+        tolerances = ''
 
     # Get information from the table
     table = soup.find("table",{"class":"table table-hover table-striped"})
@@ -172,29 +183,19 @@ def get_plant_info(genus, species):
         for zone in range(int(zone_min), int(zone_max) + 1):
             hardiness_zones.append(zone)
 
-
-    # Ecosystems
-    habitats = table.find("span", id="ContentPlaceHolder1_txtHabitats").text
+    # Ecosystems 
+    ## The re.sub removes any square bracket reference from pfaf like [43]. May need to be included again but I removed it because it doesn't make sense out of context.
+    habitats = re.sub(r"\[\d+\]", "", table.find("span", id="ContentPlaceHolder1_txtHabitats").text) or ''
 
     # Native range
-    habitat_range = table.find("span", id="ContentPlaceHolder1_lblRange").text
+    habitat_range = table.find("span", id="ContentPlaceHolder1_lblRange").text or ''
 
-    edibility = table.find("span", id="ContentPlaceHolder1_txtEdrating").text.strip()
 
-    other_uses = table.find("span", id="ContentPlaceHolder1_txtOtherUseRating").text.strip()
+    edibility = table.find("span", id="ContentPlaceHolder1_txtEdrating").text.strip()[1]
 
-    medicinal_rating = table.find("span", id="ContentPlaceHolder1_txtMedRating").text.strip()
+    other_uses = table.find("span", id="ContentPlaceHolder1_txtOtherUseRating").text.strip()[1]
 
-    # print(table.prettify())
-
-    # Add Line Space
-    # print("")
-    # print(f'Common name: {common_name} \nFamily: {family} \nHardiness range: {hardiness_range} \
-    #     \nMedicinal rating: {medicinal_rating} \nGrowth rate: {growth_rate} \nHeight: {height} meters \nType: {plant_type} \
-    #     \nPollinators: {pollinators} \nLeaf: {leaf} \nFlower: {flower} \nRipen date: {ripen_date} \nSoils: {soils} \nSoil text: {soil_text} \npH: {ph}\
-    #     \nReproduction: {reproduction} \nPreferences: {preferences} \nTolerances: {tolerances}\
-    #     \nHabitats: {habitats} \nHabitat range: {habitat_range} \nEdibility: {edibility} \nOther uses: {other_uses} \
-        # \n \nDescription: {description}')
+    medicinal_rating = table.find("span", id="ContentPlaceHolder1_txtMedRating").text.strip()[1]
 
     return family, genus, species, common_name, growth_rate, hardiness_zones, height, width,\
             plant_type, pollinators, leaf, flower, ripen_date, reproduction, soils, ph, preferences, \
