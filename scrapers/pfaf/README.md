@@ -7,7 +7,7 @@ Collected characteristics include height, width, growth rate, leaf and flower da
 ### Usage
 
 ```
-usage: main.py [-h] [options]
+usage: pfaf.py [-h] [options]
 
  Scrape plants data from pfaf.org for all plants in input file
 
@@ -22,15 +22,15 @@ optional arguments:
 
 #### examples:
 
-    main.py
+    pfaf.py
 
 generates `sven_plants.csv` from scraping data for all plants in "sven_plants.txt"
 
-    main.py -v -i design-john.txt
+    pfaf.py -v -i design-john.txt
 
 generates `design-john.csv` from scraping data for all plants in `design-john.txt`, while printing a `verbose` progress feedback.
 
-     main.py -h
+     pfaf.py -h
 
 prints a usage and documentation information.
 
