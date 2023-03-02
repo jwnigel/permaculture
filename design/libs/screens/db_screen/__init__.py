@@ -16,40 +16,65 @@ def get_data_table(dataframe: pd.DataFrame, columns: list):
     row_data = dataframe[columns].to_records(index=False)
     return column_data, row_data
 
+# Define function for use in filter_plants to check month filters
+def check_month_range(m, mrange):
+    if pd.isnull(mrange):
+        return False
+    months = ['Any', 'January', 'February', 'March', 'April', 'May', 'June', 'July', 'August', 'September', 'October', 'November', 'December']
+    try:
+        if len(mrange) > 2:
+            mrange=(mrange.strip('.').split(' to '))
+            if len(mrange) == 1 and m == mrange[0]:
+                return True
+            elif len(mrange) == 2:
+                m_idx = months.index(m)
+                low_idx = months.index(mrange[0])
+                high_idx = months.index(mrange[1])
+                if low_idx <= m_idx <= high_idx:
+                    return True
+                else:
+                    return False
+    except TypeError:
+        print(f'Exception encountered in check_month_range with m: {m} and mrange: {mrange}')
+        return False
+    
+def filter_plants(df, filters):
+    '''
+    Use function like this: 
+    filter_plants(df=dataframe, hardiness_zone=6, pollinators=['bees', 'flies'], flower_month='March')
+    '''
 
-def filter_plants(df, filters_dict=None):
-    # Define the list of valid pollinators
-    growth_rate = None
-    hardiness_zone = None
-    pollinators = None
-    flower_month = None
-
-    if filters_dict:
-        hardiness_zone = filters_dict.get('hardiness_zone')
-        pollinators = filters_dict.get('pollinators')
-        growth_rate = filters_dict.get('growth_rate')
-        flower_month = filters_dict.get('flower_month')
-
+    # from here on use filtered_df
     filtered_df = df
-    # Filter by each column if a value is provided
-    # Starting with full dataframe self.data
 
-    if growth_rate is not None:
-        filtered_df = filtered_df[filtered_df['GrowthRate'].isin(growth_rate) | filtered_df['GrowthRate'].isna()]
+    if filters:
+        growth_rate = filters.get('growth_rate')
+        hardiness_zone = filters.get('hardiness_zone')
+        pollinators = filters.get('pollinators')
+        flower_month = filters.get('flower_month')
 
-    if hardiness_zone is not None:
-        filtered_df = filtered_df[
-            filtered_df['HardinessZones'].apply(lambda zones: hardiness_zone in ast.literal_eval(zones))]
+        # Filter by each column if a value is provided
+        if growth_rate:
+            filtered_df = filtered_df[filtered_df['GrowthRate'].isin(growth_rate) | filtered_df['GrowthRate'].isna()]
 
-    if pollinators is not None:
-        print(pollinators, type(pollinators))
-        # After rerunning pfaf.py scraper, I can remove the first .apply in the following line:
-        print(filtered_df['Pollinators'])
-        filtered_df['Pollinators'] = filtered_df['Pollinators'].apply(lambda x: str(x).split(','))
-        filtered_df = filtered_df[filtered_df['Pollinators'].apply(lambda x: all(p in x for p in pollinators))]
+        if hardiness_zone:
+            filtered_df = filtered_df[
+                filtered_df['HardinessZones'].apply(lambda zones: hardiness_zone in ast.literal_eval(zones))]
 
-    # if flower_month is not None:
-    #     filtered_df
+        if pollinators:
+            # Drop where 'Pollinators' is null. To include use this below: .apply(lambda x: x is np.nan or all(p in x for p in pollinators))]
+            filtered_df = filtered_df.dropna(subset=['Pollinators']) 
+            filtered_df.loc[:, 'Pollinators'].apply(lambda x: str(x).split(','))
+            # using .apply to return rows where all of pollinators (passed) are in x (the row['pollinators'])
+            filtered_df = filtered_df[filtered_df['Pollinators'].apply(lambda x: all(p in x for p in pollinators))]
+            
+        if flower_month:
+            if flower_month == 'Any':
+                # return the original dataframe
+                filtered_df = filtered_df
+            else:
+                flower_mask = pd.notnull(filtered_df['Flower'])
+                filtered_df = filtered_df[flower_mask & filtered_df['Flower'].apply(lambda x: check_month_range(flower_month, x))]
 
     return filtered_df
 
@@ -87,7 +112,7 @@ class MyDB(AnchorLayout):
     def __init__(self, filters=None, **kwargs):
         super(MyDB, self).__init__(**kwargs)
         db_data = pd.read_csv('/home/nigel/Code/permaculture/scrapers/pfaf/all_plants.csv')
-        db_data = filter_plants(df=db_data, filters_dict=filters)
+        db_data = filter_plants(df=db_data, filters=filters)
         column_data, row_data = get_data_table(db_data, columns=['Genus','Species','CommonName','GrowthRate','Height','Width','Type', 'Pollinators', 'Flower'])
         column_widths = {'Genus': 32, 
                          'Species': 35, 

@@ -1,22 +1,12 @@
 from kivy.metrics import dp
 from kivy.properties import StringProperty
 from kivymd.uix.boxlayout import MDBoxLayout
-from kivymd.uix.list import IRightBodyTouch, OneLineAvatarIconListItem
+from kivymd.uix.list import OneLineListItem
 from kivymd.uix.menu import MDDropdownMenu
 from kivymd.uix.dropdownitem.dropdownitem import MDDropDownItem
+from kivymd.app import MDApp
 
-MONTHS = ['Jan', 'Feb', 'MAr', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec']
-
-
-class RightContentCls(IRightBodyTouch, MDBoxLayout):
-    icon = StringProperty()
-    text = StringProperty()
-
-
-class Item(OneLineAvatarIconListItem):
-    left_icon = StringProperty()
-    right_icon = StringProperty()
-    right_text = StringProperty()
+MONTHS = ['January', 'February', 'March', 'April', 'May', 'June', 'July', 'August', 'September', 'October', 'November', 'December']
 
 
 class MyDropDownItem(MDDropDownItem):
@@ -24,14 +14,11 @@ class MyDropDownItem(MDDropDownItem):
         super().__init__(**kwargs)
         menu_items = [
             {
-                "text": f"Item {i}",
-                "right_text": f"R+{i}",
-                "right_icon": "apple-keyboard-command",
-                "left_icon": "git",
-                "viewclass": "Item",
+                "text": month,
+                "viewclass": "OneLineListItem",
                 "height": dp(54),
-                "on_release": lambda x=f"Item {i}": self.menu_callback(x),
-            } for i in range(5)
+                "on_release": lambda x=month: self.menu_callback(x),
+            } for month in MONTHS
         ]
         self.menu = MDDropdownMenu(
             caller=self,
@@ -40,6 +27,8 @@ class MyDropDownItem(MDDropDownItem):
         )
 
     def menu_callback(self, text_item):
+        app = MDApp.get_running_app()
         print(text_item)
         self.text = text_item
+        app.all_filters['flower_month'] = text_item
         self.menu.dismiss()
