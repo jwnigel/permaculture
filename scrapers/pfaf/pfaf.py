@@ -8,7 +8,7 @@ import argparse
 DEBUG = True
 COLUMNS = ["Family", "Genus", "Species", "CommonName", "GrowthRate", "HardinessZones",
            "Height", "Width", "Type", "Foliage", "Pollinators", "Leaf", "Flower", "Ripen", "Reproduction", "Soils",
-           "pH", "Preferences", "Tolerances", "Habitat", "HabitatRange",
+           "pH", "pH_split", "Preferences", "Tolerances", "Habitat", "HabitatRange",
            "Edibility", "Medicinal", "OtherUses", "PFAF"]
 
 
@@ -153,6 +153,8 @@ def get_plant_info(genus, species):
             end_idx=6
     ph = " ".join(ph_list[:end_idx]).replace(r' (mildly alkaline)', '').capitalize()
 
+    ph_split = re.split(',| and ', ph.replace(' soils', '').replace(' can grow in', ''))
+
     # Monoecious or dioecious ("hermaprodite")
     try:
         reproduction = re.findall(r"The species is\s(\w+)", description)[0].capitalize()
@@ -206,7 +208,7 @@ def get_plant_info(genus, species):
     medicinal_rating = table.find("span", id="ContentPlaceHolder1_txtMedRating").text.strip()[1]
 
     return family, genus, species, common_name, growth_rate, hardiness_zones, height, width,\
-            plant_type, foliage, pollinators, leaf, flower, ripen_date, reproduction, soils, ph, preferences, \
+            plant_type, foliage, pollinators, leaf, flower, ripen_date, reproduction, soils, ph, ph_split, preferences, \
             tolerances, habitats, habitat_range, edibility, medicinal_rating, other_uses, pfaf_url
 
 
@@ -234,7 +236,7 @@ for plant in data:
         errors.append(plant)
 
 # Each column creates an empty row when transposed
-df.T[24:].to_csv(outfile, index=False)
+df.T[26:].to_csv(outfile, index=False)
 if(DEBUG): print(f"Non errors: {good}")
 if(len(errors) > 0) : print(f"Errors: {errors}")
 #TODO output errors list to errors.csv to easy correct+refetch only those.
