@@ -7,7 +7,7 @@ import argparse
 
 DEBUG = True
 COLUMNS = ["Family", "Genus", "Species", "CommonName", "GrowthRate", "HardinessZones",
-           "Height", "Width", "Type", "Pollinators", "Leaf", "Flower", "Ripen", "Reproduction", "Soils",
+           "Height", "Width", "Type", "Foliage", "Pollinators", "Leaf", "Flower", "Ripen", "Reproduction", "Soils",
            "pH", "Preferences", "Tolerances", "Habitat", "HabitatRange",
            "Edibility", "Medicinal", "OtherUses", "PFAF"]
 
@@ -60,9 +60,17 @@ def get_plant_info(genus, species):
 
     ##### Get the characteristics #####
 
-    # deciduous or coniferous / shrub / groundcover etc
+    # tree / shrub / perennial (not sure what this refers to: herb?) / fern / bulb /  etc
     type_idx = description_list.index("is") + 2
     plant_type = " ".join(description_list[type_idx:description_list.index("growing")]).title()
+
+    # deciduous, coniferous, or None
+    if len(plant_type.split(' ')) == 2:
+        # 'Deciduous Tree' or 'Evergreen Shrub'
+        foliage = plant_type.split(' ')[0]
+    else:
+        # 'Fern' or 'Tree' (Unspecified foliage)
+        foliage = None
 
     height_idx = description_list.index("growing") + 2
     height = float(description_list[height_idx])
@@ -198,7 +206,7 @@ def get_plant_info(genus, species):
     medicinal_rating = table.find("span", id="ContentPlaceHolder1_txtMedRating").text.strip()[1]
 
     return family, genus, species, common_name, growth_rate, hardiness_zones, height, width,\
-            plant_type, pollinators, leaf, flower, ripen_date, reproduction, soils, ph, preferences, \
+            plant_type, foliage, pollinators, leaf, flower, ripen_date, reproduction, soils, ph, preferences, \
             tolerances, habitats, habitat_range, edibility, medicinal_rating, other_uses, pfaf_url
 
 
