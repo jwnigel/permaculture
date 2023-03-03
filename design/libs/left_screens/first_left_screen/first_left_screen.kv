@@ -98,6 +98,7 @@
                     id: fast
 					on_active:app.process_checkbox(self,self.state,'fast', 'growth_rate')
 
+        MDSeparator:
         MDBoxLayout:
             id: form_box
             orientation: 'vertical'
@@ -110,11 +111,15 @@
 				rows: 2
                 padding: '10dp'
                 spacing: '5dp'
+
+                # Need to investigate what pfaf means by perennial. 
+                # Is it an herb with non-woody stem that dies back? 
+                # If not, what differentiates it from a shrub?
 				Label:
-					text: 'Herb'
+					text: 'Perennial'
                 MyCheckbox:
                     id: herb
-					on_active: app.process_checkbox(self,self.state,'herb', 'form')
+					on_active: app.process_checkbox(self,self.state,'perennial', 'form')
 				Label:
 					text: 'Shrub'
                 MyCheckbox:
@@ -130,8 +135,57 @@
                 MyCheckbox:
                     id: bamboo
 					on_active:app.process_checkbox(self,self.state,'bamboo', 'form')
+                Label:
+                    text: 'Bulb'
+                MyCheckbox:
+                    id: bulb
+					on_active:app.process_checkbox(self,self.state,'bulb', 'form')
+                Label:
+                    text: 'Climber'
+                MyCheckbox:
+                    id: climber
+					on_active:app.process_checkbox(self,self.state,'climber', 'form')
+                Label:
+                    text: 'Fern'
+                MyCheckbox:
+                    id: fern
+					on_active:app.process_checkbox(self,self.state,'fern', 'form')
+                Label:
+                    text: 'Annual'
+                MyCheckbox:
+                    id: fern
+					on_active:app.process_checkbox(self,self.state,'annual', 'form') 
+
+        MDBoxLayout:
+            id: holds_leaf
+            orientation: 'vertical'
+            Label:
+                text: 'Foliage'
+                font_size: '28dp'
+            MDGridLayout:
+                id: foliage_rb
+                rows: 1
+                Label:
+					text: 'Deciduous'
+                MyCheckbox:
+                    id: deciduous
+                    group: 'foliage'
+					on_active: app.process_checkbox(self,self.state,'deciduous', 'foliage')
+				Label:
+					text: 'Evergreen'
+                MyCheckbox:
+                    id: evergreen
+                    group: 'foliage'
+					on_active:app.process_checkbox(self,self.state,'evergreen', 'foliage')
+				Label:
+					text: 'Any'
+                MyCheckbox:
+                    id: any_foliage
+                    group: 'foliage'
+					on_active:app.process_checkbox(self,self.state,'any', 'foliage')
 
 
+        MDSeparator:
         MDBoxLayout:
             id: pollinator_box
             orientation: 'vertical'
@@ -146,34 +200,34 @@
 					text: 'Bees'
                 MyCheckbox:
                     id: bees
-					on_active: app.process_checkbox(self,self.state,'bees', 'pollinators')
+					on_active: app.process_checkbox(self,self.state,'Bees', 'pollinators')
 				Label:
 					text: 'Flies'
                 MyCheckbox:
                     id: flies
-					on_active:app.process_checkbox(self,self.state,'flies', 'pollinators')
+					on_active:app.process_checkbox(self,self.state,'Flies', 'pollinators')
 				Label:
 					text: 'Other Insects'
                 MyCheckbox:
                     id: insects
-					on_active:app.process_checkbox(self,self.state,'insects', 'pollinators')
+					on_active:app.process_checkbox(self,self.state,'Insects', 'pollinators')
 				Label:
 					text: 'Lepidoptera'
                 MyCheckbox:
                     id: lepidoptera
-					on_active:app.process_checkbox(self,self.state,'lepidoptera', 'pollinators')
+					on_active:app.process_checkbox(self,self.state,'Lepidoptera', 'pollinators')
 				Label:
 					text: 'Wind'
                 MyCheckbox:
                     id: wind
-					on_active:app.process_checkbox(self,self.state,'wind', 'pollinators')
+					on_active:app.process_checkbox(self,self.state,'Wind', 'pollinators')
 				Label:
 					text: 'Beetles'
                 MyCheckbox:
                     id: beetles
-					on_active:app.process_checkbox(self,self.state,'beetles', 'pollinators')
+					on_active:app.process_checkbox(self,self.state,'Beetles', 'pollinators')
 
-
+        MDSeperator:
         MDBoxLayout:
             Label:
                 text: 'Flower Month: '

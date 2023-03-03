@@ -3,6 +3,7 @@ from kivy.uix.anchorlayout import AnchorLayout
 from kivy.uix.boxlayout import BoxLayout
 from kivymd.uix.datatables.datatables import MDDataTable
 from kivymd.uix.toolbar.toolbar import MDTopAppBar
+from kivymd.uix.label import MDLabel
 from kivy.metrics import dp
 import ast
 import pandas as pd
@@ -83,15 +84,17 @@ class DBScreen(MDScreen):
     def __init__(self, **kwargs):
         super(DBScreen, self).__init__(**kwargs)
         layout = BoxLayout(orientation='vertical')
-        top_bar = MyTopBar()
-        db = MyDB()
-        layout.add_widget(top_bar)
+        self.top_bar = MyTopBar()
+        db = MDLabel(text='Search for plants!', halign='center')
+        db.font_size = '48sp'
+        layout.add_widget(self.top_bar)
         layout.add_widget(db)
         self.add_widget(layout)
 
     def refresh(self, filters):
         self.clear_widgets()
         db = MyDB(filters=filters)
+        self.add_widget(self.top_bar)
         self.add_widget(db)
         print('database screen refreshed')
 
@@ -113,9 +116,9 @@ class MyDB(AnchorLayout):
         super(MyDB, self).__init__(**kwargs)
         db_data = pd.read_csv('/home/nigel/Code/permaculture/scrapers/pfaf/all_plants.csv')
         db_data = filter_plants(df=db_data, filters=filters)
-        column_data, row_data = get_data_table(db_data, columns=['Genus','Species','CommonName','GrowthRate','Height','Width','Type', 'Pollinators', 'Flower'])
+        column_data, row_data = get_data_table(db_data, columns=['Genus','Species','CommonName','HardinessZones', 'GrowthRate','Height','Width','Type', 'Pollinators', 'Flower'])
         column_widths = {'Genus': 32, 
-                         'Species': 35, 
+                         'Species': 35,
                          'CommonName': 60,
                          'GrowthRate': 22,
                          'HardinessZones': 40,
@@ -163,6 +166,3 @@ class MyDB(AnchorLayout):
             cell_row.ids.check.state = 'normal'
         instance_table.table_data.on_mouse_select(instance_row)
 
-
-
-# Pollinators,Leaf,Flower,Ripen,Reproduction,Soils,pH,Preferences,Tolerances,Habitat,HabitatRange,Edibility,Medicinal,OtherUses
