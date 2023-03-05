@@ -53,6 +53,7 @@ def filter_plants(df, filters):
         hardiness_zone = filters.get('hardiness_zone')
         pollinators = filters.get('pollinators')
         flower_month = filters.get('flower_month')
+        ripen_month = filters.get('ripen_month')
         form = filters.get('form') # list 
         foliage = filters.get('foliage') # string: 'Evergreen', 'Deciduous', or 'Any'
 
@@ -70,14 +71,7 @@ def filter_plants(df, filters):
             filtered_df.loc[:, 'Pollinators'].apply(lambda x: str(x).split(','))
             # using .apply to return rows where all of pollinators (passed) are in x (the row['pollinators'])
             filtered_df = filtered_df[filtered_df['Pollinators'].apply(lambda x: all(p in x for p in pollinators))]
-            
-        if flower_month:
-            if flower_month == 'Any':
-                # return the original dataframe
-                filtered_df = filtered_df
-            else:
-                flower_mask = pd.notnull(filtered_df['Flower'])
-                filtered_df = filtered_df[flower_mask & filtered_df['Flower'].apply(lambda x: check_month_range(flower_month, x))]
+    
 
         if form: # will be list
             print(f'Form: {form} \nForm type: {type(form)}') # Debugging
@@ -87,7 +81,14 @@ def filter_plants(df, filters):
         if foliage != 'Any':
             print(f'Foliage: {foliage} \nFoliage type: {type(foliage)}') # Debugging
             filtered_df = filtered_df[filtered_df['Foliage'] == foliage]
-  
+
+        if flower_month != 'Any':
+            flower_mask = pd.notnull(filtered_df['Flower'])
+            filtered_df = filtered_df[flower_mask & filtered_df['Flower'].apply(lambda x: check_month_range(flower_month, x))]
+
+        if ripen_month != 'Any':
+            flower_mask = pd.notnull(filtered_df['Ripen'])
+            filtered_df = filtered_df[flower_mask & filtered_df['Ripen'].apply(lambda x: check_month_range(ripen_month, x))]
 
     return filtered_df
 
@@ -130,7 +131,7 @@ class MyDB(AnchorLayout):
         db_data = pd.read_csv('/home/nigel/Code/permaculture/scrapers/pfaf/all_plants.csv')[1:] # This removes first nan row. Delete this [1:] after rerunning scraper
         db_data = filter_plants(df=db_data, filters=filters)
         # The columns to be displayed by default (Can be added or removed from this list):
-        column_data, row_data = get_data_table(db_data, columns=['Genus','Species','CommonName','HardinessZones', 'GrowthRate','Height','Width','Type', 'Pollinators', 'Flower'])
+        column_data, row_data = get_data_table(db_data, columns=['Genus','Species','CommonName','HardinessZones', 'GrowthRate','Height','Width','Type', 'Pollinators', 'Flower', 'Ripen'])
         column_widths = {'Genus': 32, 
                          'Species': 35,
                          'CommonName': 60,

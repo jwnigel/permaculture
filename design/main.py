@@ -63,10 +63,11 @@ class MainApp(MDApp, PlantData):
         # Because App inherits from PlantData I can manage all database functionality there
         self.all_filters = {'hardiness_zone': [],
                             'form': [],
-                            'foliage': [],
+                            'foliage': 'Any',
                             'pollinators': [],
                             'growth_rate': [],
-                            'flower_month': 'Any'
+                            'flower_month': 'Any',
+                            'ripen_month': 'Any'
                             }
 
     def build(self):

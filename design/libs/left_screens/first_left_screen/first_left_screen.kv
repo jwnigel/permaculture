@@ -232,17 +232,19 @@
             Label:
                 text: 'Flower Month: '
                 font_size: '24sp'
-            MonthsDropDownItem:
+            FlowerMonthsDropDownItem:
                 id: flower_month_dropitem
                 text: 'Any'
                 font_size: '20dp'
                 on_release: self.menu.open()
+
         MDBoxLayout:
             Label:
-                text: 'Nectary Value: '
+                text: 'Ripen Month: '
                 font_size: '24sp'
-            # MyDropDownItem:
-            #     id: flower_month_dropitem
-            #     text: 'Any'
-            #     font_size: '20dp'
-            #     on_release: self.menu.open()
+            RipenMonthsDropDownItem:
+                id: ripen_month_dropitem
+                text: 'Any'
+                font_size: '20dp'
+                on_release: self.menu.open()
+
