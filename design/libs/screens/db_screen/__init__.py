@@ -53,6 +53,8 @@ def filter_plants(df, filters):
         hardiness_zone = filters.get('hardiness_zone')
         pollinators = filters.get('pollinators')
         flower_month = filters.get('flower_month')
+        form = filters.get('form') # list 
+        foliage = filters.get('foliage') # string: 'Evergreen', 'Deciduous', or 'Any'
 
         # Filter by each column if a value is provided
         if growth_rate:
@@ -77,6 +79,16 @@ def filter_plants(df, filters):
                 flower_mask = pd.notnull(filtered_df['Flower'])
                 filtered_df = filtered_df[flower_mask & filtered_df['Flower'].apply(lambda x: check_month_range(flower_month, x))]
 
+        if form: # will be list
+            print(f'Form: {form} \nForm type: {type(form)}') # Debugging
+            filtered_df = filtered_df[filtered_df['Form'].isin(form)]
+
+        # If foliage == 'Any', skip filtering
+        if foliage != 'Any':
+            print(f'Foliage: {foliage} \nFoliage type: {type(foliage)}') # Debugging
+            filtered_df = filtered_df[filtered_df['Foliage'] == foliage]
+  
+
     return filtered_df
 
 
@@ -84,38 +96,40 @@ class DBScreen(MDScreen):
     def __init__(self, **kwargs):
         super(DBScreen, self).__init__(**kwargs)
         layout = BoxLayout(orientation='vertical')
-        self.top_bar = MyTopBar()
+        # self.top_bar = MyTopBar()
         db = MDLabel(text='Search for plants!', halign='center')
         db.font_size = '48sp'
-        layout.add_widget(self.top_bar)
+        # layout.add_widget(self.top_bar)
         layout.add_widget(db)
         self.add_widget(layout)
 
     def refresh(self, filters):
         self.clear_widgets()
         db = MyDB(filters=filters)
-        self.add_widget(self.top_bar)
+        # self.add_widget(self.top_bar)
         self.add_widget(db)
         print('database screen refreshed')
 
-class MyTopBar(MDTopAppBar):
-    def __init__(self, **kwargs):
-        super(MyTopBar, self).__init__(**kwargs)
-        self.title='Search Filters'
-        self.left_action_items= [
-        ["home", lambda x: self.callback(x), "Home"],
-        ["message-star", lambda x: self.callback(x), "Message star"],
-        ["message-question", lambda x: self.callback(x), "Message question"],
-        ["message-reply", lambda x: self.callback(x), "Message reply"],
-        ]
+# Commenting this out for now
+# class MyTopBar(MDTopAppBar):
+#     def __init__(self, **kwargs):
+#         super(MyTopBar, self).__init__(**kwargs)
+#         self.title='Search Filters'
+#         self.left_action_items= [
+#         ["home", lambda x: self.callback(x), "Home"],
+#         ["message-star", lambda x: self.callback(x), "Message star"],
+#         ["message-question", lambda x: self.callback(x), "Message question"],
+#         ["message-reply", lambda x: self.callback(x), "Message reply"],
+#         ]
 
 
 class MyDB(AnchorLayout):
 
     def __init__(self, filters=None, **kwargs):
         super(MyDB, self).__init__(**kwargs)
-        db_data = pd.read_csv('/home/nigel/Code/permaculture/scrapers/pfaf/all_plants.csv')
+        db_data = pd.read_csv('/home/nigel/Code/permaculture/scrapers/pfaf/all_plants.csv')[1:] # This removes first nan row. Delete this [1:] after rerunning scraper
         db_data = filter_plants(df=db_data, filters=filters)
+        # The columns to be displayed by default (Can be added or removed from this list):
         column_data, row_data = get_data_table(db_data, columns=['Genus','Species','CommonName','HardinessZones', 'GrowthRate','Height','Width','Type', 'Pollinators', 'Flower'])
         column_widths = {'Genus': 32, 
                          'Species': 35,
@@ -125,6 +139,8 @@ class MyDB(AnchorLayout):
                          'Height': 16,
                          'Width': 16,
                          'Type': 30,
+                         'Form': 20,
+                         'Foliage': 15,
                          'Pollinators': 40,
                          'Leaf': 30,
                          'Flower': 30,

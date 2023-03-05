@@ -6,10 +6,10 @@ from kivymd.uix.menu import MDDropdownMenu
 from kivymd.uix.dropdownitem.dropdownitem import MDDropDownItem
 from kivymd.app import MDApp
 
-MONTHS = ['January', 'February', 'March', 'April', 'May', 'June', 'July', 'August', 'September', 'October', 'November', 'December']
+MONTHS = ['Any', 'January', 'February', 'March', 'April', 'May', 'June', 'July', 'August', 'September', 'October', 'November', 'December']
 
 
-class MyDropDownItem(MDDropDownItem):
+class MonthsDropDownItem(MDDropDownItem):
     def __init__(self, **kwargs):
         super().__init__(**kwargs)
         menu_items = [

@@ -119,42 +119,42 @@
 					text: 'Perennial'
                 MyCheckbox:
                     id: herb
-					on_active: app.process_checkbox(self,self.state,'perennial', 'form')
+					on_active: app.process_checkbox(self,self.state,'Perennial', 'form')
 				Label:
 					text: 'Shrub'
                 MyCheckbox:
                     id: shrub
-					on_active:app.process_checkbox(self,self.state,'shrub', 'form')
+					on_active:app.process_checkbox(self,self.state,'Shrub', 'form')
 				Label:
 					text: 'Tree'
                 MyCheckbox:
                     id: tree
-					on_active:app.process_checkbox(self,self.state,'tree', 'form')
+					on_active:app.process_checkbox(self,self.state,'Tree', 'form')
 				Label:
 					text: 'Bamboo'
                 MyCheckbox:
                     id: bamboo
-					on_active:app.process_checkbox(self,self.state,'bamboo', 'form')
+					on_active:app.process_checkbox(self,self.state,'Bamboo', 'form')
                 Label:
                     text: 'Bulb'
                 MyCheckbox:
                     id: bulb
-					on_active:app.process_checkbox(self,self.state,'bulb', 'form')
+					on_active:app.process_checkbox(self,self.state,'Bulb', 'form')
                 Label:
                     text: 'Climber'
                 MyCheckbox:
                     id: climber
-					on_active:app.process_checkbox(self,self.state,'climber', 'form')
+					on_active:app.process_checkbox(self,self.state,'Climber', 'form')
                 Label:
                     text: 'Fern'
                 MyCheckbox:
                     id: fern
-					on_active:app.process_checkbox(self,self.state,'fern', 'form')
+					on_active:app.process_checkbox(self,self.state,'Fern', 'form')
                 Label:
                     text: 'Annual'
                 MyCheckbox:
                     id: fern
-					on_active:app.process_checkbox(self,self.state,'annual', 'form') 
+					on_active:app.process_checkbox(self,self.state,'Annual', 'form') 
 
         MDBoxLayout:
             id: holds_leaf
@@ -170,19 +170,19 @@
                 MyCheckbox:
                     id: deciduous
                     group: 'foliage'
-					on_active: app.process_checkbox(self,self.state,'deciduous', 'foliage')
+					on_active: app.process_rb(self,self.state,'Deciduous', 'foliage')
 				Label:
 					text: 'Evergreen'
                 MyCheckbox:
                     id: evergreen
                     group: 'foliage'
-					on_active:app.process_checkbox(self,self.state,'evergreen', 'foliage')
+					on_active:app.process_rb(self,self.state,'Evergreen', 'foliage')
 				Label:
 					text: 'Any'
                 MyCheckbox:
                     id: any_foliage
                     group: 'foliage'
-					on_active:app.process_checkbox(self,self.state,'any', 'foliage')
+					on_active:app.process_rb(self,self.state,'Any', 'foliage')
 
 
         MDSeparator:

@@ -63,6 +63,7 @@ class MainApp(MDApp, PlantData):
         # Because App inherits from PlantData I can manage all database functionality there
         self.all_filters = {'hardiness_zone': [],
                             'form': [],
+                            'foliage': [],
                             'pollinators': [],
                             'growth_rate': [],
                             'flower_month': 'Any'
@@ -73,6 +74,12 @@ class MainApp(MDApp, PlantData):
         self.theme_cls.primary_palette = "Green"
         self.load_kvs()
         return Builder.load_file("main.kv")
+
+    def process_rb(self, widget, state, value, category):
+        if state == 'down':
+            self.all_filters[category] = value
+        else:
+            self.all_filters[category] = 'Any'
 
     def process_checkbox(self, widget, state, value, category):
         if state == 'down':
