@@ -1,7 +1,7 @@
 #:import TabbedPanelItem libs.components.tabbed_panel_item
 #:import MyChip libs.components.my_chip
 #:import MyCheckbox	libs.components.my_checkbox
-#:import MyDropDownItem libs.left_screens.first_left_screen
+#:import MonthsDropDownItem libs.left_screens.first_left_screen
 
 
  # Defining dropdown Menu
@@ -30,7 +30,7 @@
         icon: root.right_icon
         text: root.right_text
 
-<MyDropDownItem>
+<MonthsDropDownItem>
     background_color: 'white'
     size_hint: None, None
     pos_hint: {'center_x': .5, 'center_y': .5}
@@ -207,7 +207,7 @@
                     id: flies
 					on_active:app.process_checkbox(self,self.state,'Flies', 'pollinators')
 				Label:
-					text: 'Other Insects'
+					text: 'Insects'
                 MyCheckbox:
                     id: insects
 					on_active:app.process_checkbox(self,self.state,'Insects', 'pollinators')
@@ -227,12 +227,12 @@
                     id: beetles
 					on_active:app.process_checkbox(self,self.state,'Beetles', 'pollinators')
 
-        MDSeperator:
+        MDSeparator:
         MDBoxLayout:
             Label:
                 text: 'Flower Month: '
                 font_size: '24sp'
-            MyDropDownItem:
+            MonthsDropDownItem:
                 id: flower_month_dropitem
                 text: 'Any'
                 font_size: '20dp'
